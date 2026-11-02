@@ -2,6 +2,8 @@ import base64
 import io
 import os
 import time
+from pathlib import Path
+from dotenv import load_dotenv
 from typing import Protocol
 from PIL import Image
 from .contracts import CallRecord, Point
@@ -16,6 +18,7 @@ class GroundingModel(Protocol):
 class FireworksModel:
     def __init__(self):
         from openai import OpenAI
+        load_dotenv(Path.cwd() / ".env", override=False)
         self.model = os.environ.get("FLGROUND_MODEL", "")
         key = os.environ.get("FIREWORKS_API_KEY", "")
         if not self.model or not key:

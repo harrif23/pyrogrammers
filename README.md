@@ -9,14 +9,16 @@ Install Python 3.11+ and uv, then run from this repository:
 
 ```bash
 uv sync --extra desktop
-export FIREWORKS_API_KEY='your-key'
-export FLGROUND_MODEL='your-teams-exact-model-id'
+cp .env.example .env
+# Edit .env to set FIREWORKS_API_KEY and FLGROUND_MODEL.
 uv run flground --help
 uv run pytest
 ```
 
 Use `uv sync` without the desktop extra for offline screenshot workflows.
-`.env.example` documents configuration; `.env` files are not automatically loaded.
+The adapter automatically loads `.env` from the current working directory.
+Run commands from the repository root to use its `.env`. Existing exported shell
+variables take precedence over `.env` values. `.env` is excluded from Git.
 Never commit credentials. The model ID must be verified against your Fireworks account.
 Images are sent to the configured inference endpoint.
 
