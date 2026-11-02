@@ -43,7 +43,8 @@ then a 2x enlarged 512-pixel crop centered near it, with explicit coordinate map
 Refinement is opt-in and is not claimed to improve accuracy. It can lose context or
 reinforce an incorrect initial prediction. Select an optimization using development
 failures, not held-out labels. Raw responses and token usage are saved for successful
-calls; invalid JSON or out-of-bounds predictions currently stop the command.
+calls; invalid outputs stop the command and save a failure record. Batch evaluation
+records failed examples and continues.
 
 ## macOS demo
 
@@ -56,7 +57,14 @@ uv run flground demo --instruction "Find the snare channel volume control"
 uv run flground demo --instruction "Find the snare channel volume control" --execute-click
 ```
 
-The default only captures and predicts. Clicking requires the explicit flag and an
+The demo waits five seconds so you can switch to FL Studio, captures the whole display,
+and shows a cyan crosshair over the predicted control for ten seconds. The marker
+does not take focus or intercept clicks. Keep the window and controls in place during
+inference: this is a static prediction, not live tracking. Use `--delay 8` for more
+switching time, `--overlay-seconds 20` for a longer marker, or `--no-overlay` for just
+the saved report.
+
+The default captures, predicts, and marks without clicking. Clicking requires the explicit flag and an
 interactive confirmation after inspecting the overlay. The adapter scales screenshot
 pixels to desktop coordinates for Retina displays, retains PyAutoGUI's corner
 fail-safe, and rejects a changed screenshot before clicking. This conservative check
@@ -72,10 +80,12 @@ results: the included generic prompt is not presumed identical to their baseline
 Request dataset revision, split IDs, per-example predictions, raw responses, latency,
 usage, and development failure labels. Keep held-out failures sealed until tuning ends.
 
-Current scope: adapter, baseline/refinement harness, geometry, CLI, reports, macOS
-capture/click adapter, and benchmark scoring in [`evals/`](evals/README.md). Evidence-selected
-semantic strategies remain follow-up work. There are no measured accuracy improvements yet.
-No fine-tuning or autonomous navigation is included.
+Current scope includes experimental FL-specific panel selection, context-preserving
+localization, optional verification, coordinate-calibration fixtures, label-separated
+batch evaluation and paired scoring. These are not validated accuracy improvements.
+See [experiment commands and limitations](docs/EXPERIMENTS.md) and the
+[research plan](docs/HARNESS_RESEARCH_PLAN.md). No fine-tuning or autonomous navigation
+is included.
 
 ## Project handoff and contributor instructions
 

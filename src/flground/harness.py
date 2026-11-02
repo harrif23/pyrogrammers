@@ -8,14 +8,21 @@ from .model import GroundingModel
 
 
 def ground(image: Image.Image, instruction: str, model: GroundingModel,
-           strategy: Literal["baseline", "refine"] = "baseline", crop_size: int = 512,
+           strategy: str = "baseline", crop_size: int = 512,
            artifacts: Path | None = None) -> GroundingResult:
-    if strategy not in ("baseline", "refine"):
+    if strategy not in ("baseline", "refine", "knowledge", "panel", "panel_plain", "panel_verify"):
         raise ValueError(f"Unknown strategy: {strategy}")
     if not instruction.strip():
         raise ValueError("Instruction must not be empty")
+    if strategy.startswith("panel"):
+        from .panel import panel_ground
+        return panel_ground(image, instruction, model, strategy, artifacts)
     start = time.perf_counter()
-    first = model.predict(image, instruction)
+    prompt_instruction = instruction
+    if strategy == "knowledge":
+        from .knowledge import guidance
+        prompt_instruction += "\nFL Studio context:\n" + guidance(instruction)
+    first = model.predict(image, prompt_instruction)
     validate_point(first.point, *image.size)
     calls, point = [first], first.point
     if strategy == "refine":

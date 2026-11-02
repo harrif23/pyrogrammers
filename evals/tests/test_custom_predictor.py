@@ -8,7 +8,7 @@ from evals import cli, flground_adapter
 from evals.baseline import make_prediction
 from evals.errors import EXIT_ERROR, EXIT_OK
 from evals.flground_adapter import FLGroundPredictor
-from flground.contracts import CallRecord, Point
+from flground.contracts import CallRecord, GroundingResult, Point
 from workspace_fixture import workspace  # noqa: F401
 
 HARNESS = """
@@ -95,15 +95,19 @@ def test_limit_must_be_positive(workspace):
 
 
 class FakeModel:
+    """Follows the real model's contract: every attempted call stays in records, even on failure."""
+
     model = "fake"
 
     def __init__(self, outcomes):
         self.outcomes = list(outcomes)
+        self.records = []
 
     def predict(self, image, instruction):
         outcome = self.outcomes.pop(0)
         if isinstance(outcome, Exception):
             raise outcome
+        self.records.append(outcome)
         return outcome
 
 
@@ -115,7 +119,7 @@ def _adapter(monkeypatch, strategy, outcomes, api_key="key-not-real"):
 
 def _call(x, y, usage=None):
     return CallRecord(point=Point(x=x, y=y), raw_response=f'{{"x": {x}, "y": {y}}}', latency_seconds=0.5,
-                      usage=usage or {})
+                      usage=usage or {}, finish_reason="stop")
 
 
 def test_adapter_returns_pixels_and_every_call(monkeypatch, image_path):
@@ -126,6 +130,7 @@ def test_adapter_returns_pixels_and_every_call(monkeypatch, image_path):
     assert prediction["point_normalized"] is None
     assert prediction["error"] is None
     assert prediction["calls"][0]["usage"] == usage
+    assert prediction["calls"][0]["finish_reason"] == "stop"
 
 
 def test_adapter_refine_records_two_calls_and_maps_back_to_the_original_image(monkeypatch, image_path):
@@ -136,11 +141,23 @@ def test_adapter_refine_records_two_calls_and_maps_back_to_the_original_image(mo
     assert 0 <= prediction["point_px"][1] <= 100
 
 
-@pytest.mark.parametrize("factory,calls", [(flground_adapter.baseline, 1), (flground_adapter.refine, 2)])
-def test_each_factory_runs_its_own_strategy(monkeypatch, image_path, factory, calls):
-    monkeypatch.setattr(flground_adapter, "FireworksModel",
-                        lambda: FakeModel([_call(100.0, 50.0), _call(100.0, 50.0)]))
-    assert len(factory(None).predict(image_path, "click")["calls"]) == calls
+@pytest.mark.parametrize("name,strategy", [
+    ("baseline", "baseline"), ("knowledge", "knowledge"), ("refine", "refine"),
+    ("panel_plain", "panel_plain"), ("panel", "panel"), ("panel_verify", "panel_verify"),
+])
+def test_each_factory_selects_its_own_strategy(monkeypatch, name, strategy):
+    seen = []
+    monkeypatch.setattr(flground_adapter, "FireworksModel", lambda: FakeModel([]))
+    monkeypatch.setattr(flground_adapter.FLGroundPredictor, "__init__",
+                        lambda self, chosen: seen.append(chosen))
+    getattr(flground_adapter, name)(None)
+    assert seen == [strategy]
+
+
+def test_each_call_is_counted_only_for_its_own_example(monkeypatch, image_path):
+    predictor = _adapter(monkeypatch, "baseline", [_call(1.0, 1.0), _call(2.0, 2.0)])
+    predictor.predict(image_path, "click")
+    assert len(predictor.predict(image_path, "click")["calls"]) == 1
 
 
 def test_adapter_marks_missing_usage_as_unknown(monkeypatch, image_path):
@@ -148,10 +165,23 @@ def test_adapter_marks_missing_usage_as_unknown(monkeypatch, image_path):
     assert prediction["calls"][0]["usage"] is None
 
 
-def test_adapter_reports_out_of_bounds_as_invalid_not_error(monkeypatch, image_path):
+def test_out_of_bounds_is_invalid_and_keeps_the_raw_answer(monkeypatch, image_path):
     prediction = _adapter(monkeypatch, "baseline", [_call(5000.0, 1.0)]).predict(image_path, "click")
     assert prediction["point_px"] is None
     assert prediction["invalid_reason"] == "ValueError"
+    assert prediction["error"] is None
+    assert "5000" in prediction["calls"][0]["content"]
+
+
+def test_model_reported_absence_is_a_miss_not_a_crash(monkeypatch, image_path):
+    result = GroundingResult(instruction="x", image_width=200, image_height=100, point=None,
+                             strategy="panel", model="fake", calls=[], latency_seconds=0.1,
+                             status="not_found")
+    predictor = _adapter(monkeypatch, "panel", [])
+    monkeypatch.setattr(flground_adapter, "ground", lambda *args, **kwargs: result)
+    prediction = predictor.predict(image_path, "click")
+    assert prediction["point_px"] is None
+    assert prediction["invalid_reason"] == "not_found"
     assert prediction["error"] is None
 
 
@@ -175,7 +205,8 @@ def test_adapter_runs_under_the_shared_command(workspace, server, monkeypatch):
     out = workspace / "outputs/flground.jsonl"
     code = cli.main(["run", "--predictor", "evals.flground_adapter:baseline", "--limit", "2", "--out", str(out)])
     assert code == EXIT_OK
-    assert report_of(out)["overall"]["correct"] == 2
+    written = report_of(out)
+    assert written["overall"]["correct"] == 2
 
 
 def test_make_prediction_defaults_are_a_valid_result():

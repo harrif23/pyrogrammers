@@ -25,7 +25,11 @@ def test_dotenv_configuration(tmp_path, monkeypatch, shell_override):
     assert client.call_args.kwargs["base_url"] == "https://example.test/v1"
 
 
-def test_deployment_request(tmp_path, monkeypatch):
+@pytest.mark.parametrize("raw", [
+    '{"x": 3, "y": 4}',
+    '```json\n[\n {"point_2d": [3, 4], "label": "snare channel volume control"}\n]\n```',
+])
+def test_deployment_request(tmp_path, monkeypatch, raw):
     from types import SimpleNamespace
     from PIL import Image
     monkeypatch.chdir(tmp_path)
@@ -36,9 +40,12 @@ def test_deployment_request(tmp_path, monkeypatch):
     monkeypatch.setattr("openai.OpenAI", constructor)
     create = constructor.return_value.chat.completions.create
     create.return_value = SimpleNamespace(
-        choices=[SimpleNamespace(message=SimpleNamespace(content='{"x": 3, "y": 4}'))], usage=None)
+        choices=[SimpleNamespace(message=SimpleNamespace(content=raw))], usage=None)
     result = FireworksModel().predict(Image.new("RGB", (10, 10)), "volume")
     assert result.point.x == 3
+    assert result.point.y == 4
+    assert result.raw_response == raw
+    create.assert_called_once()
     request = create.call_args.kwargs
     assert request["model"].endswith("/deployments/h0xbbw9t")
     assert request["max_tokens"] == 32768
@@ -46,3 +53,43 @@ def test_deployment_request(tmp_path, monkeypatch):
     assert request["presence_penalty"] == request["frequency_penalty"] == 0
     assert "temperature" not in request
     assert request["messages"][0]["content"][1]["image_url"]["url"].startswith("data:image/png;base64,")
+
+
+def test_transport_failure_retains_sanitized_trace(tmp_path, monkeypatch):
+    from PIL import Image
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv('FIREWORKS_API_KEY', 'test-key')
+    monkeypatch.setenv('FLGROUND_MODEL', 'test-model')
+    constructor = Mock()
+    monkeypatch.setattr('openai.OpenAI', constructor)
+    constructor.return_value.chat.completions.create.side_effect = RuntimeError('private request data')
+    model = FireworksModel()
+    with pytest.raises(RuntimeError):
+        model.predict(Image.new('RGB',(10,10)), 'target')
+    assert len(model.records) == 1
+    record = model.records[0]
+    assert record.error == 'RuntimeError'
+    assert 'private request data' not in record.model_dump_json()
+    assert len(record.image_hashes[0]) == 64
+
+
+def test_normalized_response_and_truncation(tmp_path, monkeypatch):
+    from types import SimpleNamespace
+    from PIL import Image
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv('FIREWORKS_API_KEY','test-key')
+    monkeypatch.setenv('FLGROUND_MODEL','test-model')
+    monkeypatch.setenv('FLGROUND_COORDINATE_SPACE','normalized_1000')
+    constructor = Mock()
+    monkeypatch.setattr('openai.OpenAI', constructor)
+    choice = SimpleNamespace(message=SimpleNamespace(content='{"x":250,"y":500}'),finish_reason='stop')
+    constructor.return_value.chat.completions.create.return_value = SimpleNamespace(choices=[choice],usage=None)
+    model = FireworksModel()
+    result = model.predict(Image.new('RGB',(1600,800)), 'target')
+    assert (result.point.x,result.point.y)==(400,400)
+    assert '0 to 1000' in result.prompt
+    choice.finish_reason='length'
+    with pytest.raises(ValueError,match='Incomplete'):
+        model.predict(Image.new('RGB',(1600,800)), 'target')
+    assert model.records[-1].finish_reason=='length'
+    assert model.records[-1].error=='ValueError'

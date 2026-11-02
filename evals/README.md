@@ -68,7 +68,9 @@ uv run evals run --predictor my_module:factory                    # development 
 uv run evals run --predictor my_module:factory --split eval --out evals/outputs/mine.jsonl
 ```
 
-- For the harness in `src/flground`: `--predictor evals.flground_adapter:baseline` or `:refine`.
+- For the strategies in `src/flground`: `--predictor evals.flground_adapter:baseline`, or `:knowledge`,
+  `:refine`, `:panel_plain`, `:panel`, `:panel_verify`. They keep their own prompts and settings,
+  including `FLGROUND_COORDINATE_SPACE`; a target they report absent counts as `wrong_format`.
 - Return `invalid_reason` for an unusable answer. It scores `wrong_format`.
 - Return `error` for an API failure. It stays out of accuracy and can be retried with `--resume`.
 - Record each model call in `calls` with its `usage`, or its tokens count as unknown.

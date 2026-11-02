@@ -10,6 +10,8 @@ def save_report(image: Image.Image, result: GroundingResult, directory: Path):
     overlay = image.convert("RGB")
     draw = ImageDraw.Draw(overlay)
     for point, color in [(result.calls[0].point, "cyan"), (result.point, "red")]:
+        if point is None:
+            continue
         x, y = point.x, point.y
         draw.ellipse((x-8, y-8, x+8, y+8), outline=color, width=3)
         draw.line((x-12, y, x+12, y), fill=color, width=2)

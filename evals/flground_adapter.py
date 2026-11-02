@@ -1,4 +1,4 @@
-"""Runs the repo's FLGround harness under the shared scorer: --predictor evals.flground_adapter:baseline"""
+"""Runs the repo's FLGround strategies under the shared scorer: --predictor evals.flground_adapter:panel"""
 
 import os
 import time
@@ -14,12 +14,18 @@ from .baseline import make_prediction
 from .client import failure_from_api_error
 
 
+def _call_record(call, model):
+    return {"content": call.raw_response, "reasoning_content": None,
+            "finish_reason": call.finish_reason, "response_id": None, "returned_model": model,
+            "latency_seconds": call.latency_seconds, "usage": call.usage or None}
+
+
 class FLGroundPredictor:
     """Adapts flground.harness.ground to predict(image, instruction).
 
-    why: the harness keeps its own prompt and model settings, so its score measures the harness
-    as written. ground() raises on bad output and drops earlier calls, so a failed attempt
-    logs no tokens and no raw answer.
+    why: strategies keep their own prompts and model settings, so a score measures the strategy
+    as written. Calls are read from the model's own log, because ground() raises on bad output
+    and a failed example must still keep the tokens and raw answers of the calls it made.
     """
 
     def __init__(self, strategy):
@@ -28,31 +34,47 @@ class FLGroundPredictor:
 
     def predict(self, image, instruction):
         started = time.perf_counter()
+        first_call = len(self._model.records)
+        point, invalid_reason, error = None, None, None
         with Image.open(image) as opened:
-            opened.load()
-            try:
-                result = ground(opened, instruction, self._model, strategy=self._strategy)
-            except openai.APIError as error:
-                elapsed = time.perf_counter() - started
-                key = os.environ.get("FIREWORKS_API_KEY", "")
-                failure = failure_from_api_error(error, elapsed, key)
-                return make_prediction(latency_seconds=elapsed, error=failure.to_dict())
-            except (ValidationError, ValueError) as error:
-                return make_prediction(latency_seconds=time.perf_counter() - started,
-                                       invalid_reason=type(error).__name__)
-        return make_prediction(
-            point_px=[result.point.x, result.point.y],
-            calls=[{"content": call.raw_response, "reasoning_content": None, "finish_reason": None,
-                    "response_id": None, "returned_model": result.model,
-                    "latency_seconds": call.latency_seconds, "usage": call.usage or None}
-                   for call in result.calls],
-            latency_seconds=result.latency_seconds,
-        )
+            rgb = opened.convert("RGB")
+        try:
+            result = ground(rgb, instruction, self._model, strategy=self._strategy)
+        except openai.APIError as failure:
+            key = os.environ.get("FIREWORKS_API_KEY", "")
+            error = failure_from_api_error(failure, time.perf_counter() - started, key).to_dict()
+        except (ValidationError, ValueError) as failure:
+            invalid_reason = type(failure).__name__
+        else:
+            if result.point is None:
+                # The model reported the target absent, which is a miss on a benchmark target.
+                invalid_reason = result.status
+            else:
+                point = [result.point.x, result.point.y]
+        calls = [_call_record(call, self._model.model) for call in self._model.records[first_call:]]
+        return make_prediction(point_px=point, calls=calls, invalid_reason=invalid_reason, error=error,
+                               latency_seconds=time.perf_counter() - started)
 
 
 def baseline(client):
     return FLGroundPredictor("baseline")
 
 
+def knowledge(client):
+    return FLGroundPredictor("knowledge")
+
+
 def refine(client):
     return FLGroundPredictor("refine")
+
+
+def panel_plain(client):
+    return FLGroundPredictor("panel_plain")
+
+
+def panel(client):
+    return FLGroundPredictor("panel")
+
+
+def panel_verify(client):
+    return FLGroundPredictor("panel_verify")
