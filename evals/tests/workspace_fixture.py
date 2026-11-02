@@ -55,11 +55,11 @@ def workspace(tmp_path, monkeypatch, server):
     real_build = evaluate.build_predictor
 
     def build_predictor(mode, credentials, inference):
-        if mode not in ("baseline", "reference"):
+        if mode not in ("simple_json", "reference"):
             return real_build(mode, credentials, inference)
         http = httpx.Client(transport=httpx.MockTransport(server))
         client = FireworksClient(credentials, inference, http_client=http)
-        return BaselinePredictor(client) if mode == "baseline" else ReferenceQwenPredictor(client)
+        return BaselinePredictor(client) if mode == "simple_json" else ReferenceQwenPredictor(client)
 
     monkeypatch.setattr(evaluate, "build_predictor", build_predictor)
     return tmp_path

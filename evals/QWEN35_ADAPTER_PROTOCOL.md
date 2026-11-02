@@ -1,6 +1,6 @@
 # Qwen3.5 adapter protocol
 
-`--mode reference` runs another model through the benchmark authors' Qwen 3.5 adapter. Label results
+This is the default baseline. `--mode reference` runs another model through the benchmark authors' Qwen 3.5 adapter. Label results
 from our deployment exactly:
 
 > Qwen3.8-27B on the FL subset using the Qwen3.5 adapter protocol.
@@ -9,7 +9,7 @@ from our deployment exactly:
 Reproducing that score means running Qwen3.5 with its originally reported configuration.
 
 ```bash
-uv run evals run --mode reference --reasoning-effort xhigh --split eval \
+uv run evals run --split eval \
   --label "Qwen3.8-27B on the FL subset using the Qwen3.5 adapter protocol." \
   --out evals/outputs/qwen38_on_qwen35_protocol.jsonl
 ```

@@ -20,10 +20,10 @@ replicas are active, so a shared one is a shared bill.
 
 ```bash
 # Try it on the development examples first
-uv run evals run --mode reference --reasoning-effort xhigh --limit 1
+uv run evals run --limit 1
 
 # Qwen 3.8 on the 57 FL Studio targets
-uv run evals run --mode reference --reasoning-effort xhigh --split eval --out evals/outputs/reference.jsonl \
+uv run evals run --split eval --out evals/outputs/reference.jsonl \
   --label "Qwen3.8-27B on the FL subset using the Qwen3.5 adapter protocol."
 
 # See or verify a run; compare two, example by example
@@ -42,7 +42,7 @@ Each finished run leaves results, a config, a report, and overlay images under `
 | `evals cost --gpu-hourly-price P --gpus-per-replica G --billable-hours H --run RUN` | GPU cost estimate |
 
 Settings: `--reasoning-effort`, `--max-tokens`, `--temperature`, `--response-format`, `--timeout`.
-Defaults are `low`, `4096`, `0.0`, `none`, `180`.
+Defaults are `xhigh`, `4096`, `0.0`, `none`, `180`.
 
 ## Bring your own harness
 
@@ -91,8 +91,8 @@ change a prompt or setting because of `eval` results.
 
 - **Scorer:** the paper's `eval_sample_positive_gt` and metrics (`paper_scorer.py`, pinned commit).
   Inside the gold box, boundaries included, is `correct`. Outside is `wrong`. No point is `wrong_format`.
-- **Parsing belongs to the strategy.** `--mode baseline` asks for strict 0-1 JSON and repairs nothing.
-  `--mode reference` uses the authors' Qwen 3.5 prompt, 0-1000 coordinates, and tool-call parsing
+- **The baseline is the Qwen 3.5 adapter protocol**, `--mode reference`, the default. It uses the
+  authors' Qwen 3.5 prompt, 0-1000 coordinates, and tool-call parsing
   from a pinned commit, so a prose answer with no tool call scores `wrong_format`. See
   [the protocol record](QWEN35_ADAPTER_PROTOCOL.md) for its differences and required label.
 - **API failures** are logged separately and keep the run unfinished until `--resume` retries them,
@@ -104,6 +104,9 @@ change a prompt or setting because of `eval` results.
 - **Data** is pinned to one dataset commit, and hashes are rechecked on every load.
 
 ## Results
+
+The reference baseline is the labeled run below. **Compare strategies against it, not against our
+earlier strict JSON prompt** (`--mode simple_json`, 15/57 at `low` reasoning), which is kept only as a record.
 
 **Qwen3.8-27B on the FL subset using the Qwen3.5 adapter protocol.**
 

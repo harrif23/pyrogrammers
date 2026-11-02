@@ -181,8 +181,21 @@ def test_label_is_kept_in_the_config_and_report_and_cannot_change_on_resume(work
     assert json.loads(out.with_suffix(".config.json").read_text())["label"] == label
 
 
+def test_the_default_run_is_the_qwen35_protocol_at_xhigh_on_dev(workspace, server):
+    out = workspace / "outputs" / "default.jsonl"
+    server.queue((200, completion_body(content=tool_call([500, 500]))))
+    assert cli.main(["run", "--limit", "1", "--out", str(out)]) == EXIT_OK
+    written = json.loads(out.with_suffix(".report.json").read_text())
+    assert written["mode"] == "reference"
+    assert written["split"] == "dev"
+    body = server.bodies()[0]
+    assert body["reasoning_effort"] == "xhigh"
+    assert body["max_tokens"] == 4096
+    assert body["messages"][0]["role"] == "system"
+
+
 def test_the_two_modes_have_different_prompt_hashes():
-    assert evaluate.PROMPT_SHA256["baseline"] != evaluate.PROMPT_SHA256["reference"]
+    assert evaluate.PROMPT_SHA256["simple_json"] != evaluate.PROMPT_SHA256["reference"]
 
 
 def test_reference_mode_end_to_end_and_resume_keeps_its_mode(workspace, server):
@@ -201,7 +214,7 @@ def test_reference_mode_end_to_end_and_resume_keeps_its_mode(workspace, server):
 
 def test_reference_and_baseline_runs_compare(workspace, server, capsys):
     a, b = [str(workspace / f"outputs/{name}.jsonl") for name in ("a", "b")]
-    assert cli.main(["run", "--split", "eval", "--out", a]) == EXIT_OK
+    assert cli.main(["run", "--mode", "simple_json", "--split", "eval", "--out", a]) == EXIT_OK
     server.queue(*[(200, completion_body(content=tool_call([1, 1])))] * 3)
     assert cli.main(["run", "--split", "eval", "--mode", "reference", "--out", b]) == EXIT_OK
     capsys.readouterr()

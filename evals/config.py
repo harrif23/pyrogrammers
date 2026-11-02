@@ -25,7 +25,7 @@ class Credentials:
 @dataclass(frozen=True)
 class InferenceConfig:
     # None omits the parameter, leaving the model's default reasoning behavior.
-    reasoning_effort: str | int | None = "low"
+    reasoning_effort: str | int | None = "xhigh"
     max_tokens: int = 4096
     temperature: float = 0.0
     response_format: str = "none"
@@ -53,7 +53,7 @@ def parse_reasoning_effort(value):
     )
 
 
-def build_inference_config(reasoning_effort="low", max_tokens=4096, temperature=0.0,
+def build_inference_config(reasoning_effort="xhigh", max_tokens=4096, temperature=0.0,
                            response_format="none", timeout_s=180.0):
     if max_tokens <= 0:
         raise ConfigError("max_tokens must be positive")

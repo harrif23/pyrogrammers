@@ -14,7 +14,7 @@ from evals.errors import EXIT_ERROR, EXIT_OK, EXIT_STOPPED, EXIT_TRUNCATED
 def run_command(arguments):
     """The final-set form of `evals run`, which every test below that uses it scores on."""
     prefix = [] if "--resume" in arguments else ["--split", "eval"]
-    return cli.main(["run", *prefix, *arguments])
+    return cli.main(["run", "--mode", "simple_json", *prefix, *arguments])
 
 
 def only_results(workspace):
@@ -32,7 +32,7 @@ def report_of(results):
 
 
 def test_smoke_uses_one_dev_example_and_finishes_with_report_and_overlays(workspace, server, capsys):
-    assert cli.main(["run", "--limit", "1"]) == EXIT_OK
+    assert cli.main(["run", "--mode", "simple_json", "--limit", "1"]) == EXIT_OK
     assert len(server.requests) == 1
     results = only_results(workspace)
     assert records_of(results)[0]["example_id"] == "dev_0"
@@ -48,14 +48,14 @@ def test_dev_covers_the_whole_dev_pool(workspace, server):
 
 
 def test_full_covers_every_eval_target_and_no_dev_examples(workspace, server):
-    assert cli.main(["run", "--split", "eval"]) == EXIT_OK
+    assert cli.main(["run", "--mode", "simple_json", "--split", "eval"]) == EXIT_OK
     ids = [record["example_id"] for record in records_of(only_results(workspace))]
     assert ids == ["eval_0", "eval_1", "eval_2"]
 
 
 def test_evaluate_entry_matches_the_agreed_command(workspace, server):
     out = workspace / "outputs" / "baseline.jsonl"
-    assert run_command(["--mode", "baseline", "--out", str(out)]) == EXIT_OK
+    assert run_command(["--out", str(out)]) == EXIT_OK
     assert [r["example_id"] for r in records_of(out)] == ["eval_0", "eval_1", "eval_2"]
     assert report.report_path(out).name == "baseline.report.json"
     assert report.config_path(out).name == "baseline.config.json"
@@ -72,12 +72,12 @@ def test_existing_output_is_never_overwritten(workspace, server):
 
 def test_truncated_smoke_exits_distinctly(workspace, server):
     server.queue((200, completion_body(content='{"x"', finish_reason="length")))
-    assert cli.main(["run", "--limit", "1"]) == EXIT_TRUNCATED
+    assert cli.main(["run", "--mode", "simple_json", "--limit", "1"]) == EXIT_TRUNCATED
 
 
 def test_auth_failure_exits_stopped_and_logs_separately(workspace, server):
     server.queue((401, {"error": {"message": "bad"}}))
-    assert cli.main(["run", "--split", "eval"]) == EXIT_STOPPED
+    assert cli.main(["run", "--mode", "simple_json", "--split", "eval"]) == EXIT_STOPPED
     results = only_results(workspace)
     assert len(server.requests) == 1
     summary = report_of(results)
@@ -89,7 +89,7 @@ def test_auth_failure_exits_stopped_and_logs_separately(workspace, server):
 
 def test_a_lone_503_is_not_reported_as_success_and_resume_recovers(workspace, server):
     server.queue((503, {"error": {"message": "scaling up"}}))
-    assert cli.main(["run", "--limit", "1", "--out", str(workspace / "outputs/s.jsonl")]) == EXIT_STOPPED
+    assert cli.main(["run", "--mode", "simple_json", "--limit", "1", "--out", str(workspace / "outputs/s.jsonl")]) == EXIT_STOPPED
     assert cli.main(["resume", "--run", "s"]) == EXIT_OK
     assert report_of(only_results(workspace))["complete"] is True
 
@@ -100,26 +100,26 @@ def test_a_lone_503_is_not_reported_as_success_and_resume_recovers(workspace, se
 ])
 def test_documented_deployment_forms_are_accepted(workspace, server, monkeypatch, model):
     monkeypatch.setenv("FLGROUND_MODEL", model)
-    assert cli.main(["run", "--limit", "1"]) == EXIT_OK
+    assert cli.main(["run", "--mode", "simple_json", "--limit", "1"]) == EXIT_OK
     assert server.bodies()[0]["model"] == model
 
 
 def test_rerunning_the_same_config_is_refused(workspace, server):
-    assert cli.main(["run", "--limit", "1"]) == EXIT_OK
-    assert cli.main(["run", "--limit", "1"]) == EXIT_ERROR
+    assert cli.main(["run", "--mode", "simple_json", "--limit", "1"]) == EXIT_OK
+    assert cli.main(["run", "--mode", "simple_json", "--limit", "1"]) == EXIT_ERROR
     assert len(server.requests) == 1
 
 
 def test_changing_settings_starts_a_separate_run(workspace, server):
-    assert cli.main(["run", "--limit", "1"]) == EXIT_OK
-    assert cli.main(["run", "--limit", "1", "--max-tokens", "8192"]) == EXIT_OK
+    assert cli.main(["run", "--mode", "simple_json", "--limit", "1"]) == EXIT_OK
+    assert cli.main(["run", "--mode", "simple_json", "--limit", "1", "--max-tokens", "8192"]) == EXIT_OK
     assert len(list((workspace / "outputs").glob("*.jsonl"))) == 2
 
 
 def test_resume_finishes_after_a_stop_without_repeating_work(workspace, server):
     out = str(workspace / "outputs/r.jsonl")
     server.queue((200, completion_body()), (401, {"error": {"message": "bad"}}))
-    assert cli.main(["run", "--split", "eval", "--out", out]) == EXIT_STOPPED
+    assert cli.main(["run", "--mode", "simple_json", "--split", "eval", "--out", out]) == EXIT_STOPPED
     assert run_command(["--out", out, "--resume"]) == EXIT_OK
     summary = report_of(only_results(workspace))
     assert summary["complete"] is True
@@ -128,7 +128,7 @@ def test_resume_finishes_after_a_stop_without_repeating_work(workspace, server):
 
 
 def test_resume_refuses_a_finished_run(workspace, server):
-    assert cli.main(["run", "--split", "eval", "--out", str(workspace / "outputs/r.jsonl")]) == EXIT_OK
+    assert cli.main(["run", "--mode", "simple_json", "--split", "eval", "--out", str(workspace / "outputs/r.jsonl")]) == EXIT_OK
     requests = len(server.requests)
     assert cli.main(["resume", "--run", "r"]) == EXIT_ERROR
     assert len(server.requests) == requests
@@ -136,7 +136,7 @@ def test_resume_refuses_a_finished_run(workspace, server):
 
 def test_resume_refuses_a_changed_model(workspace, server, monkeypatch):
     server.queue((401, {"error": {"message": "bad"}}))
-    assert cli.main(["run", "--split", "eval", "--out", str(workspace / "outputs/r.jsonl")]) == EXIT_STOPPED
+    assert cli.main(["run", "--mode", "simple_json", "--split", "eval", "--out", str(workspace / "outputs/r.jsonl")]) == EXIT_STOPPED
     monkeypatch.setenv("FLGROUND_MODEL", "accounts/acme/deployments/other")
     requests = len(server.requests)
     assert cli.main(["resume", "--run", "r"]) == EXIT_ERROR
@@ -145,14 +145,14 @@ def test_resume_refuses_a_changed_model(workspace, server, monkeypatch):
 
 def test_resume_allows_a_new_timeout(workspace, server):
     server.queue((401, {"error": {"message": "bad"}}))
-    assert cli.main(["run", "--split", "eval", "--out", str(workspace / "outputs/r.jsonl")]) == EXIT_STOPPED
+    assert cli.main(["run", "--mode", "simple_json", "--split", "eval", "--out", str(workspace / "outputs/r.jsonl")]) == EXIT_STOPPED
     assert cli.main(["resume", "--run", "r", "--timeout", "600"]) == EXIT_OK
 
 
 def test_resume_rejects_changed_settings_rather_than_ignoring_them(workspace, server):
     server.queue((401, {"error": {"message": "bad"}}))
     out = str(workspace / "outputs/r.jsonl")
-    assert cli.main(["run", "--split", "eval", "--out", out]) == EXIT_STOPPED
+    assert cli.main(["run", "--mode", "simple_json", "--split", "eval", "--out", out]) == EXIT_STOPPED
     requests = len(server.requests)
     assert run_command(["--out", out, "--resume", "--max-tokens", "9"]) == EXIT_ERROR
     assert len(server.requests) == requests
@@ -161,7 +161,7 @@ def test_resume_rejects_changed_settings_rather_than_ignoring_them(workspace, se
 def test_missing_configuration_names_fields_and_makes_no_calls(workspace, server, monkeypatch, capsys):
     monkeypatch.delenv("FIREWORKS_API_KEY")
     monkeypatch.delenv("FLGROUND_MODEL")
-    assert cli.main(["run", "--limit", "1"]) == EXIT_ERROR
+    assert cli.main(["run", "--mode", "simple_json", "--limit", "1"]) == EXIT_ERROR
     error = capsys.readouterr().err
     assert "FIREWORKS_API_KEY" in error and "FLGROUND_MODEL" in error
     assert not server.requests
@@ -169,7 +169,7 @@ def test_missing_configuration_names_fields_and_makes_no_calls(workspace, server
 
 def test_undeployed_model_id_is_refused(workspace, server, monkeypatch):
     monkeypatch.setenv("FLGROUND_MODEL", "accounts/fireworks/models/qwen3p8-27b")
-    assert cli.main(["run", "--limit", "1"]) == EXIT_ERROR
+    assert cli.main(["run", "--mode", "simple_json", "--limit", "1"]) == EXIT_ERROR
     assert not server.requests
 
 
@@ -182,7 +182,7 @@ def test_check_never_prints_the_key(workspace, capsys):
 
 def test_overlays_refuse_incomplete_runs_and_make_no_calls(workspace, server):
     server.queue((200, completion_body()), (401, {"error": {"message": "bad"}}))
-    cli.main(["run", "--split", "eval", "--out", str(workspace / "outputs/r.jsonl")])
+    cli.main(["run", "--mode", "simple_json", "--split", "eval", "--out", str(workspace / "outputs/r.jsonl")])
     assert cli.main(["overlays", "--run", "r"]) == EXIT_ERROR
     requests = len(server.requests)
     assert cli.main(["overlays", "--run", "r", "--allow-partial"]) == EXIT_OK
@@ -217,7 +217,7 @@ def test_report_entry_verifies_a_single_run(workspace, server, capsys):
 
 def test_rescore_command_writes_a_separate_file_and_makes_no_calls(workspace, server, capsys):
     out = workspace / "outputs" / "r.jsonl"
-    assert cli.main(["run", "--split", "eval", "--out", str(out)]) == EXIT_OK
+    assert cli.main(["run", "--mode", "simple_json", "--split", "eval", "--out", str(out)]) == EXIT_OK
     requests = len(server.requests)
     capsys.readouterr()
     assert cli.main(["rescore", "--run", "r"]) == EXIT_OK
@@ -227,7 +227,7 @@ def test_rescore_command_writes_a_separate_file_and_makes_no_calls(workspace, se
 
 
 def test_cost_report_separates_lifetime_from_runtime(workspace, server, capsys):
-    cli.main(["run", "--split", "eval", "--out", str(workspace / "outputs/r.jsonl")])
+    cli.main(["run", "--mode", "simple_json", "--split", "eval", "--out", str(workspace / "outputs/r.jsonl")])
     capsys.readouterr()
     assert cli.main(["cost", "--gpu-hourly-price", "2", "--gpus-per-replica", "2",
                      "--billable-hours", "3", "--run", "r"]) == EXIT_OK
@@ -238,13 +238,13 @@ def test_cost_report_separates_lifetime_from_runtime(workspace, server, capsys):
 
 
 def test_cost_requires_all_token_rates(workspace, server):
-    cli.main(["run", "--split", "eval", "--out", str(workspace / "outputs/r.jsonl")])
+    cli.main(["run", "--mode", "simple_json", "--split", "eval", "--out", str(workspace / "outputs/r.jsonl")])
     assert cli.main(["cost", "--gpu-hourly-price", "2", "--gpus-per-replica", "1",
                      "--billable-hours", "1", "--run", "r", "--input-rate", "1"]) == EXIT_ERROR
 
 
 def test_token_cost_is_labeled_hypothetical(workspace, server, capsys):
-    cli.main(["run", "--split", "eval", "--out", str(workspace / "outputs/r.jsonl")])
+    cli.main(["run", "--mode", "simple_json", "--split", "eval", "--out", str(workspace / "outputs/r.jsonl")])
     capsys.readouterr()
     cli.main(["cost", "--gpu-hourly-price", "2", "--gpus-per-replica", "1", "--billable-hours", "1",
               "--run", "r", "--input-rate", "1", "--output-rate", "2", "--cached-rate", "0.5"])

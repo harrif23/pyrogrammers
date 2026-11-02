@@ -25,13 +25,13 @@ from .report import (config_path, load_finalized_report, overlays_path, read_con
                      read_records, report_path, token_counts, write_report)
 
 OUTPUTS_DIR = EVALS_DIR / "outputs"
-MODES = ("baseline", "reference")
+MODES = ("reference", "simple_json")
 _CUSTOM_PREFIX = "custom:"
 _PREDICTION_FIELDS = {"point_px", "point_normalized", "calls", "latency_seconds", "fallback_used",
                       "invalid_reason", "error"}
-PROMPT_SHA256 = {"baseline": baseline.PROMPT_SHA256, "reference": reference_qwen.PROMPT_SHA256}
+PROMPT_SHA256 = {"simple_json": baseline.PROMPT_SHA256, "reference": reference_qwen.PROMPT_SHA256}
 MAX_CONSECUTIVE_API_ERRORS = 3
-INFERENCE_DEFAULTS = {"reasoning_effort": "low", "max_tokens": 4096, "temperature": 0.0,
+INFERENCE_DEFAULTS = {"reasoning_effort": "xhigh", "max_tokens": 4096, "temperature": 0.0,
                       "response_format": "none", "timeout": 180.0}
 
 
@@ -56,7 +56,7 @@ def _load_custom(spec):
 
 def build_predictor(mode, credentials, inference):
     client = FireworksClient(credentials, inference)
-    if mode == "baseline":
+    if mode == "simple_json":
         return BaselinePredictor(client)
     if mode == "reference":
         return reference_qwen.ReferenceQwenPredictor(client)
@@ -313,8 +313,8 @@ def inference_from_args(args):
 
 
 def add_run_args(parser):
-    parser.add_argument("--mode", choices=MODES, default="baseline",
-                        help="built-in strategy; ignored with --predictor")
+    parser.add_argument("--mode", choices=MODES, default="reference",
+                        help="built-in strategy; reference is the baseline. Ignored with --predictor")
     parser.add_argument("--predictor", metavar="MODULE:FACTORY",
                         help="your harness: FACTORY(client) returns an object with "
                              "predict(image_path, instruction)")
