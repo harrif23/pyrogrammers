@@ -80,3 +80,41 @@ unchanged. Different output budgets are explicitly flagged as an unmatched-budge
 comparison; other model/settings differences are rejected before candidate calls.
 The subset manifest retains the original model settings and source-file hash.
 Use a fresh output path; this does not resume a partially completed candidate run.
+
+## Next ablations after the 30/57 full-set result
+
+The saved `qwen-panel-fast-full-8192` run scored 30/57 versus reused baseline
+26/57: 9 fixes, 5 regressions. Text 22/26 versus 16/26; icons 8/31 versus 10/31.
+All three errors were length termination at 8192 tokens. Full arm wall time was
+75.24 seconds at concurrency 20. Output tokens increased from 63,619 to 130,983;
+this is an accuracy gain, not demonstrated token efficiency. Settings differ.
+
+Keep panel_fast unchanged. Three separate experimental strategies are now available:
+
+- panel_recover: same panel_fast first call; one plain point-only recovery call only
+  after explicit token exhaustion. Includes the failed call in usage and latency.
+  No recovery for API errors, coordinate errors, or abstentions. Maximum two calls.
+- panel_compact: replaces the larger plan schema with visible/panel/entity/point/
+  ambiguous. No bounding boxes or explanatory evidence. One call.
+- panel_selective: same compact first call, with an additional full-screen plus
+  768-pixel context crop verification only when the model says ambiguous. The second
+  call outputs original full-image coordinates. Maximum two calls. The ambiguity
+  flag is an uncalibrated hypothesis, not a confidence guarantee.
+
+All strategies retain invalid-output rejection and never consult benchmark labels,
+example IDs, or saved baseline predictions during inference. No new live accuracy
+results have been obtained for these strategies. Full-set comparisons are exploratory.
+
+Run all 57 examples with the existing baseline (maximum 285 new calls):
+
+```bash
+uv run python scripts/benchmark.py run \
+  --output artifacts/qwen-next-full-8192 \
+  --split full --strategies panel_recover panel_compact panel_selective \
+  --reuse-baseline artifacts/qwen-before-after/baseline/predictions.jsonl \
+  --max-tokens 8192 --concurrency 20 --execute
+```
+
+The three strategies execute as separate arms. Compare their summaries with the
+saved 30/57 panel_fast result as well as the reused 26/57 baseline. Inspect fixes,
+regressions, truncations, calls and token usage, not just the best aggregate score.

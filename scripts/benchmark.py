@@ -13,7 +13,7 @@ from flground.model import FireworksModel
 
 REVISION = '210e78d3844251110bff86c95835ebd37a6930fa'
 BASE = f'https://huggingface.co/datasets/likaixin/ScreenSpot-Pro/resolve/{REVISION}/'
-CALLS = {'baseline':1, 'knowledge':1, 'refine':2, 'panel_plain':2, 'panel':2, 'panel_verify':3, 'panel_fast':1}
+CALLS = {'baseline':1, 'knowledge':1, 'refine':2, 'panel_plain':2, 'panel':2, 'panel_verify':3, 'panel_fast':1, 'panel_recover':2, 'panel_compact':1, 'panel_selective':2}
 
 
 def download(remote, target):

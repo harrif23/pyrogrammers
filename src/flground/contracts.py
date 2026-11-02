@@ -26,7 +26,7 @@ class GroundingResult(BaseModel):
     image_width: int
     image_height: int
     point: Point | None
-    strategy: Literal["baseline", "refine", "knowledge", "panel", "panel_verify", "panel_plain", "panel_fast"]
+    strategy: Literal["baseline", "refine", "knowledge", "panel", "panel_verify", "panel_plain", "panel_fast", "panel_recover", "panel_compact", "panel_selective"]
     model: str
     calls: list[CallRecord]
     latency_seconds: float

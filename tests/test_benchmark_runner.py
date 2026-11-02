@@ -53,6 +53,8 @@ def test_reuse_executes_only_candidates_and_filters_full_baseline(tmp_path, monk
         (destination/'manifest.json').write_text(json.dumps(dict(example_ids=['a'],model=model.manifest())))
     monkeypatch.setattr(module,'evaluate',evaluate)
     output=tmp_path/'out'
+    for key in ('FLGROUND_COORDINATE_SPACE','FLGROUND_TEMPERATURE','FLGROUND_MAX_TOKENS'):
+        monkeypatch.setenv(key, "test-placeholder")
     module.run_suite(data,output,'dev',['knowledge','panel_fast'],True,15,4096,old/'predictions.jsonl')
     assert calls==['knowledge','panel_fast']
     assert len(read_jsonl(output/'baseline_reused/predictions.jsonl'))==1

@@ -10,10 +10,13 @@ from .model import GroundingModel
 def ground(image: Image.Image, instruction: str, model: GroundingModel,
            strategy: str = "baseline", crop_size: int = 512,
            artifacts: Path | None = None) -> GroundingResult:
-    if strategy not in ("baseline", "refine", "knowledge", "panel", "panel_plain", "panel_fast", "panel_verify"):
+    if strategy not in ("baseline", "refine", "knowledge", "panel", "panel_plain", "panel_fast", "panel_recover", "panel_compact", "panel_selective", "panel_verify"):
         raise ValueError(f"Unknown strategy: {strategy}")
     if not instruction.strip():
         raise ValueError("Instruction must not be empty")
+    if strategy in ('panel_recover', 'panel_compact', 'panel_selective'):
+        from .experimental import experimental_ground
+        return experimental_ground(image, instruction, model, strategy, artifacts)
     if strategy.startswith("panel"):
         from .panel import panel_ground
         return panel_ground(image, instruction, model, strategy, artifacts)
