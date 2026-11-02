@@ -63,3 +63,20 @@ length-termination counts, then completion/reasoning tokens, wall time and per-e
 latency. Do not choose a strategy by valid-response rate. Pricing remains unknown;
 report token usage without inventing a dollar estimate. Keep the old panel strategy
 available as the two-call ablation. No paid follow-up experiment was launched here.
+
+## Reuse an existing baseline without API calls
+
+```bash
+uv run python scripts/benchmark.py run \
+  --output artifacts/qwen-harness-only-dev-4096 \
+  --split dev --strategies knowledge panel_fast \
+  --reuse-baseline artifacts/qwen-before-after/baseline/predictions.jsonl \
+  --max-tokens 4096 --concurrency 15 --execute
+```
+
+Only candidate strategies run. The saved full baseline is validated and copied as a
+subset matching dev IDs, instructions and image hashes. Original artifacts remain
+unchanged. Different output budgets are explicitly flagged as an unmatched-budget
+comparison; other model/settings differences are rejected before candidate calls.
+The subset manifest retains the original model settings and source-file hash.
+Use a fresh output path; this does not resume a partially completed candidate run.

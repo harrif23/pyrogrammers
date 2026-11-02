@@ -85,6 +85,18 @@ final class Recorder {
     }
 }
 
+// Direct subprocess launches must carry privacy descriptions in the Mach-O image.
+for key in ["NSSpeechRecognitionUsageDescription", "NSMicrophoneUsageDescription"] {
+    guard let description = Bundle.main.object(forInfoDictionaryKey: key) as? String,
+          !description.isEmpty else {
+        emit(["event":"error", "message":"Voice helper is missing privacy metadata. Rebuild with python3 demo_app/build.py and restart."])
+        exit(1)
+    }
+}
+if CommandLine.arguments.contains("--check-metadata") {
+    emit(["event":"metadata_ok"])
+    exit(0)
+}
 let recorder = Recorder()
 DispatchQueue.global().async {
     _ = readLine()

@@ -8,7 +8,7 @@ import shutil
 import urllib.parse
 import urllib.request
 
-from flground.evaluation import prepare, evaluate, score, read_jsonl
+from flground.evaluation import prepare, evaluate, score, read_jsonl, digest, write_jsonl
 from flground.model import FireworksModel
 
 REVISION = '210e78d3844251110bff86c95835ebd37a6930fa'
@@ -48,18 +48,45 @@ def prepare_data(root):
                       'heldout':len(read_jsonl(root/'prepared/heldout.jsonl'))},indent=2))
 
 
-def run_suite(dataset, output, split, strategies, execute, concurrency=1, max_tokens=None):
+def baseline_subset(source, tasks_path, labels_path):
+    # Validate completeness before selecting a smaller split. Never call inference.
+    score(source, labels_path)
+    manifest = json.loads((source.parent/'manifest.json').read_text())
+    if manifest['strategy'] != 'baseline':
+        raise ValueError('Reuse source must be a baseline run')
+    old = {r['id']: r for r in read_jsonl(source)}
+    selected = []
+    for task in read_jsonl(tasks_path):
+        row = old.get(task['id'])
+        image = Path(task['image'])
+        if not image.is_absolute():
+            image = tasks_path.parent/image
+        if row is None or row['instruction'] != task['instruction'] or row.get('image_sha256') != digest(image):
+            raise ValueError('Saved baseline does not match selected tasks/images')
+        selected.append(row)
+    manifest = dict(manifest, example_ids=[r['id'] for r in selected],
+                    reused_from=str(source.resolve()), source_predictions_sha256=digest(source),
+                    tasks_sha256=digest(tasks_path))
+    return selected, manifest
+
+
+def run_suite(dataset, output, split, strategies, execute, concurrency=1, max_tokens=None, reuse_baseline=None):
     if not 1 <= concurrency <= 20 or (max_tokens is not None and max_tokens <= 0):
         raise ValueError('Invalid concurrency or token budget')
-    if not strategies or strategies[0] != 'baseline' or len(set(strategies)) != len(strategies):
+    if reuse_baseline and 'baseline' in strategies:
+        raise ValueError('With --reuse-baseline specify only candidate strategies')
+    if not strategies or (not reuse_baseline and strategies[0] != 'baseline') or len(set(strategies)) != len(strategies):
         raise ValueError('Specify baseline first, then distinct candidate strategies')
     tasks = dataset/({'full':'tasks.jsonl','dev':'dev.jsonl','heldout':'heldout.jsonl'}[split])
+    reused = baseline_subset(reuse_baseline, tasks, dataset/'labels.jsonl') if reuse_baseline else None
     n = len(read_jsonl(tasks))
     plan = {'split':split,'examples':n,'strategies':strategies,
             'concurrency':concurrency, 'max_tokens_override':max_tokens,
             'maximum_calls':n*sum(CALLS[s] for s in strategies),
             'coordinate_space':'normalized_1000','temperature':0,
-            'primary_candidate':strategies[1] if len(strategies)>1 else None,
+            'primary_candidate':strategies[0] if reused else (strategies[1] if len(strategies)>1 else None),
+            'reused_baseline':str(reuse_baseline) if reused else None,
+            'comparison_note':'Reused baseline; differing token budgets will be explicitly flagged.' if reused else None,
             'output':str(output),'estimated_cost':None,
             'evaluation_note':'Full-set result is exploratory if any official examples influenced tuning.'}
     print(json.dumps(plan,indent=2),flush=True)
@@ -76,15 +103,30 @@ def run_suite(dataset, output, split, strategies, execute, concurrency=1, max_to
         os.environ['FLGROUND_MAX_TOKENS']=str(max_tokens)
     baseline=None
     summaries={}
+    if reused:
+        destination=output/'baseline_reused'
+        destination.mkdir()
+        baseline=destination/'predictions.jsonl'
+        write_jsonl(baseline,reused[0])
+        (destination/'manifest.json').write_text(json.dumps(reused[1],indent=2))
+        summaries['baseline_reused']=score(baseline,dataset/'labels.jsonl')
     for strategy in strategies:
         print(f'Running {strategy}: {n} examples',flush=True)
         destination=output/strategy
-        evaluate(tasks,destination,FireworksModel(),strategy,
+        model=FireworksModel()
+        if reused:
+            current, previous = model.manifest(), reused[1]['model']
+            differences={k for k in current.keys() | previous.keys() if current.get(k)!=previous.get(k)}
+            if differences - {'max_tokens'}:
+                model.client.close()
+                raise ValueError('Reused baseline model/settings differ beyond token budget')
+        evaluate(tasks,destination,model,strategy,
                  concurrency=concurrency, model_factory=FireworksModel,
                  progress=lambda i,n,row: print(
                      f'{strategy} {i}/{n}: {row["status"]}, {row["latency_seconds"]:.1f}s',flush=True))
         predictions=destination/'predictions.jsonl'
-        summary=score(predictions,dataset/'labels.jsonl',baseline)
+        summary=score(predictions,dataset/'labels.jsonl',baseline,
+                      allow_token_budget_difference=bool(reused))
         summaries[strategy]=summary
         (destination/'summary.json').write_text(json.dumps(summary,indent=2))
         (output/'summary.json').write_text(json.dumps(summaries,indent=2))
@@ -106,12 +148,13 @@ def main():
     run.add_argument('--strategies',nargs='+',choices=list(CALLS),default=['baseline','panel'])
     run.add_argument('--concurrency',type=int,default=1)
     run.add_argument('--max-tokens',type=int,default=None)
+    run.add_argument('--reuse-baseline',type=Path,help='Saved baseline predictions.jsonl; no baseline API calls')
     run.add_argument('--execute',action='store_true')
     args=parser.parse_args()
     if args.action=='prepare':
         prepare_data(args.root)
     else:
-        run_suite(args.dataset,args.output,args.split,args.strategies,args.execute,args.concurrency,args.max_tokens)
+        run_suite(args.dataset,args.output,args.split,args.strategies,args.execute,args.concurrency,args.max_tokens,args.reuse_baseline)
 
 
 if __name__=='__main__':

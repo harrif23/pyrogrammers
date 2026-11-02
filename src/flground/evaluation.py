@@ -183,7 +183,8 @@ def unique(rows):
     return result
 
 
-def score(predictions: Path, labels_path: Path, baseline: Path | None = None):
+def score(predictions: Path, labels_path: Path, baseline: Path | None = None,
+          allow_token_budget_difference=False):
     predictions_by_id = unique(read_jsonl(predictions))
     if not predictions_by_id:
         raise ValueError('No predictions')
@@ -240,9 +241,15 @@ def score(predictions: Path, labels_path: Path, baseline: Path | None = None):
         if manifest_path.exists() and old_manifest_path.exists():
             current_manifest = json.loads(manifest_path.read_text())
             old_manifest = json.loads(old_manifest_path.read_text())
-            if current_manifest['model'] != old_manifest['model']:
+            current_config, old_config = current_manifest['model'], old_manifest['model']
+            differences = {k for k in current_config.keys() | old_config.keys()
+                           if current_config.get(k) != old_config.get(k)}
+            if differences and not (allow_token_budget_difference and differences == {'max_tokens'}):
                 raise ValueError('Model/settings differ; not a matched-backbone comparison')
-            compatibility = 'model/settings matched; inspect prompts and source hashes in manifests'
+            compatibility = ('UNMATCHED token budgets: baseline=' + str(old_config.get('max_tokens'))
+                             + ', candidate=' + str(current_config.get('max_tokens'))
+                             + '; comparison includes budget and harness changes' if differences else
+                             'model/settings matched; inspect prompts and source hashes in manifests')
         before = {i: correct(old[i], labels[i]) for i in outcomes}
         fixes = [i for i in outcomes if outcomes[i] and not before[i]]
         regressions = [i for i in outcomes if before[i] and not outcomes[i]]

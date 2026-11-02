@@ -125,3 +125,14 @@ References:
 [Apple on-device recognition](https://developer.apple.com/documentation/speech/sfspeechrecognitionrequest/requiresondevicerecognition),
 [llama-server API](https://github.com/ggml-org/llama.cpp/tree/master/tools/server),
 [Google Gemma llama.cpp deployment](https://github.com/google-gemma/docs/blob/main/docs/deployment/llamacpp.md).
+
+### Voice helper privacy crash
+
+If the HUD says the helper stopped unexpectedly and a FLGroundVoice crash report
+reports TCC / missing NSSpeechRecognitionUsageDescription, rebuild and restart:
+`python3 demo_app/build.py`, then `python3 demo_app/launch.py`.
+The builder now embeds both privacy descriptions in the executable as well as the
+bundle Info.plist, because the helper is launched directly with subprocess pipes.
+`artifacts/demo-build/FLGround Voice.app/Contents/MacOS/FLGroundVoice --check-metadata`
+(with the executable path quoted) validates metadata without requesting microphone
+access. Actual speech capture still requires a live permission/recording check.

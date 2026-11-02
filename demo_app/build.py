@@ -17,6 +17,8 @@ with (contents/'Info.plist').open('wb') as stream:
 cache=root/'artifacts/demo-build/module-cache'
 cache.mkdir(exist_ok=True)
 subprocess.run(['swiftc',str(root/'demo_app/Speech.swift'),'-o',str(executable),
-                '-module-cache-path',str(cache),'-framework','AVFoundation','-framework','Speech'],check=True)
+                '-module-cache-path',str(cache),
+                '-Xlinker','-sectcreate','-Xlinker','__TEXT','-Xlinker','__info_plist',
+                '-Xlinker',str(contents/'Info.plist'),'-framework','AVFoundation','-framework','Speech'],check=True)
 subprocess.run(['codesign','--force','--sign','-',str(bundle)],check=True)
 print(f'Built local voice helper: {executable}')
