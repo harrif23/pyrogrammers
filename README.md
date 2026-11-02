@@ -76,3 +76,9 @@ Current scope: adapter, baseline/refinement harness, geometry, CLI, reports, and
 capture/click adapter. Benchmark ingestion, batch failure recording, comparison metrics,
 and evidence-selected semantic strategies remain follow-up work. There are no measured
 accuracy improvements yet. No fine-tuning or autonomous navigation is included.
+
+## Project handoff and contributor instructions
+
+- [Complete local macOS setup and troubleshooting](docs/LOCAL_SETUP.md)
+- [Project context, teammate handoff, evaluation plan, and remaining work](docs/PROJECT_CONTEXT.md)
+- [Contributor and coding-agent instructions](AGENTS.md)
