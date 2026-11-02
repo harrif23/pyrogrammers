@@ -72,10 +72,10 @@ results: the included generic prompt is not presumed identical to their baseline
 Request dataset revision, split IDs, per-example predictions, raw responses, latency,
 usage, and development failure labels. Keep held-out failures sealed until tuning ends.
 
-Current scope: adapter, baseline/refinement harness, geometry, CLI, reports, and macOS
-capture/click adapter. Benchmark ingestion, batch failure recording, comparison metrics,
-and evidence-selected semantic strategies remain follow-up work. There are no measured
-accuracy improvements yet. No fine-tuning or autonomous navigation is included.
+Current scope: adapter, baseline/refinement harness, geometry, CLI, reports, macOS
+capture/click adapter, and benchmark scoring in [`evals/`](evals/README.md). Evidence-selected
+semantic strategies remain follow-up work. There are no measured accuracy improvements yet.
+No fine-tuning or autonomous navigation is included.
 
 ## Project handoff and contributor instructions
 

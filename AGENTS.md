@@ -37,9 +37,11 @@ and confirmed; keep the fail-safe and stale-screen checks. Document their limita
 
 ## Evaluation and handoff
 
-Teammates own the benchmark baseline. Obtain their model, prompt, preprocessing,
-inference settings, dataset revision, split manifest, and per-example outputs before
-claiming comparability. Keep held-out failures out of tuning. Count API/parsing errors
+Score strategies through `evals/` (see evals/README.md) so every result shares one scorer
+and dataset revision. Tune on the dev split; `--split eval` is for final scores only.
+For results made elsewhere, obtain the model, prompt, preprocessing, inference settings,
+dataset revision, split manifest, and per-example outputs before claiming comparability.
+Keep held-out failures out of tuning. Count API/parsing errors
 as failed predictions in future batch evaluation; do not silently discard examples.
 Report fixes AND regressions, counts, latency, usage, and estimated costs with sources.
 Update docs when implementation or validation status changes. Publish no accuracy

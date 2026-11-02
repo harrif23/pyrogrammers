@@ -57,6 +57,9 @@ separate evidence.
 - macOS capture uses mss; PyAutoGUI clicks map Retina pixels to desktop coordinates.
   Single display only; explicit click flag, confirmation, and exact stale-image check.
 - Python dependencies are locked with uv.lock. Tests use fake/mock models.
+- `evals/` scores any strategy on ScreenSpot-Pro with the paper's scorer: pinned data,
+  per-example results, resume, locked runs, paired comparison, token and cost reporting.
+  Any harness plugs in through `evals run --predictor module:factory`; see evals/README.md.
 
 Validation at this handoff: 12 unit tests passed in Linux and CLI help was exercised.
 No live Fireworks prediction, real Mac capture/click, official benchmark run, or accuracy
