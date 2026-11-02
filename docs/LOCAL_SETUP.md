@@ -62,7 +62,7 @@ uv run pytest -q
 uv run flground --help
 ```
 
-Current suite: 12 tests. Unit tests use mocks and do not incur API charges.
+Current suite: 65 tests. Unit tests use mocks and do not incur API charges.
 Take an FL Studio screenshot with Shift-Command-4, then use its actual filename:
 
 ```bash
@@ -93,7 +93,16 @@ Grant your terminal app Screen Recording permission under System Settings → Pr
 uv run flground demo --instruction "Find the snare channel volume control"
 ```
 
-Default behavior is capture and prediction only. For clicks, also grant Accessibility
+Run the command, then switch to FL Studio within five seconds. Keep the same window
+and controls visible while inference runs. A cyan crosshair appears over the predicted
+location for ten seconds, then disappears automatically. The transparent marker
+passes mouse clicks through and does not activate Python or move your pointer.
+
+Adjust the timing with `--delay 8 --overlay-seconds 20`; use `--no-overlay` to save
+only the report. The marker is based on the captured image and does not follow a
+moving window or control. A saved report is still produced for every successful run.
+
+Default behavior does not click. For clicks, also grant Accessibility
 permission, verify the overlay, and opt in:
 
 ```bash
@@ -103,7 +112,8 @@ uv run flground demo --instruction "Find the snare channel volume control" --exe
 An interactive confirmation is required. Exact screenshot changes cause refusal;
 animations or switching windows to view the report can trigger this. Use capture-only
 mode if that happens. PyAutoGUI's corner fail-safe remains enabled. Real Mac capture,
-Retina mapping, and clicking still require local validation.
+overlay rendering/alignment, Retina mapping, and clicking still require local validation.
+The overlay is dismissed before the existing click confirmation and stale-screen check.
 
 ## Troubleshooting
 
@@ -122,3 +132,8 @@ Retina mapping, and clicking still require local validation.
 
 When reporting an issue, include OS version, command with secrets removed, error text,
 model ID, and whether it occurred in predict or demo. Do not include sensitive screenshots.
+
+Experimental panel strategies, calibration, and batch comparisons are documented in
+[EXPERIMENTS.md](EXPERIMENTS.md). Use `--strategy panel` for two-stage localization
+or `--strategy panel_verify` for optional verification. These have mocked test
+coverage but no measured benchmark gain yet.

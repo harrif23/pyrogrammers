@@ -64,8 +64,10 @@ improvement has been verified. No API credential was supplied to the development
 
 ## Known limitations
 
-Malformed JSON, API errors, and invalid coordinates abort the CLI; failed calls are not
-yet persisted in batch records. JSON fences are not stripped. A reasoning-heavy model
+Malformed JSON, API errors, and invalid coordinates abort individual predictions;
+the new batch evaluator persists failures and continues. The parser accepts plain or Markdown-fenced JSON with
+x/y or one point_2d pair (optionally labeled), including a single-item array. Multiple
+targets are rejected. Coordinates remain original-image pixels; no normalization is inferred. A reasoning-heavy model
 may require adapter-specific response handling after observing actual responses.
 The 32768 token ceiling and 180-second timeout are configuration choices, not measured
 latency/cost guarantees. Confidence and cost estimation are not implemented.
@@ -113,3 +115,36 @@ execution 20%, demo 10%, documentation 5%. Preserve evaluation time over demo po
 Required end deliverables include a reproducible baseline, visual failure report,
 specialized harness, ablation, desktop demo, and documented results. Several remain
 outstanding; current foundation is not the completed benchmark project.
+
+Local parser validation (2026-11-02): 32 mocked/unit tests passed on macOS. A user-provided
+live traceback showed a fenced single-target point_2d array; support for that response
+shape is now tested, including raw-response preservation and one-call behavior. The
+traceback truncated the payload, so the full response and coordinate convention still
+need confirmation through a live overlay. No live inference was rerun for this fix.
+
+Desktop overlay implementation (2026-11-02): demo now defaults to a five-second
+capture delay and a ten-second native, non-activating, click-through cyan marker.
+The marker maps screenshot pixels to Cocoa display points and is removed before
+click confirmation/stale-screen checking. It does not track UI changes during inference
+or display. Cocoa is an explicit macOS desktop dependency. All 39 mocked/unit tests
+passed locally, including Retina/edge mapping and click safety sequencing; native
+imports and CLI help also passed. Actual overlay rendering/alignment and a live demo
+have not been exercised in this session.
+
+
+Experimental harness implementation (2026-11-02; supersedes earlier scope notes):
+knowledge, panel_plain, panel and panel_verify strategies now exist alongside unchanged
+baseline/refine defaults. Structured panel/anchor selection, context-preserving crop
+mapping, and optional candidate verification live outside the provider adapter. Target
+absence suppresses desktop overlay/click; it counts as a benchmark miss. Errors do not
+silently fall back. Explicit pixels/normalized_1000/normalized_1 units are configurable;
+the deployment's correct convention still needs live calibration.
+
+Offline calibration fixtures, official annotation preparation with exact-image grouped
+splits, label-free batch inference with failure persistence, and separate paired scoring
+are implemented. Run artifacts include source snapshots, hashes, prompts and request
+traces. The new tests cover geometry, call budgets, abstention, failure handling and label
+isolation. The suite passed 65 tests with mocked inference; no billed calibration or
+benchmark experiment was run. No accuracy gain is established. Cost estimation,
+uncertainty intervals, near-duplicate grouping and teammate-schema adaptation remain
+manual/future work. See EXPERIMENTS.md for executable commands and limitations.
