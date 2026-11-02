@@ -1,0 +1,145 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>next drum set</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;next drum set&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 1788.3,
+    &quot;y&quot;: 666.74
+  },
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 1786.88,
+        &quot;y&quot;: 666.72
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Addictive Drums 2 plugin window\&quot;,\n  \&quot;entity\&quot;: \&quot;Drum kit navigation (right/next arrow)\&quot;,\n  \&quot;control\&quot;: \&quot;next drum set\&quot;,\n  \&quot;evidence\&quot;: \&quot;Addictive Drums 2 window shows a right-pointing triangle arrow at the right edge of the kit image, opposite the left &#x27;previous&#x27; arrow, used to advance to the next drum kit in the list.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 600,\n    \&quot;top\&quot;: 360,\n    \&quot;right\&quot;: 710,\n    \&quot;bottom\&quot;: 610\n  },\n  \&quot;anchor\&quot;: null,\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 698,\n    \&quot;y\&quot;: 463\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 4.062029332999373,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 726,
+        &quot;prompt_tokens&quot;: 3936,
+        &quot;total_tokens&quot;: 4662,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 537,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 537
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: next drum set\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;4c48409029185e03d6128187b123b7cd17f439ece349f26a2f6f4b273ad0379d&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 540.6,
+        &quot;y&quot;: 333.48
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;:850,\&quot;y\&quot;:420}&quot;,
+      &quot;latency_seconds&quot;: 4.954753374971915,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 1106,
+        &quot;prompt_tokens&quot;: 775,
+        &quot;total_tokens&quot;: 1881,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 1090,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 1090
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 636x794 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: next drum set\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.\nProposed context (verify visually): panel=Addictive Drums 2 plugin window; entity=Drum kit navigation (right/next arrow); control=next drum set. Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          636,
+          794
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;c0b7830124baee0dae22f1c9b2e0044613c97cd6fd50741682c76660af30ab8b&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 9.400931915995898,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Addictive Drums 2 plugin window&quot;,
+      &quot;entity&quot;: &quot;Drum kit navigation (right/next arrow)&quot;,
+      &quot;control&quot;: &quot;next drum set&quot;,
+      &quot;evidence&quot;: &quot;Addictive Drums 2 window shows a right-pointing triangle arrow at the right edge of the kit image, opposite the left &#x27;previous&#x27; arrow, used to advance to the next drum kit in the list.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 600.0,
+        &quot;top&quot;: 360.0,
+        &quot;right&quot;: 710.0,
+        &quot;bottom&quot;: 610.0
+      },
+      &quot;anchor&quot;: null,
+      &quot;point&quot;: {
+        &quot;x&quot;: 698.0,
+        &quot;y&quot;: 463.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        1518,
+        500,
+        1836,
+        897
+      ],
+      &quot;output_size&quot;: [
+        636,
+        794
+      ],
+      &quot;scale&quot;: 2.0
+    },
+    &quot;candidates&quot;: {
+      &quot;initial&quot;: {
+        &quot;x&quot;: 1786.88,
+        &quot;y&quot;: 666.72
+      },
+      &quot;refined&quot;: {
+        &quot;x&quot;: 1788.3,
+        &quot;y&quot;: 666.74
+      }
+    }
+  }
+}</pre>

@@ -1,0 +1,68 @@
+{
+  "instruction": "DW Funk audition",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 806.4,
+    "y": 619.2
+  },
+  "strategy": "panel_compact",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 806.4,
+        "y": 619.2
+      },
+      "raw_response": "{\"visible\":true,\"panel\":\"Addictive Drums 2\",\"entity\":\"DW Funk audition\",\"point\":{\"x\":315,\"y\":430},\"ambiguous\":false}",
+      "latency_seconds": 4.9709860420261975,
+      "usage": {
+        "completion_tokens": 283,
+        "prompt_tokens": 3824,
+        "total_tokens": 4107,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 241,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 241
+        }
+      },
+      "stage": "compact_plan",
+      "prompt": "Locate this FL Studio control: DW Funk audition\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nUse coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Identify the panel and exact named entity; distinguish neighboring controls by function. Return only {\"visible\":boolean,\"panel\":\"short name\",\"entity\":\"short name\",\"point\":{\"x\":number,\"y\":number},\"ambiguous\":boolean}. Set point=null if absent. Set ambiguous=true if multiple visible controls plausibly match the request. No explanation or bounding boxes.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "a5a45da2fb45af611187f89e719bf9d1b1fe4af14f71d6f8067c59db395aa638"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 5.26113487497787,
+  "status": "ok",
+  "metadata": {
+    "plan": {
+      "visible": true,
+      "panel": "Addictive Drums 2",
+      "entity": "DW Funk audition",
+      "point": {
+        "x": 315.0,
+        "y": 430.0
+      },
+      "ambiguous": false
+    },
+    "verification": "not_requested"
+  }
+}

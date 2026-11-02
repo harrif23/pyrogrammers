@@ -1,0 +1,83 @@
+{
+  "instruction": "expand grouped tracks",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 563.2,
+    "y": 115.2
+  },
+  "strategy": "panel_fast",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 563.2,
+        "y": 115.2
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Playlist\",\n  \"entity\": \"Grouped tracks (Playlist)\",\n  \"control\": \"Expand grouped tracks button\",\n  \"evidence\": \"In the Playlist's thin top toolbar, a small tree/branch icon sits next to the wrench and track-number icons, used to expand/collapse grouped tracks.\",\n  \"region\": {\n    \"left\": 195,\n    \"top\": 55,\n    \"right\": 400,\n    \"bottom\": 95\n  },\n  \"anchor\": null,\n  \"point\": {\n    \"x\": 220,\n    \"y\": 80\n  }\n}",
+      "latency_seconds": 24.076206124998862,
+      "usage": {
+        "completion_tokens": 3901,
+        "prompt_tokens": 4003,
+        "total_tokens": 7904,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 3738,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 3738
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: expand grouped tracks\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.\nMixer level faders control mixer tracks; match the visible track header. Channel Rack volume, Mixer track level, and main monitor volume are different controls. Playlist tracks do not establish Mixer routing.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "4304468cdab4702c7bc26bd7fa3c75bfbe3a685f7a5ce6c2a3e032f23bceb653"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 24.24207445801585,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.\nMixer level faders control mixer tracks; match the visible track header. Channel Rack volume, Mixer track level, and main monitor volume are different controls. Playlist tracks do not establish Mixer routing.",
+    "plan": {
+      "visible": true,
+      "panel": "Playlist",
+      "entity": "Grouped tracks (Playlist)",
+      "control": "Expand grouped tracks button",
+      "evidence": "In the Playlist's thin top toolbar, a small tree/branch icon sits next to the wrench and track-number icons, used to expand/collapse grouped tracks.",
+      "region": {
+        "left": 195.0,
+        "top": 55.0,
+        "right": 400.0,
+        "bottom": 95.0
+      },
+      "anchor": null,
+      "point": {
+        "x": 220.0,
+        "y": 80.0
+      }
+    },
+    "localization": "single_pass_panel_plan"
+  }
+}

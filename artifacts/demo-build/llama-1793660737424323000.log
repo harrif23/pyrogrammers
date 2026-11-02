@@ -1,0 +1,40 @@
+0.00.000.275 I srv  llama_server: initializing ...
+0.00.124.032 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.125.651 W srv  llama_server: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+0.00.127.620 I srv    load_model: loading model '/Users/harrif/.cache/huggingface/hub/models--ggml-org--gemma-4-E2B-it-GGUF/snapshots/a1dac71d3ab220618f5a7573a52acdc4baf3ae3b/gemma-4-E2B-it-Q8_0.gguf'
+0.01.219.688 W load: control-looking token:     50 '<|tool_response>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.221.784 W load: control-looking token:    212 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.228.782 W load: special_eog_ids contains '<|tool_response>', removing '</s>' token from EOG list
+0.04.403.333 I cmn          init: llama threadpool init, n_threads = 6
+0.05.286.520 W init_audio: audio input is in experimental stage and may have reduced quality:
+    https://github.com/ggml-org/llama.cpp/discussions/13759
+0.05.287.759 I srv    load_model: loaded multimodal model, '/Users/harrif/.cache/huggingface/hub/models--ggml-org--gemma-4-E2B-it-GGUF/snapshots/a1dac71d3ab220618f5a7573a52acdc4baf3ae3b/mmproj-gemma-4-E2B-it-Q8_0.gguf'
+0.05.322.516 I srv    load_model: initializing, n_slots = 4, n_ctx_slot = 65536, kv_unified = 'true'
+0.05.334.690 I srv  llama_server: model loaded
+0.05.334.696 I srv  llama_server: listening on http://127.0.0.1:8080
+0.05.334.697 W srv  llama_server: notice: server default port will be changed to :9931 in a future release (ref: https://github.com/ggml-org/llama.cpp/pull/26508)
+2.12.843.876 I srv    operator(): operator(): cleaning up before exit...
+Received second interrupt, terminating immediately.
+llamacpp/ggml/src/ggml-metal/ggml-metal-device.m:1039: GGML_ASSERT([rsets->data count] == 0) failed
+WARNING: Using native backtrace. Set GGML_BACKTRACE_LLDB for more info.
+WARNING: GGML_BACKTRACE_LLDB may cause native MacOS Terminal.app to crash.
+See: https://github.com/ggml-org/llama.cpp/pull/17869
+0   llama                               0x0000000102b95ad4 ggml_print_backtrace + 276
+1   llama                               0x0000000102bf254c ggml_abort + 144
+2   llama                               0x0000000102b71708 ggml_metal_device_init + 0
+3   llama                               0x0000000102b72508 ggml_metal_device_free + 144
+4   llama                               0x0000000102b74a04 _ZNSt3__16vectorINS_10unique_ptrI17ggml_metal_device25ggml_metal_device_deleterEENS_9allocatorIS4_EEED1B9nqe210106Ev + 72
+5   libsystem_c.dylib                   0x0000000188165bb0 __cxa_finalize_ranges + 436
+6   libsystem_c.dylib                   0x000000018816599c exit + 44
+7   llama                               0x00000001022d8a40 _ZL14signal_handleri + 116
+8   libsystem_platform.dylib            0x00000001882c0144 _sigtramp + 56
+9   llama                               0x0000000102a196c0 _ZN16llm_graph_resultD0Ev + 12
+10  llama                               0x0000000102a196c0 _ZN16llm_graph_resultD0Ev + 12
+11  llama                               0x00000001029eac6c _ZN13llama_contextD2Ev + 388
+12  llama                               0x0000000102642e20 _ZN18common_init_result4implD2Ev + 272
+13  llama                               0x000000010240de2c _ZN19server_context_impl7destroyEv + 160
+14  llama                               0x000000010240e060 _ZN19server_context_implD2Ev + 44
+15  llama                               0x00000001022d6a4c _Z12llama_serverR13common_paramsiPPc + 25880
+16  llama                               0x00000001022d042c _Z12llama_serveriPPc + 364
+17  llama                               0x00000001022cbf80 main + 832
+18  dyld                                0x0000000187edfe80 start + 6688

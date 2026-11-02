@@ -1,0 +1,88 @@
+{
+  "instruction": "choose chord type for 1",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 865.28,
+    "y": 659.52
+  },
+  "strategy": "panel_fast",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 865.28,
+        "y": 659.52
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"AGM L (AGM L) – Ample Guitar Martin plugin window\",\n  \"entity\": \"1\",\n  \"control\": \"Chord-type cell for chord 1 (row 1 of the chord grid)\",\n  \"evidence\": \"In the Ample Guitar Martin chord grid, the orange '1' row header has a chord-type cell ('Caj') immediately to its right.\",\n  \"region\": {\n    \"left\": 303,\n    \"top\": 453,\n    \"right\": 422,\n    \"bottom\": 548\n  },\n  \"anchor\": {\n    \"left\": 304,\n    \"top\": 454,\n    \"right\": 315,\n    \"bottom\": 464\n  },\n  \"point\": {\n    \"x\": 338,\n    \"y\": 458\n  }\n}",
+      "latency_seconds": 47.91460937500233,
+      "usage": {
+        "completion_tokens": 6323,
+        "prompt_tokens": 3924,
+        "total_tokens": 10247,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 6096,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 6096
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: choose chord type for 1\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "29033ab12921a9954eb76cf2e0378a77beabdd1fa36e307275e7200ccdaeb4e2"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 48.23443379101809,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "AGM L (AGM L) – Ample Guitar Martin plugin window",
+      "entity": "1",
+      "control": "Chord-type cell for chord 1 (row 1 of the chord grid)",
+      "evidence": "In the Ample Guitar Martin chord grid, the orange '1' row header has a chord-type cell ('Caj') immediately to its right.",
+      "region": {
+        "left": 303.0,
+        "top": 453.0,
+        "right": 422.0,
+        "bottom": 548.0
+      },
+      "anchor": {
+        "left": 304.0,
+        "top": 454.0,
+        "right": 315.0,
+        "bottom": 464.0
+      },
+      "point": {
+        "x": 338.0,
+        "y": 458.0
+      }
+    },
+    "localization": "single_pass_panel_plan"
+  }
+}

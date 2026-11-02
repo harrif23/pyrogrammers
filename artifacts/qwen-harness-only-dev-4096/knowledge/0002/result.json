@@ -1,0 +1,56 @@
+{
+  "instruction": "legeto slide",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1100.8,
+    "y": 509.76
+  },
+  "strategy": "knowledge",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1100.8,
+        "y": 509.76
+      },
+      "raw_response": "{\"x\": 430, \"y\": 354}",
+      "latency_seconds": 27.024778333987342,
+      "usage": {
+        "completion_tokens": 3128,
+        "prompt_tokens": 3783,
+        "total_tokens": 6911,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 3109,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 3109
+        }
+      },
+      "stage": "predict",
+      "prompt": "Locate the UI control in this 2560x1440 screenshot. Return only a JSON object with numeric x and y. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Instruction: legeto slide\nFL Studio context:\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "70ab2aa1ca9be0932176da1062e95d51f5ac2f33e17cef5c842cdfb3415788b0"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 27.263129915983882,
+  "status": "ok",
+  "metadata": {}
+}

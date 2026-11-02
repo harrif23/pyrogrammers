@@ -1,0 +1,88 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel_recover</h1><p>view presets</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;view presets&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 1505.28,
+    &quot;y&quot;: 400.32
+  },
+  &quot;strategy&quot;: &quot;panel_recover&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 1505.28,
+        &quot;y&quot;: 400.32
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Channel Rack\&quot;,\n  \&quot;entity\&quot;: \&quot;Presets\&quot;,\n  \&quot;control\&quot;: \&quot;Presets dropdown button\&quot;,\n  \&quot;evidence\&quot;: \&quot;The Channel Rack window header shows a &#x27;Presets&#x27; label with a dropdown arrow on its right side.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 565,\n    \&quot;top\&quot;: 271,\n    \&quot;right\&quot;: 612,\n    \&quot;bottom\&quot;: 287\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 578,\n    \&quot;top\&quot;: 273,\n    \&quot;right\&quot;: 600,\n    \&quot;bottom\&quot;: 285\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 588,\n    \&quot;y\&quot;: 278\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 9.030659542011563,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 1083,
+        &quot;prompt_tokens&quot;: 3920,
+        &quot;total_tokens&quot;: 5003,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 889,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 3919
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 889
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: view presets\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;29495db7052b0466ba0ec3f03ba72d8d71a8bf1ba9603a0c206fbb5893bb21fa&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 9.437088541017147,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Channel Rack&quot;,
+      &quot;entity&quot;: &quot;Presets&quot;,
+      &quot;control&quot;: &quot;Presets dropdown button&quot;,
+      &quot;evidence&quot;: &quot;The Channel Rack window header shows a &#x27;Presets&#x27; label with a dropdown arrow on its right side.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 565.0,
+        &quot;top&quot;: 271.0,
+        &quot;right&quot;: 612.0,
+        &quot;bottom&quot;: 287.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 578.0,
+        &quot;top&quot;: 273.0,
+        &quot;right&quot;: 600.0,
+        &quot;bottom&quot;: 285.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 588.0,
+        &quot;y&quot;: 278.0
+      }
+    },
+    &quot;localization&quot;: &quot;single_pass_panel_plan&quot;
+  }
+}</pre>

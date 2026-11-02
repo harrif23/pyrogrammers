@@ -1,0 +1,56 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: knowledge</h1><p>split pattern by channel</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;split pattern by channel&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 535.04,
+    &quot;y&quot;: 488.16
+  },
+  &quot;strategy&quot;: &quot;knowledge&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 535.04,
+        &quot;y&quot;: 488.16
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;: 209, \&quot;y\&quot;: 339}&quot;,
+      &quot;latency_seconds&quot;: 8.688878540997393,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 520,
+        &quot;prompt_tokens&quot;: 3825,
+        &quot;total_tokens&quot;: 4345,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 501,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 501
+        }
+      },
+      &quot;stage&quot;: &quot;predict&quot;,
+      &quot;prompt&quot;: &quot;Locate the UI control in this 2560x1440 screenshot. Return only a JSON object with numeric x and y. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Instruction: split pattern by channel\nFL Studio context:\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;0f550d998aa7c597a30498a5f54fa1964314a88c511531c69fb17c7425b4cdba&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 8.913375875010388,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {}
+}</pre>

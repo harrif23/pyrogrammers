@@ -1,0 +1,88 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel_recover</h1><p>select track 24</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;select track 24&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 1272.32,
+    &quot;y&quot;: 727.2
+  },
+  &quot;strategy&quot;: &quot;panel_recover&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 1272.32,
+        &quot;y&quot;: 727.2
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Channel Rack\&quot;,\n  \&quot;entity\&quot;: \&quot;Track 24 (古筝)\&quot;,\n  \&quot;control\&quot;: \&quot;Track row header (select)\&quot;,\n  \&quot;evidence\&quot;: \&quot;In the Channel Rack, the row numbered 24 is labeled 古筝, with its mute/solo buttons and step cells visible.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 383,\n    \&quot;top\&quot;: 497,\n    \&quot;right\&quot;: 675,\n    \&quot;bottom\&quot;: 515\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 420,\n    \&quot;top\&quot;: 497,\n    \&quot;right\&quot;: 580,\n    \&quot;bottom\&quot;: 515\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 497,\n    \&quot;y\&quot;: 505\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 6.678054957999848,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 750,
+        &quot;prompt_tokens&quot;: 3963,
+        &quot;total_tokens&quot;: 4713,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 545,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 3962
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 545
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: select track 24\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nMixer level faders control mixer tracks; match the visible track header. Channel Rack volume, Mixer track level, and main monitor volume are different controls. Playlist tracks do not establish Mixer routing.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;38095348cdd5840743eed1ff873573827a6927683feb926c1f3783aafe07915e&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 6.974983583000721,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nMixer level faders control mixer tracks; match the visible track header. Channel Rack volume, Mixer track level, and main monitor volume are different controls. Playlist tracks do not establish Mixer routing.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Channel Rack&quot;,
+      &quot;entity&quot;: &quot;Track 24 (古筝)&quot;,
+      &quot;control&quot;: &quot;Track row header (select)&quot;,
+      &quot;evidence&quot;: &quot;In the Channel Rack, the row numbered 24 is labeled 古筝, with its mute/solo buttons and step cells visible.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 383.0,
+        &quot;top&quot;: 497.0,
+        &quot;right&quot;: 675.0,
+        &quot;bottom&quot;: 515.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 420.0,
+        &quot;top&quot;: 497.0,
+        &quot;right&quot;: 580.0,
+        &quot;bottom&quot;: 515.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 497.0,
+        &quot;y&quot;: 505.0
+      }
+    },
+    &quot;localization&quot;: &quot;single_pass_panel_plan&quot;
+  }
+}</pre>

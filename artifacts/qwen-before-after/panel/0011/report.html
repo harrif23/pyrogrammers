@@ -1,0 +1,150 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>change capo logic mode</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;change capo logic mode&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 1515.48,
+    &quot;y&quot;: 860.8
+  },
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 1502.72,
+        &quot;y&quot;: 862.56
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Ample Bass P plugin window\&quot;,\n  \&quot;entity\&quot;: \&quot;CAPO control group\&quot;,\n  \&quot;control\&quot;: \&quot;Capo logic mode toggle (blue icon right of CAPO knob)\&quot;,\n  \&quot;evidence\&quot;: \&quot;In the Ample Bass P plugin, the &#x27;CAPO&#x27; label sits above a knob; immediately to the right of that knob is a small blue vertical-bar icon used to switch the capo logic mode.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 558,\n    \&quot;top\&quot;: 550,\n    \&quot;right\&quot;: 600,\n    \&quot;bottom\&quot;: 622\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 565,\n    \&quot;top\&quot;: 553,\n    \&quot;right\&quot;: 580,\n    \&quot;bottom\&quot;: 563\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 587,\n    \&quot;y\&quot;: 599\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 7.0190201660152525,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 1504,
+        &quot;prompt_tokens&quot;: 3895,
+        &quot;total_tokens&quot;: 5399,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 1275,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 1275
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: change capo logic mode\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;ab35b886fc8f9d76187e04587779e3b3c6b9f101c3d2b3e336d2a349ed1858fe&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 190.96,
+        &quot;y&quot;: 153.6
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;:770,\&quot;y\&quot;:640}&quot;,
+      &quot;latency_seconds&quot;: 1.4304265000100713,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 303,
+        &quot;prompt_tokens&quot;: 300,
+        &quot;total_tokens&quot;: 603,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 287,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 287
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 248x240 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: change capo logic mode\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Ample Bass P plugin window; entity=CAPO control group; control=Capo logic mode toggle (blue icon right of CAPO knob). Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          248,
+          240
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;59b871a104261c28377ec2e0619caffe1c9aada3df31084b1360b9512ea96b60&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 8.55772887499188,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Ample Bass P plugin window&quot;,
+      &quot;entity&quot;: &quot;CAPO control group&quot;,
+      &quot;control&quot;: &quot;Capo logic mode toggle (blue icon right of CAPO knob)&quot;,
+      &quot;evidence&quot;: &quot;In the Ample Bass P plugin, the &#x27;CAPO&#x27; label sits above a knob; immediately to the right of that knob is a small blue vertical-bar icon used to switch the capo logic mode.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 558.0,
+        &quot;top&quot;: 550.0,
+        &quot;right&quot;: 600.0,
+        &quot;bottom&quot;: 622.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 565.0,
+        &quot;top&quot;: 553.0,
+        &quot;right&quot;: 580.0,
+        &quot;bottom&quot;: 563.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 587.0,
+        &quot;y&quot;: 599.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        1420,
+        784,
+        1544,
+        904
+      ],
+      &quot;output_size&quot;: [
+        248,
+        240
+      ],
+      &quot;scale&quot;: 2.0
+    },
+    &quot;candidates&quot;: {
+      &quot;initial&quot;: {
+        &quot;x&quot;: 1502.72,
+        &quot;y&quot;: 862.56
+      },
+      &quot;refined&quot;: {
+        &quot;x&quot;: 1515.48,
+        &quot;y&quot;: 860.8
+      }
+    }
+  }
+}</pre>

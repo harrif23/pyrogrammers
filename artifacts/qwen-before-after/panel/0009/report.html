@@ -1,0 +1,150 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>adapt volume of the highlighted channel</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;adapt volume of the highlighted channel&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 997.15,
+    &quot;y&quot;: 824.44
+  },
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 1000.96,
+        &quot;y&quot;: 564.48
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Channel Rack\&quot;,\n  \&quot;entity\&quot;: \&quot;Additive Drums 2\&quot;,\n  \&quot;control\&quot;: \&quot;volume fader\&quot;,\n  \&quot;evidence\&quot;: \&quot;Channel 13 &#x27;Additive Drums 2&#x27; is the highlighted channel (green outline around its name button). In that column, below the pan knob and pan arrows, the vertical volume fader shows a green handle in the fader row, distinct from the enable dot, pan knob and routing number.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 380,\n    \&quot;top\&quot;: 75,\n    \&quot;right\&quot;: 403,\n    \&quot;bottom\&quot;: 1000\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 382,\n    \&quot;top\&quot;: 85,\n    \&quot;right\&quot;: 401,\n    \&quot;bottom\&quot;: 300\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 391,\n    \&quot;y\&quot;: 392\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 25.275802249991102,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 5538,
+        &quot;prompt_tokens&quot;: 3979,
+        &quot;total_tokens&quot;: 9517,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 5300,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 5300
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: adapt volume of the highlighted channel\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.\nMixer level faders control mixer tracks; match the visible track header. Channel Rack volume, Mixer track level, and main monitor volume are different controls. Playlist tracks do not establish Mixer routing.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;91ee93d44194c7b4f71a32af57bd8aafa5b942155be9e8946e47e68c290ffe96&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 134.9,
+        &quot;y&quot;: 1146.88
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;:475,\&quot;y\&quot;:560}&quot;,
+      &quot;latency_seconds&quot;: 6.784231541998452,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 1516,
+        &quot;prompt_tokens&quot;: 885,
+        &quot;total_tokens&quot;: 2401,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 1500,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 1500
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 284x2048 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: adapt volume of the highlighted channel\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.\nMixer level faders control mixer tracks; match the visible track header. Channel Rack volume, Mixer track level, and main monitor volume are different controls. Playlist tracks do not establish Mixer routing.\nProposed context (verify visually): panel=Channel Rack; entity=Additive Drums 2; control=volume fader. Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          284,
+          2048
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;226e1cea9db6e0f5a170905b034197fa8bddd17e9d058354006a609fcc3d973b&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 32.20244183400064,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.\nMixer level faders control mixer tracks; match the visible track header. Channel Rack volume, Mixer track level, and main monitor volume are different controls. Playlist tracks do not establish Mixer routing.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Channel Rack&quot;,
+      &quot;entity&quot;: &quot;Additive Drums 2&quot;,
+      &quot;control&quot;: &quot;volume fader&quot;,
+      &quot;evidence&quot;: &quot;Channel 13 &#x27;Additive Drums 2&#x27; is the highlighted channel (green outline around its name button). In that column, below the pan knob and pan arrows, the vertical volume fader shows a green handle in the fader row, distinct from the enable dot, pan knob and routing number.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 380.0,
+        &quot;top&quot;: 75.0,
+        &quot;right&quot;: 403.0,
+        &quot;bottom&quot;: 1000.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 382.0,
+        &quot;top&quot;: 85.0,
+        &quot;right&quot;: 401.0,
+        &quot;bottom&quot;: 300.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 391.0,
+        &quot;y&quot;: 392.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        905,
+        41,
+        1099,
+        1440
+      ],
+      &quot;output_size&quot;: [
+        284,
+        2048
+      ],
+      &quot;scale&quot;: 1.463902787705504
+    },
+    &quot;candidates&quot;: {
+      &quot;initial&quot;: {
+        &quot;x&quot;: 1000.96,
+        &quot;y&quot;: 564.48
+      },
+      &quot;refined&quot;: {
+        &quot;x&quot;: 997.15,
+        &quot;y&quot;: 824.44
+      }
+    }
+  }
+}</pre>

@@ -1,117 +1,50 @@
 import Foundation
 import AVFoundation
-import Speech
 
+func argument(_ flag: String) -> String? {
+    guard let i = CommandLine.arguments.firstIndex(of: flag), i+1 < CommandLine.arguments.count else { return nil }
+    return CommandLine.arguments[i+1]
+}
+if let path = argument("--events-file") { freopen(path, "a", stdout) }
+if let path = argument("--log-file") { freopen(path, "a", stderr) }
 func emit(_ value: [String: Any]) {
-    if let data = try? JSONSerialization.data(withJSONObject: value), let text = String(data: data, encoding: .utf8) {
-        print(text)
-        fflush(stdout)
-    }
-}
-
-final class Recorder {
-    let engine = AVAudioEngine()
-    let request = SFSpeechAudioBufferRecognitionRequest()
-    var task: SFSpeechRecognitionTask?
-    var done = false
-    var stopping = false
-    var transcript = ""
-    var lastLevel = Date.distantPast
-
-    func finish(_ error: String? = nil) {
-        if done { return }
-        done = true
-        if engine.isRunning { engine.stop(); engine.inputNode.removeTap(onBus: 0) }
-        request.endAudio()
-        task?.cancel()
-        if let error = error { emit(["event":"error", "message":error]) }
-        else { emit(["event":"transcript", "text":transcript]) }
-        exit(error == nil ? 0 : 1)
-    }
-
-    func stop() {
-        if done || stopping { return }
-        stopping = true
-        if engine.isRunning { engine.stop(); engine.inputNode.removeTap(onBus: 0) }
-        request.endAudio()
-        DispatchQueue.main.asyncAfter(deadline: .now()+2) { self.finish() }
-    }
-
-    func start() {
-        if done || stopping { finish(); return }
-        guard let recognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US")),
-              recognizer.isAvailable, recognizer.supportsOnDeviceRecognition else {
-            finish("Local speech recognition is unavailable. Enable/download English dictation in macOS settings, or type your request."); return
-        }
-        request.requiresOnDeviceRecognition = true
-        request.shouldReportPartialResults = true
-        request.contextualStrings = ["FL Studio", "Channel Rack", "Piano roll", "Drums", "Snare", "Mixer", "volume", "pan"]
-        let node = engine.inputNode
-        let format = node.outputFormat(forBus: 0)
-        guard format.sampleRate > 0, format.channelCount > 0 else {
-            finish("No microphone input is available."); return
-        }
-        node.installTap(onBus: 0, bufferSize: 1024, format: format) { buffer, _ in
-            self.request.append(buffer)
-            if Date().timeIntervalSince(self.lastLevel) > 0.05, let samples = buffer.floatChannelData?[0] {
-                self.lastLevel = Date()
-                let count = Int(buffer.frameLength)
-                if count > 0 {
-                    var sum: Float = 0
-                    for index in 0..<count { sum += samples[index] * samples[index] }
-                    let level = min(1, sqrt(sum / Float(count)) * 10)
-                    DispatchQueue.main.async { if !self.done { emit(["event":"level", "value":level]) } }
-                }
-            }
-        }
-        task = recognizer.recognitionTask(with: request) { result, error in
-            DispatchQueue.main.async {
-                if self.done { return }
-                if let result = result {
-                    self.transcript = result.bestTranscription.formattedString
-                    emit(["event":"partial", "text":self.transcript])
-                    if result.isFinal { self.finish(); return }
-                }
-                if error != nil {
-                    if self.stopping && !self.transcript.isEmpty { self.finish() }
-                    else { self.finish("Speech recognition stopped. Try again or type your request.") }
-                }
-            }
-        }
-        do { engine.prepare(); try engine.start() }
-        catch { finish("Could not start microphone capture."); return }
-        emit(["event":"listening"])
-        DispatchQueue.main.asyncAfter(deadline: .now()+20) { self.stop() }
-    }
-}
-
-// Direct subprocess launches must carry privacy descriptions in the Mach-O image.
-for key in ["NSSpeechRecognitionUsageDescription", "NSMicrophoneUsageDescription"] {
-    guard let description = Bundle.main.object(forInfoDictionaryKey: key) as? String,
-          !description.isEmpty else {
-        emit(["event":"error", "message":"Voice helper is missing privacy metadata. Rebuild with python3 demo_app/build.py and restart."])
-        exit(1)
+    if let data = try? JSONSerialization.data(withJSONObject: value), let text = String(data:data, encoding:.utf8) {
+        print(text); fflush(stdout)
     }
 }
 if CommandLine.arguments.contains("--check-metadata") {
-    emit(["event":"metadata_ok"])
+    guard Bundle.main.object(forInfoDictionaryKey:"NSMicrophoneUsageDescription") != nil else { exit(1) }
+    emit(["event":"metadata_ok"]); exit(0)
+}
+var recorder: AVAudioRecorder?
+var finished = false
+func stop() {
+    if finished { return }; finished = true
+    guard let current = recorder else { emit(["event":"error","message":"Recording stopped before microphone was ready."]); exit(1) }
+    current.stop()
+    emit(["event":"audio","path":current.url.path])
     exit(0)
 }
-let recorder = Recorder()
-DispatchQueue.global().async {
-    _ = readLine()
-    DispatchQueue.main.async { recorder.stop() }
-}
-SFSpeechRecognizer.requestAuthorization { status in
-    guard status == .authorized else {
-        DispatchQueue.main.async { recorder.finish("Allow Speech Recognition in System Settings, or type your request.") }
-        return
-    }
-    AVCaptureDevice.requestAccess(for: .audio) { allowed in
-        DispatchQueue.main.async {
-            if allowed { recorder.start() }
-            else { recorder.finish("Allow Microphone access in System Settings, or type your request.") }
+AVCaptureDevice.requestAccess(for:.audio) { allowed in
+    DispatchQueue.main.async {
+        guard allowed, let path = argument("--audio-file") else {
+            emit(["event":"error","message":"Allow microphone access and restart recording."]); exit(1)
         }
+        do {
+            let settings: [String:Any] = [AVFormatIDKey:kAudioFormatLinearPCM, AVSampleRateKey:16000,
+                AVNumberOfChannelsKey:1, AVLinearPCMBitDepthKey:16, AVLinearPCMIsFloatKey:false,
+                AVLinearPCMIsBigEndianKey:false]
+            recorder = try AVAudioRecorder(url:URL(fileURLWithPath:path),settings:settings)
+            recorder!.isMeteringEnabled = true
+            guard recorder!.record() else { throw NSError(domain:"capture",code:1) }
+            emit(["event":"listening"])
+            Timer.scheduledTimer(withTimeInterval:0.05,repeats:true) { _ in
+                recorder?.updateMeters()
+                emit(["event":"level","value":min(1,pow(10,Double(recorder?.averagePower(forChannel:0) ?? -80)/20)*5)])
+                if let path = argument("--stop-file"), FileManager.default.fileExists(atPath:path) { stop() }
+            }
+            DispatchQueue.main.asyncAfter(deadline:.now()+20) { stop() }
+        } catch { emit(["event":"error","message":"Could not record microphone audio."]); exit(1) }
     }
 }
 RunLoop.main.run()

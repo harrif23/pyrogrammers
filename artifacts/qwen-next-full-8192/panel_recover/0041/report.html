@@ -1,0 +1,88 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel_recover</h1><p>add more plugins to slot 2</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;add more plugins to slot 2&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 2521.6,
+    &quot;y&quot;: 194.4
+  },
+  &quot;strategy&quot;: &quot;panel_recover&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 2521.6,
+        &quot;y&quot;: 194.4
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Mixer\&quot;,\n  \&quot;entity\&quot;: \&quot;Slot 2\&quot;,\n  \&quot;control\&quot;: \&quot;Slot 2 plugin selector dropdown\&quot;,\n  \&quot;evidence\&quot;: \&quot;The Mixer panel on the right lists &#x27;Slot 2&#x27; with a circular plugin-selector dropdown button at the right end of its row.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 915,\n    \&quot;top\&quot;: 128,\n    \&quot;right\&quot;: 1000,\n    \&quot;bottom\&quot;: 145\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 918,\n    \&quot;top\&quot;: 128,\n    \&quot;right\&quot;: 975,\n    \&quot;bottom\&quot;: 142\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 985,\n    \&quot;y\&quot;: 135\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 6.701175000023795,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 997,
+        &quot;prompt_tokens&quot;: 3925,
+        &quot;total_tokens&quot;: 4922,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 793,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 3924
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 793
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: add more plugins to slot 2\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;9fdc1c12316310f8d5a446185b8a1c85740229909ea2d360301cd2052b2097ad&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 6.780058250005823,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Mixer&quot;,
+      &quot;entity&quot;: &quot;Slot 2&quot;,
+      &quot;control&quot;: &quot;Slot 2 plugin selector dropdown&quot;,
+      &quot;evidence&quot;: &quot;The Mixer panel on the right lists &#x27;Slot 2&#x27; with a circular plugin-selector dropdown button at the right end of its row.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 915.0,
+        &quot;top&quot;: 128.0,
+        &quot;right&quot;: 1000.0,
+        &quot;bottom&quot;: 145.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 918.0,
+        &quot;top&quot;: 128.0,
+        &quot;right&quot;: 975.0,
+        &quot;bottom&quot;: 142.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 985.0,
+        &quot;y&quot;: 135.0
+      }
+    },
+    &quot;localization&quot;: &quot;single_pass_panel_plan&quot;
+  }
+}</pre>

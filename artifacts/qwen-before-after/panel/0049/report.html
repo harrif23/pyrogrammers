@@ -1,0 +1,150 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>change the channel panning of alice keys</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;change the channel panning of alice keys&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 855.69,
+    &quot;y&quot;: 192.84
+  },
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 860.16,
+        &quot;y&quot;: 194.4
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Channel Rack\&quot;,\n  \&quot;entity\&quot;: \&quot;Alice keys\&quot;,\n  \&quot;control\&quot;: \&quot;pan knob\&quot;,\n  \&quot;evidence\&quot;: \&quot;Channel Rack row 1 is labeled &#x27;Alice keys&#x27;. In each row the left-side controls are, left to right: enable (green dot), pan knob, volume knob, routing number. The pan knob is the second control in the Alice keys row.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 320,\n    \&quot;top\&quot;: 125,\n    \&quot;right\&quot;: 525,\n    \&quot;bottom\&quot;: 145\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 360,\n    \&quot;top\&quot;: 125,\n    \&quot;right\&quot;: 523,\n    \&quot;bottom\&quot;: 145\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 336,\n    \&quot;y\&quot;: 135\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 10.327232000010554,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 2350,
+        &quot;prompt_tokens&quot;: 3941,
+        &quot;total_tokens&quot;: 6291,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 2128,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 2128
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: change the channel panning of alice keys\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;f0104a6af487f65890c050bb85db94fda6f62089bec970fab24c23c9651fce4c&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 127.38,
+        &quot;y&quot;: 79.68
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;: 110, \&quot;y\&quot;: 480}&quot;,
+      &quot;latency_seconds&quot;: 8.549488916993141,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 2078,
+        &quot;prompt_tokens&quot;: 446,
+        &quot;total_tokens&quot;: 2524,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 2059,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 2059
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 1158x166 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: change the channel panning of alice keys\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.\nProposed context (verify visually): panel=Channel Rack; entity=Alice keys; control=pan knob. Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          1158,
+          166
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;0440860837b7699753c23feabe196dadd76a5e417e1c3be9c20c349eab233668&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 19.0098042919999,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Channel Rack&quot;,
+      &quot;entity&quot;: &quot;Alice keys&quot;,
+      &quot;control&quot;: &quot;pan knob&quot;,
+      &quot;evidence&quot;: &quot;Channel Rack row 1 is labeled &#x27;Alice keys&#x27;. In each row the left-side controls are, left to right: enable (green dot), pan knob, volume knob, routing number. The pan knob is the second control in the Alice keys row.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 320.0,
+        &quot;top&quot;: 125.0,
+        &quot;right&quot;: 525.0,
+        &quot;bottom&quot;: 145.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 360.0,
+        &quot;top&quot;: 125.0,
+        &quot;right&quot;: 523.0,
+        &quot;bottom&quot;: 145.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 336.0,
+        &quot;y&quot;: 135.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        792,
+        153,
+        1371,
+        236
+      ],
+      &quot;output_size&quot;: [
+        1158,
+        166
+      ],
+      &quot;scale&quot;: 2.0
+    },
+    &quot;candidates&quot;: {
+      &quot;initial&quot;: {
+        &quot;x&quot;: 860.16,
+        &quot;y&quot;: 194.4
+      },
+      &quot;refined&quot;: {
+        &quot;x&quot;: 855.69,
+        &quot;y&quot;: 192.84
+      }
+    }
+  }
+}</pre>

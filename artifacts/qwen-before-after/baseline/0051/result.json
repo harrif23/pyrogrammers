@@ -1,0 +1,56 @@
+{
+  "instruction": "expand grouped tracks",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 599.04,
+    "y": 270.72
+  },
+  "strategy": "baseline",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 599.04,
+        "y": 270.72
+      },
+      "raw_response": "{\n  \"x\": 234,\n  \"y\": 188\n}",
+      "latency_seconds": 5.890210625017062,
+      "usage": {
+        "completion_tokens": 1225,
+        "prompt_tokens": 3714,
+        "total_tokens": 4939,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 1200,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 1200
+        }
+      },
+      "stage": "predict",
+      "prompt": "Locate the UI control in this 2560x1440 screenshot. Return only a JSON object with numeric x and y. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Instruction: expand grouped tracks",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "4304468cdab4702c7bc26bd7fa3c75bfbe3a685f7a5ce6c2a3e032f23bceb653"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 5.964621124992846,
+  "status": "ok",
+  "metadata": {}
+}

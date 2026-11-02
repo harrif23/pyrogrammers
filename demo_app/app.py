@@ -89,15 +89,25 @@ class Demo(NSObject):
     def spawn(self,args,mode):
         self.generation+=1;token=self.generation;self.mode=mode
         self.find.setEnabled_(False);self.strategy.setEnabled_(False)
-        self.process=subprocess.Popen(args,cwd=ROOT,stdin=subprocess.PIPE,stdout=subprocess.PIPE,
-                                      stderr=subprocess.DEVNULL,text=True,bufsize=1)
+        logs=ROOT/'artifacts/demo-build/logs'
+        logs.mkdir(parents=True,exist_ok=True)
+        if mode=='voice':
+            from voice_process import VoiceProcess
+            self.process=VoiceProcess(args[0],logs,OPTIONS.endpoint)
+            log_path=self.process.log
+        else:
+            log_path=logs/f'{mode}-{time.time_ns()}.log'
+            with log_path.open('w') as error_log:
+                self.process=subprocess.Popen(args,cwd=ROOT,stdin=subprocess.PIPE,stdout=subprocess.PIPE,
+                                              stderr=error_log,text=True,bufsize=1)
+        print(f'{mode} helper log: {log_path}',flush=True)
         process=self.process
         def read():
             for line in process.stdout:
                 try:self.events.put((token,json.loads(line)))
                 except json.JSONDecodeError:pass
             code=process.wait()
-            self.events.put((token,{'event':'ended','code':code}))
+            self.events.put((token,{'event':'ended','code':code,'log':str(log_path)}))
         threading.Thread(target=read,daemon=True).start()
 
     def speak_(self,sender):
@@ -206,7 +216,7 @@ class Demo(NSObject):
             elif event=='error':
                 self.reset();self.statusText_(data['message']);self.show_(None)
             elif event=='ended' and self.mode!='idle':
-                self.reset();self.statusText_('The helper stopped unexpectedly. Try again or use typed input.');self.show_(None)
+                self.reset();self.statusText_(f"Helper exited ({data.get('code')}). See terminal log path.");self.show_(None)
 
 
 if __name__=='__main__':

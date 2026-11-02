@@ -1,0 +1,150 @@
+{
+  "instruction": "turn off scroll",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1694.528,
+    "y": 611.05
+  },
+  "strategy": "panel",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1676.8,
+        "y": 610.56
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Riffstation plugin window\",\n  \"entity\": \"Scroll toggle\",\n  \"control\": \"Scroll button (toggle)\",\n  \"evidence\": \"In the Riffstation plugin's waveform control row, a small circular toggle sits immediately left of the 'Scroll' label (mirroring the 'Zoom' label on the left), indicating the scroll on/off control.\",\n  \"region\": {\n    \"left\": 320,\n    \"top\": 323,\n    \"right\": 680,\n    \"bottom\": 445\n  },\n  \"anchor\": {\n    \"left\": 655,\n    \"top\": 430,\n    \"right\": 665,\n    \"bottom\": 442\n  },\n  \"point\": {\n    \"x\": 655,\n    \"y\": 424\n  }\n}",
+      "latency_seconds": 8.347533583000768,
+      "usage": {
+        "completion_tokens": 1853,
+        "prompt_tokens": 3894,
+        "total_tokens": 5747,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 1634,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 1634
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: turn off scroll\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "015dd7b09abfb91f4603ba13b5ea872fd968405b016401a96a705e5ba2994761"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    },
+    {
+      "point": {
+        "x": 1845.056,
+        "y": 386.1
+      },
+      "raw_response": "{\"x\":908,\"y\":715}",
+      "latency_seconds": 1.3052614170010202,
+      "usage": {
+        "completion_tokens": 235,
+        "prompt_tokens": 1311,
+        "total_tokens": 1546,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 219,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 219
+        }
+      },
+      "stage": "panel_localize",
+      "prompt": "Locate the requested control in this 2032x540 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: turn off scroll\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Riffstation plugin window; entity=Scroll toggle; control=Scroll button (toggle). Return only {\"x\":number,\"y\":number}, or {\"visible\":false} if the exact target is absent.",
+      "image_sizes": [
+        [
+          2032,
+          540
+        ]
+      ],
+      "image_hashes": [
+        "9a2dc3146afa4eac68f5c6f48450b609a4e7e92fde4b81123a459df77996409d"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 9.84395566699095,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Riffstation plugin window",
+      "entity": "Scroll toggle",
+      "control": "Scroll button (toggle)",
+      "evidence": "In the Riffstation plugin's waveform control row, a small circular toggle sits immediately left of the 'Scroll' label (mirroring the 'Zoom' label on the left), indicating the scroll on/off control.",
+      "region": {
+        "left": 320.0,
+        "top": 323.0,
+        "right": 680.0,
+        "bottom": 445.0
+      },
+      "anchor": {
+        "left": 655.0,
+        "top": 430.0,
+        "right": 665.0,
+        "bottom": 442.0
+      },
+      "point": {
+        "x": 655.0,
+        "y": 424.0
+      }
+    },
+    "crop": {
+      "bounds": [
+        772,
+        418,
+        1788,
+        688
+      ],
+      "output_size": [
+        2032,
+        540
+      ],
+      "scale": 2.0
+    },
+    "candidates": {
+      "initial": {
+        "x": 1676.8,
+        "y": 610.56
+      },
+      "refined": {
+        "x": 1694.528,
+        "y": 611.05
+      }
+    }
+  }
+}

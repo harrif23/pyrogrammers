@@ -1,0 +1,150 @@
+{
+  "instruction": "add new folder",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 165.14,
+    "y": 71.81
+  },
+  "strategy": "panel",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 163.84,
+        "y": 115.2
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Browser\",\n  \"entity\": \"Browser toolbar\",\n  \"control\": \"New folder button\",\n  \"evidence\": \"Left Browser panel header reads 'Browser - All'; directly below it the toolbar shows a folder icon (new folder) on the left with a speaker icon to its right.\",\n  \"region\": {\n    \"left\": 0,\n    \"top\": 55,\n    \"right\": 133,\n    \"bottom\": 95\n  },\n  \"anchor\": {\n    \"left\": 4,\n    \"top\": 57,\n    \"right\": 60,\n    \"bottom\": 70\n  },\n  \"point\": {\n    \"x\": 64,\n    \"y\": 80\n  }\n}",
+      "latency_seconds": 10.6850058749842,
+      "usage": {
+        "completion_tokens": 2459,
+        "prompt_tokens": 3894,
+        "total_tokens": 6353,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 2265,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 2265
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: add new folder\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "f6d8d7ce38248433eda28fff4795fc97d496d50c54b3ceab8704dcc59073b005"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    },
+    {
+      "point": {
+        "x": 330.28,
+        "y": 21.62
+      },
+      "raw_response": "{\"x\":460,\"y\":115}",
+      "latency_seconds": 89.8857124170172,
+      "usage": {
+        "completion_tokens": 20375,
+        "prompt_tokens": 350,
+        "total_tokens": 20725,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 20359,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 20359
+        }
+      },
+      "stage": "panel_localize",
+      "prompt": "Locate the requested control in this 718x188 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: add new folder\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Browser; entity=Browser toolbar; control=New folder button. Return only {\"x\":number,\"y\":number}, or {\"visible\":false} if the exact target is absent.",
+      "image_sizes": [
+        [
+          718,
+          188
+        ]
+      ],
+      "image_hashes": [
+        "f4c3476ec1f87e0477d2b62df045e1d06fe80eb6208d29cb911258a431dd738a"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 100.840521584003,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Browser",
+      "entity": "Browser toolbar",
+      "control": "New folder button",
+      "evidence": "Left Browser panel header reads 'Browser - All'; directly below it the toolbar shows a folder icon (new folder) on the left with a speaker icon to its right.",
+      "region": {
+        "left": 0.0,
+        "top": 55.0,
+        "right": 133.0,
+        "bottom": 95.0
+      },
+      "anchor": {
+        "left": 4.0,
+        "top": 57.0,
+        "right": 60.0,
+        "bottom": 70.0
+      },
+      "point": {
+        "x": 64.0,
+        "y": 80.0
+      }
+    },
+    "crop": {
+      "bounds": [
+        0,
+        61,
+        359,
+        155
+      ],
+      "output_size": [
+        718,
+        188
+      ],
+      "scale": 2.0
+    },
+    "candidates": {
+      "initial": {
+        "x": 163.84,
+        "y": 115.2
+      },
+      "refined": {
+        "x": 165.14,
+        "y": 71.81
+      }
+    }
+  }
+}

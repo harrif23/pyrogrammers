@@ -1,0 +1,73 @@
+0.00.000.102 I srv  llama_server: initializing ...
+0.00.175.903 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.177.010 W srv  llama_server: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+0.00.184.973 I srv    load_model: loading model '/Users/harrif/.cache/huggingface/hub/models--ggml-org--gemma-4-E2B-it-GGUF/snapshots/a1dac71d3ab220618f5a7573a52acdc4baf3ae3b/gemma-4-E2B-it-Q8_0.gguf'
+0.01.181.467 W load: control-looking token:     50 '<|tool_response>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.183.585 W load: control-looking token:    212 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.190.682 W load: special_eog_ids contains '<|tool_response>', removing '</s>' token from EOG list
+0.01.829.059 I cmn          init: llama threadpool init, n_threads = 6
+0.02.582.048 W init_audio: audio input is in experimental stage and may have reduced quality:
+    https://github.com/ggml-org/llama.cpp/discussions/13759
+0.02.582.135 I srv    load_model: loaded multimodal model, '/Users/harrif/.cache/huggingface/hub/models--ggml-org--gemma-4-E2B-it-GGUF/snapshots/a1dac71d3ab220618f5a7573a52acdc4baf3ae3b/mmproj-gemma-4-E2B-it-Q8_0.gguf'
+0.02.616.408 I srv    load_model: initializing, n_slots = 4, n_ctx_slot = 65536, kv_unified = 'true'
+0.02.625.703 I srv  llama_server: model loaded
+0.02.625.707 I srv  llama_server: listening on http://127.0.0.1:8080
+0.02.625.707 W srv  llama_server: notice: server default port will be changed to :9931 in a future release (ref: https://github.com/ggml-org/llama.cpp/pull/26508)
+1.02.497.979 I slot get_availabl: id  3 | task -1 | selected slot by LRU, t_last = -1
+1.02.499.210 I slot launch_slot_: id  3 | task 0 | processing task, is_child = 0
+1.08.379.361 I slot print_timing: id  3 | task 0 | n_gen =    129, tg =  42.56 t/s, tg_3s =  42.89 t/s
+1.11.383.780 I slot print_timing: id  3 | task 0 | n_gen =    260, tg =  43.08 t/s, tg_3s =  43.60 t/s
+1.14.405.505 I slot print_timing: id  3 | task 0 | n_gen =    394, tg =  43.50 t/s, tg_3s =  44.35 t/s
+1.16.372.112 I slot print_timing: id  3 | task 0 | prompt eval time =    2872.03 ms /   910 tokens (    3.16 ms per token,   316.85 tokens per second)
+1.16.372.116 I slot print_timing: id  3 | task 0 |        eval time =   11000.25 ms /   482 tokens (   22.87 ms per token,    43.73 tokens per second)
+1.16.372.126 I slot print_timing: id  3 | task 0 |       total time =   13872.28 ms /  1392 tokens
+1.16.372.126 I slot print_timing: id  3 | task 0 |    graphs reused =        479
+1.16.373.516 I slot      release: id  3 | task 0 | stop processing: n_tokens = 1391, truncated = 0
+1.16.413.330 I slot get_availabl: id  2 | task -1 | selected slot by LRU, t_last = -1
+1.16.413.350 I slot launch_slot_: id  2 | task 486 | processing task, is_child = 0
+1.20.023.760 I slot print_timing: id  2 | task 486 | n_gen =    138, tg =  45.37 t/s, tg_3s =  45.70 t/s
+1.23.040.661 I slot print_timing: id  2 | task 486 | n_gen =    275, tg =  45.39 t/s, tg_3s =  45.41 t/s
+1.26.055.231 I slot print_timing: id  2 | task 486 | n_gen =    410, tg =  45.19 t/s, tg_3s =  44.78 t/s
+1.29.056.756 I slot print_timing: id  2 | task 486 | n_gen =    541, tg =  44.80 t/s, tg_3s =  43.64 t/s
+1.31.990.525 I slot print_timing: id  2 | task 486 | prompt eval time =     583.85 ms /   281 tokens (    2.08 ms per token,   481.29 tokens per second)
+1.31.990.528 I slot print_timing: id  2 | task 486 |        eval time =   14986.32 ms /   671 tokens (   22.37 ms per token,    44.71 tokens per second)
+1.31.990.529 I slot print_timing: id  2 | task 486 |       total time =   15570.17 ms /   952 tokens
+1.31.990.529 I slot print_timing: id  2 | task 486 |    graphs reused =       1146
+1.31.990.809 I slot      release: id  2 | task 486 | stop processing: n_tokens = 951, truncated = 0
+5.13.568.284 I slot get_availabl: id  2 | task -1 | selected slot by LCP similarity, f_sim_best = 0.126 (> 0.100 thold), f_keep = 0.012
+5.13.576.471 I slot launch_slot_: id  2 | task 1161 | processing task, is_child = 0
+5.17.448.291 I slot print_timing: id  2 | task 1161 | n_gen =    137, tg =  45.16 t/s, tg_3s =  45.49 t/s
+5.19.367.249 I slot print_timing: id  2 | task 1161 | prompt eval time =     860.03 ms /    80 tokens (   10.75 ms per token,    93.02 tokens per second)
+5.19.367.256 I slot print_timing: id  2 | task 1161 |        eval time =    4930.48 ms /   226 tokens (   21.91 ms per token,    45.63 tokens per second)
+5.19.367.257 I slot print_timing: id  2 | task 1161 |       total time =    5790.51 ms /   306 tokens
+5.19.367.257 I slot print_timing: id  2 | task 1161 |    graphs reused =       1369
+5.19.367.590 I slot      release: id  2 | task 1161 | stop processing: n_tokens = 312, truncated = 0
+6.43.697.162 I srv    operator(): operator(): cleaning up before exit...
+Received second interrupt, terminating immediately.
+llamacpp/ggml/src/ggml-metal/ggml-metal-device.m:1039: GGML_ASSERT([rsets->data count] == 0) failed
+WARNING: Using native backtrace. Set GGML_BACKTRACE_LLDB for more info.
+WARNING: GGML_BACKTRACE_LLDB may cause native MacOS Terminal.app to crash.
+See: https://github.com/ggml-org/llama.cpp/pull/17869
+0   llama                               0x0000000102975ad4 ggml_print_backtrace + 276
+1   llama                               0x00000001029d254c ggml_abort + 144
+2   llama                               0x0000000102951708 ggml_metal_device_init + 0
+3   llama                               0x0000000102952508 ggml_metal_device_free + 144
+4   llama                               0x0000000102954a04 _ZNSt3__16vectorINS_10unique_ptrI17ggml_metal_device25ggml_metal_device_deleterEENS_9allocatorIS4_EEED1B9nqe210106Ev + 72
+5   libsystem_c.dylib                   0x0000000188165bb0 __cxa_finalize_ranges + 436
+6   libsystem_c.dylib                   0x000000018816599c exit + 44
+7   llama                               0x00000001020b8a40 _ZL14signal_handleri + 116
+8   libsystem_platform.dylib            0x00000001882c0144 _sigtramp + 56
+9   IOGPU                               0x00000001af9aea00 IOGPUResourceSetPurgeable + 60
+10  IOGPU                               0x00000001af99cd04 -[IOGPUMetalResidencySet endResidency] + 60
+11  llama                               0x00000001029539c4 ggml_metal_buffer_free + 168
+12  llama                               0x00000001028138b0 _ZN14llama_kv_cacheD2Ev + 352
+13  llama                               0x0000000102813038 _ZN14llama_kv_cacheD0Ev + 12
+14  llama                               0x0000000102817454 _ZN19llama_kv_cache_iswaD0Ev + 52
+15  llama                               0x00000001027cade4 _ZN13llama_contextD2Ev + 764
+16  llama                               0x0000000102422e20 _ZN18common_init_result4implD2Ev + 272
+17  llama                               0x00000001021ede2c _ZN19server_context_impl7destroyEv + 160
+18  llama                               0x00000001021ee060 _ZN19server_context_implD2Ev + 44
+19  llama                               0x00000001020b6a4c _Z12llama_serverR13common_paramsiPPc + 25880
+20  llama                               0x00000001020b042c _Z12llama_serveriPPc + 364
+21  llama                               0x00000001020abf80 main + 832
+22  dyld                                0x0000000187edfe80 start + 6688

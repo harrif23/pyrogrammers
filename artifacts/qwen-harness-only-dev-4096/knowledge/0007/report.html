@@ -1,0 +1,56 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: knowledge</h1><p>view all exploremaps</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;view all exploremaps&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 1118.72,
+    &quot;y&quot;: 848.16
+  },
+  &quot;strategy&quot;: &quot;knowledge&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 1118.72,
+        &quot;y&quot;: 848.16
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;x\&quot;: 437,\n  \&quot;y\&quot;: 589\n}&quot;,
+      &quot;latency_seconds&quot;: 9.234729791001882,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 560,
+        &quot;prompt_tokens&quot;: 3784,
+        &quot;total_tokens&quot;: 4344,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 535,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 535
+        }
+      },
+      &quot;stage&quot;: &quot;predict&quot;,
+      &quot;prompt&quot;: &quot;Locate the UI control in this 2560x1440 screenshot. Return only a JSON object with numeric x and y. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Instruction: view all exploremaps\nFL Studio context:\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;e3aace3749c2e1d96f7d278040fc3906c17b7cdd254172858c16b2b8d420f4de&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 9.487268166994909,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {}
+}</pre>

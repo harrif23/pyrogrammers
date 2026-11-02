@@ -1,0 +1,88 @@
+{
+  "instruction": "select track 24",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1272.32,
+    "y": 727.2
+  },
+  "strategy": "panel_fast",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1272.32,
+        "y": 727.2
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Channel Rack\",\n  \"entity\": \"Track 24 (古筝)\",\n  \"control\": \"Track header select\",\n  \"evidence\": \"Channel Rack row numbered 24 shows the name 古筝 with its mute/solo buttons and step grid.\",\n  \"region\": {\n    \"left\": 383,\n    \"top\": 497,\n    \"right\": 582,\n    \"bottom\": 513\n  },\n  \"anchor\": {\n    \"left\": 420,\n    \"top\": 497,\n    \"right\": 582,\n    \"bottom\": 513\n  },\n  \"point\": {\n    \"x\": 497,\n    \"y\": 505\n  }\n}",
+      "latency_seconds": 8.531477124983212,
+      "usage": {
+        "completion_tokens": 873,
+        "prompt_tokens": 3963,
+        "total_tokens": 4836,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 675,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 675
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: select track 24\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nMixer level faders control mixer tracks; match the visible track header. Channel Rack volume, Mixer track level, and main monitor volume are different controls. Playlist tracks do not establish Mixer routing.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "38095348cdd5840743eed1ff873573827a6927683feb926c1f3783aafe07915e"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 8.846035374997882,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nMixer level faders control mixer tracks; match the visible track header. Channel Rack volume, Mixer track level, and main monitor volume are different controls. Playlist tracks do not establish Mixer routing.",
+    "plan": {
+      "visible": true,
+      "panel": "Channel Rack",
+      "entity": "Track 24 (古筝)",
+      "control": "Track header select",
+      "evidence": "Channel Rack row numbered 24 shows the name 古筝 with its mute/solo buttons and step grid.",
+      "region": {
+        "left": 383.0,
+        "top": 497.0,
+        "right": 582.0,
+        "bottom": 513.0
+      },
+      "anchor": {
+        "left": 420.0,
+        "top": 497.0,
+        "right": 582.0,
+        "bottom": 513.0
+      },
+      "point": {
+        "x": 497.0,
+        "y": 505.0
+      }
+    },
+    "localization": "single_pass_panel_plan"
+  }
+}

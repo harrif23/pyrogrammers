@@ -1,0 +1,88 @@
+{
+  "instruction": "choose midi channel",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 960.0,
+    "y": 371.52
+  },
+  "strategy": "panel_recover",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 960.0,
+        "y": 371.52
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Kontakt Portable plugin window\",\n  \"entity\": \"Susato Whistle KEY\",\n  \"control\": \"MIDI Ch selector ([A] button / channel field)\",\n  \"evidence\": \"The instrument header shows 'MIDI Ch: [A] 1' next to Output and Memory fields.\",\n  \"region\": {\n    \"left\": 355,\n    \"top\": 250,\n    \"right\": 395,\n    \"bottom\": 268\n  },\n  \"anchor\": {\n    \"left\": 355,\n    \"top\": 252,\n    \"right\": 372,\n    \"bottom\": 265\n  },\n  \"point\": {\n    \"x\": 375,\n    \"y\": 258\n  }\n}",
+      "latency_seconds": 9.826419124990935,
+      "usage": {
+        "completion_tokens": 1459,
+        "prompt_tokens": 3963,
+        "total_tokens": 5422,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 1251,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 3962
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 1251
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: choose midi channel\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "fab97ed25ea66c124381da3c0e27922ee295b4f83074077ddc7a1d37602a9b4c"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 10.028753916994901,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.",
+    "plan": {
+      "visible": true,
+      "panel": "Kontakt Portable plugin window",
+      "entity": "Susato Whistle KEY",
+      "control": "MIDI Ch selector ([A] button / channel field)",
+      "evidence": "The instrument header shows 'MIDI Ch: [A] 1' next to Output and Memory fields.",
+      "region": {
+        "left": 355.0,
+        "top": 250.0,
+        "right": 395.0,
+        "bottom": 268.0
+      },
+      "anchor": {
+        "left": 355.0,
+        "top": 252.0,
+        "right": 372.0,
+        "bottom": 265.0
+      },
+      "point": {
+        "x": 375.0,
+        "y": 258.0
+      }
+    },
+    "localization": "single_pass_panel_plan"
+  }
+}

@@ -1,0 +1,145 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>insert a channel</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;insert a channel&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 597.4,
+    &quot;y&quot;: 1070.2
+  },
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 629.76,
+        &quot;y&quot;: 1069.92
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Playlist\&quot;,\n  \&quot;entity\&quot;: \&quot;Track list context menu\&quot;,\n  \&quot;control\&quot;: \&quot;Insert one\&quot;,\n  \&quot;evidence\&quot;: \&quot;A right-click context menu is open over the Playlist track list; the highlighted menu item reads &#x27;Insert one&#x27;, which inserts a new track/channel.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 218,\n    \&quot;top\&quot;: 488,\n    \&quot;right\&quot;: 281,\n    \&quot;bottom\&quot;: 795\n  },\n  \&quot;anchor\&quot;: null,\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 246,\n    \&quot;y\&quot;: 743\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 7.065755624993471,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 1574,
+        &quot;prompt_tokens&quot;: 3936,
+        &quot;total_tokens&quot;: 5510,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 1414,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 1414
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: insert a channel\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;32d790a88fc21fc3cee60ce917c78a14321336f03c4d11c63185ee41e39f2b00&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 124.8,
+        &quot;y&quot;: 782.4
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;:300,\&quot;y\&quot;:800}&quot;,
+      &quot;latency_seconds&quot;: 8.06459791699308,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 1968,
+        &quot;prompt_tokens&quot;: 664,
+        &quot;total_tokens&quot;: 2632,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 1952,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 1952
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 416x978 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: insert a channel\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.\nProposed context (verify visually): panel=Playlist; entity=Track list context menu; control=Insert one. Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          416,
+          978
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;97957963f2f977d22dcd759b0f4320f04a4fb42cd47f5d34a746de7bdee49e71&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 15.251546208019136,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Playlist&quot;,
+      &quot;entity&quot;: &quot;Track list context menu&quot;,
+      &quot;control&quot;: &quot;Insert one&quot;,
+      &quot;evidence&quot;: &quot;A right-click context menu is open over the Playlist track list; the highlighted menu item reads &#x27;Insert one&#x27;, which inserts a new track/channel.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 218.0,
+        &quot;top&quot;: 488.0,
+        &quot;right&quot;: 281.0,
+        &quot;bottom&quot;: 795.0
+      },
+      &quot;anchor&quot;: null,
+      &quot;point&quot;: {
+        &quot;x&quot;: 246.0,
+        &quot;y&quot;: 743.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        535,
+        679,
+        743,
+        1168
+      ],
+      &quot;output_size&quot;: [
+        416,
+        978
+      ],
+      &quot;scale&quot;: 2.0
+    },
+    &quot;candidates&quot;: {
+      &quot;initial&quot;: {
+        &quot;x&quot;: 629.76,
+        &quot;y&quot;: 1069.92
+      },
+      &quot;refined&quot;: {
+        &quot;x&quot;: 597.4,
+        &quot;y&quot;: 1070.2
+      }
+    }
+  }
+}</pre>

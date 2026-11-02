@@ -92,6 +92,7 @@ class FireworksModel:
         start = time.perf_counter()
         try:
             response = self.client.chat.completions.create(
+                **(self.request_options(stage) if hasattr(self, "request_options") else {}),
                 model=self.model, max_tokens=self.max_tokens,
                 presence_penalty=0, frequency_penalty=0, extra_body={"top_k": 40},
                 messages=[{"role": "user", "content": content}],

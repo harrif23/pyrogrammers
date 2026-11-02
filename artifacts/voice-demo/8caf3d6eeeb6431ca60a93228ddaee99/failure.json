@@ -1,0 +1,34 @@
+{
+  "error": "ValidationError",
+  "calls": [
+    {
+      "point": null,
+      "raw_response": "```json\n{\n  \"visible\": true,\n  \"panel\": \"Channel Rack\",\n  \"entity\": \"Drums\",\n  \"control\": \"Drums button\",\n  \"evidence\": \"The 'Drums' button is visible in the fourth row of the Channel Rack.\",\n  \"region\": {\n    \"left\": 300,\n    \"top\": 300,\n    \"right\": 450,\n    \"bottom\": 400\n  },\n  \"anchor\": \"Drums\",\n  \"point\": {\n    \"x\": 375,\n    \"y\": 350\n  }\n}\n```",
+      "latency_seconds": 16.34110629200586,
+      "usage": {
+        "completion_tokens": 580,
+        "prompt_tokens": 952,
+        "total_tokens": 1532,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 1512x982 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: Hey where is the Drums button\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.",
+      "image_sizes": [
+        [
+          1512,
+          982
+        ]
+      ],
+      "image_hashes": [
+        "a9c8cda585ab5cabb63ef76753c254df4d7a737612bac0d52986ed8b40c8383f"
+      ],
+      "finish_reason": "stop",
+      "error": "ValidationError"
+    }
+  ]
+}

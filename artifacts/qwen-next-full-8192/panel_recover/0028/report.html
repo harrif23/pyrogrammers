@@ -1,0 +1,88 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel_recover</h1><p>add new folder</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;add new folder&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 38.4,
+    &quot;y&quot;: 115.2
+  },
+  &quot;strategy&quot;: &quot;panel_recover&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 38.4,
+        &quot;y&quot;: 115.2
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Browser\&quot;,\n  \&quot;entity\&quot;: \&quot;Browser toolbar\&quot;,\n  \&quot;control\&quot;: \&quot;add new folder\&quot;,\n  \&quot;evidence\&quot;: \&quot;The Browser panel&#x27;s top action toolbar (below the &#x27;Browser - All&#x27; header) shows a folder-with-plus &#x27;add new folder&#x27; icon among the small toolbar buttons.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 0,\n    \&quot;top\&quot;: 55,\n    \&quot;right\&quot;: 50,\n    \&quot;bottom\&quot;: 88\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 27,\n    \&quot;top\&quot;: 59,\n    \&quot;right\&quot;: 53,\n    \&quot;bottom\&quot;: 68\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 15,\n    \&quot;y\&quot;: 80\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 25.58517262499663,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 3617,
+        &quot;prompt_tokens&quot;: 3921,
+        &quot;total_tokens&quot;: 7538,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 3423,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 3920
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 3423
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: add new folder\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;f6d8d7ce38248433eda28fff4795fc97d496d50c54b3ceab8704dcc59073b005&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 25.665770624997094,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Browser&quot;,
+      &quot;entity&quot;: &quot;Browser toolbar&quot;,
+      &quot;control&quot;: &quot;add new folder&quot;,
+      &quot;evidence&quot;: &quot;The Browser panel&#x27;s top action toolbar (below the &#x27;Browser - All&#x27; header) shows a folder-with-plus &#x27;add new folder&#x27; icon among the small toolbar buttons.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 0.0,
+        &quot;top&quot;: 55.0,
+        &quot;right&quot;: 50.0,
+        &quot;bottom&quot;: 88.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 27.0,
+        &quot;top&quot;: 59.0,
+        &quot;right&quot;: 53.0,
+        &quot;bottom&quot;: 68.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 15.0,
+        &quot;y&quot;: 80.0
+      }
+    },
+    &quot;localization&quot;: &quot;single_pass_panel_plan&quot;
+  }
+}</pre>

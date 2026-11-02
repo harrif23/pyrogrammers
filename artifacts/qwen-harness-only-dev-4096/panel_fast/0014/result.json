@@ -1,0 +1,88 @@
+{
+  "instruction": "turn off scroll",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1684.48,
+    "y": 607.68
+  },
+  "strategy": "panel_fast",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1684.48,
+        "y": 607.68
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Plugin window (Riffstation)\",\n  \"entity\": \"Riffstation\",\n  \"control\": \"Scroll toggle button\",\n  \"evidence\": \"In the Riffstation plugin window, a circular toggle button sits directly above the 'Scroll' label at the right end of the orange control row beneath the waveform.\",\n  \"region\": {\n    \"left\": 638,\n    \"top\": 408,\n    \"right\": 678,\n    \"bottom\": 445\n  },\n  \"anchor\": {\n    \"left\": 652,\n    \"top\": 430,\n    \"right\": 666,\n    \"bottom\": 439\n  },\n  \"point\": {\n    \"x\": 658,\n    \"y\": 422\n  }\n}",
+      "latency_seconds": 13.462202624999918,
+      "usage": {
+        "completion_tokens": 1443,
+        "prompt_tokens": 3921,
+        "total_tokens": 5364,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 1233,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 1233
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: turn off scroll\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "015dd7b09abfb91f4603ba13b5ea872fd968405b016401a96a705e5ba2994761"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 13.863099583017174,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Plugin window (Riffstation)",
+      "entity": "Riffstation",
+      "control": "Scroll toggle button",
+      "evidence": "In the Riffstation plugin window, a circular toggle button sits directly above the 'Scroll' label at the right end of the orange control row beneath the waveform.",
+      "region": {
+        "left": 638.0,
+        "top": 408.0,
+        "right": 678.0,
+        "bottom": 445.0
+      },
+      "anchor": {
+        "left": 652.0,
+        "top": 430.0,
+        "right": 666.0,
+        "bottom": 439.0
+      },
+      "point": {
+        "x": 658.0,
+        "y": 422.0
+      }
+    },
+    "localization": "single_pass_panel_plan"
+  }
+}

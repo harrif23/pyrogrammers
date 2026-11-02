@@ -1,0 +1,23 @@
+0.00.000.587 I srv  llama_server: initializing ...
+0.00.192.956 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.196.338 W srv  llama_server: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+0.00.199.294 I srv    load_model: loading model '/Users/harrif/.cache/huggingface/hub/models--ggml-org--gemma-4-E2B-it-GGUF/snapshots/a1dac71d3ab220618f5a7573a52acdc4baf3ae3b/gemma-4-E2B-it-Q8_0.gguf'
+0.01.480.736 W load: control-looking token:     50 '<|tool_response>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.483.928 W load: control-looking token:    212 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.495.678 W load: special_eog_ids contains '<|tool_response>', removing '</s>' token from EOG list
+0.05.277.959 I cmn          init: llama threadpool init, n_threads = 6
+0.06.391.288 W init_audio: audio input is in experimental stage and may have reduced quality:
+    https://github.com/ggml-org/llama.cpp/discussions/13759
+0.06.392.377 I srv    load_model: loaded multimodal model, '/Users/harrif/.cache/huggingface/hub/models--ggml-org--gemma-4-E2B-it-GGUF/snapshots/a1dac71d3ab220618f5a7573a52acdc4baf3ae3b/mmproj-gemma-4-E2B-it-Q8_0.gguf'
+0.06.432.598 I srv    load_model: initializing, n_slots = 4, n_ctx_slot = 65536, kv_unified = 'true'
+0.06.445.658 I srv  llama_server: model loaded
+0.06.445.663 I srv  llama_server: listening on http://127.0.0.1:8080
+0.06.445.665 W srv  llama_server: notice: server default port will be changed to :9931 in a future release (ref: https://github.com/ggml-org/llama.cpp/pull/26508)
+0.14.326.003 I slot get_availabl: id  3 | task -1 | selected slot by LRU, t_last = -1
+0.14.326.634 I slot launch_slot_: id  3 | task 0 | processing task, is_child = 0
+0.17.684.910 I slot print_timing: id  3 | task 0 | n_gen =    128, tg =  42.20 t/s, tg_3s =  42.54 t/s
+0.20.700.091 I slot print_timing: id  3 | task 0 | prompt eval time =     348.34 ms /    80 tokens (    4.35 ms per token,   229.66 tokens per second)
+0.20.700.283 I slot print_timing: id  3 | task 0 |        eval time =    6024.43 ms /   252 tokens (   24.00 ms per token,    41.66 tokens per second)
+0.20.700.293 I slot print_timing: id  3 | task 0 |       total time =    6372.77 ms /   332 tokens
+0.20.700.293 I slot print_timing: id  3 | task 0 |    graphs reused =        250
+0.20.700.940 I slot      release: id  3 | task 0 | stop processing: n_tokens = 331, truncated = 0

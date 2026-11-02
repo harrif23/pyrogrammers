@@ -1,0 +1,95 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel_recover</h1><p>view mixer</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;view mixer&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 852.48,
+    &quot;y&quot;: 54.72
+  },
+  &quot;strategy&quot;: &quot;panel_recover&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: null,
+      &quot;raw_response&quot;: &quot;&quot;,
+      &quot;latency_seconds&quot;: 47.66861808398971,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 8192,
+        &quot;prompt_tokens&quot;: 3960,
+        &quot;total_tokens&quot;: 12152,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 8192,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 3959
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 8192
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: view mixer\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nMixer level faders control mixer tracks; match the visible track header. Channel Rack volume, Mixer track level, and main monitor volume are different controls. Playlist tracks do not establish Mixer routing.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;af451aabd39b05bf2b5a84878eccc7ff729ea8dfcd19ff2cdde62650abfe03c3&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;length&quot;,
+      &quot;error&quot;: &quot;ValueError&quot;
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 852.48,
+        &quot;y&quot;: 54.72
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;: 333, \&quot;y\&quot;: 38}&quot;,
+      &quot;latency_seconds&quot;: 8.195471416023793,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 1335,
+        &quot;prompt_tokens&quot;: 3713,
+        &quot;total_tokens&quot;: 5048,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 1317,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 1317
+        }
+      },
+      &quot;stage&quot;: &quot;predict&quot;,
+      &quot;prompt&quot;: &quot;Locate the UI control in this 2560x1440 screenshot. Return only a JSON object with numeric x and y. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Instruction: view mixer&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;af451aabd39b05bf2b5a84878eccc7ff729ea8dfcd19ff2cdde62650abfe03c3&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 56.00370812500478,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;recovery_reason&quot;: &quot;length&quot;
+  }
+}</pre>

@@ -1,0 +1,56 @@
+{
+  "instruction": "DW Funk audition",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 808.96,
+    "y": 616.32
+  },
+  "strategy": "baseline",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 808.96,
+        "y": 616.32
+      },
+      "raw_response": "{\"x\": 316, \"y\": 428}",
+      "latency_seconds": 4.904988583992235,
+      "usage": {
+        "completion_tokens": 505,
+        "prompt_tokens": 3714,
+        "total_tokens": 4219,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 486,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 486
+        }
+      },
+      "stage": "predict",
+      "prompt": "Locate the UI control in this 2560x1440 screenshot. Return only a JSON object with numeric x and y. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Instruction: DW Funk audition",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "a5a45da2fb45af611187f89e719bf9d1b1fe4af14f71d6f8067c59db395aa638"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 5.215468708018307,
+  "status": "ok",
+  "metadata": {}
+}

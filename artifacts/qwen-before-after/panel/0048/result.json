@@ -1,0 +1,150 @@
+{
+  "instruction": "adjust room size",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1113.144,
+    "y": 565.54
+  },
+  "strategy": "panel",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1105.92,
+        "y": 564.48
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Plugin window (Fruity Reeverb 2)\",\n  \"entity\": \"Fruity Reeverb 2 (shaker reverb)\",\n  \"control\": \"SIZE knob\",\n  \"evidence\": \"Floating 'Fruity Reeverb 2 (shaker reverb)' plugin window is open over the playlist; its parameter grid includes a knob labeled SIZE (second row, between H.CUT and MOD), which controls the reverb room size.\",\n  \"region\": {\n    \"left\": 335,\n    \"top\": 322,\n    \"right\": 548,\n    \"bottom\": 452\n  },\n  \"anchor\": {\n    \"left\": 335,\n    \"top\": 322,\n    \"right\": 548,\n    \"bottom\": 335\n  },\n  \"point\": {\n    \"x\": 432,\n    \"y\": 392\n  }\n}",
+      "latency_seconds": 10.876699582993751,
+      "usage": {
+        "completion_tokens": 2444,
+        "prompt_tokens": 3894,
+        "total_tokens": 6338,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 2202,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 2202
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: adjust room size\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "062786e8a791d90eb26b475c0b8d1f980d1acd818a5f4388e45214280c4fb9d7"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    },
+    {
+      "point": {
+        "x": 568.288,
+        "y": 261.08
+      },
+      "raw_response": "{\"x\":472,\"y\":535}",
+      "latency_seconds": 1.525007457996253,
+      "usage": {
+        "completion_tokens": 259,
+        "prompt_tokens": 808,
+        "total_tokens": 1067,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 243,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 243
+        }
+      },
+      "stage": "panel_localize",
+      "prompt": "Locate the requested control in this 1204x488 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: adjust room size\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Plugin window (Fruity Reeverb 2); entity=Fruity Reeverb 2 (shaker reverb); control=SIZE knob. Return only {\"x\":number,\"y\":number}, or {\"visible\":false} if the exact target is absent.",
+      "image_sizes": [
+        [
+          1204,
+          488
+        ]
+      ],
+      "image_hashes": [
+        "67cbb768e62d9ac81ada583ce4d940de45771645304a958dcd41670cd12a16bb"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 12.555302082997514,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Plugin window (Fruity Reeverb 2)",
+      "entity": "Fruity Reeverb 2 (shaker reverb)",
+      "control": "SIZE knob",
+      "evidence": "Floating 'Fruity Reeverb 2 (shaker reverb)' plugin window is open over the playlist; its parameter grid includes a knob labeled SIZE (second row, between H.CUT and MOD), which controls the reverb room size.",
+      "region": {
+        "left": 335.0,
+        "top": 322.0,
+        "right": 548.0,
+        "bottom": 452.0
+      },
+      "anchor": {
+        "left": 335.0,
+        "top": 322.0,
+        "right": 548.0,
+        "bottom": 335.0
+      },
+      "point": {
+        "x": 432.0,
+        "y": 392.0
+      }
+    },
+    "crop": {
+      "bounds": [
+        829,
+        435,
+        1431,
+        679
+      ],
+      "output_size": [
+        1204,
+        488
+      ],
+      "scale": 2.0
+    },
+    "candidates": {
+      "initial": {
+        "x": 1105.92,
+        "y": 564.48
+      },
+      "refined": {
+        "x": 1113.144,
+        "y": 565.54
+      }
+    }
+  }
+}

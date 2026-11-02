@@ -1,0 +1,150 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>select track 24</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;select track 24&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 1281.4,
+    &quot;y&quot;: 675.05
+  },
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 1277.44,
+        &quot;y&quot;: 705.6
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Channel Rack\&quot;,\n  \&quot;entity\&quot;: \&quot;古筝\&quot;,\n  \&quot;control\&quot;: \&quot;track header row (select track 24)\&quot;,\n  \&quot;evidence\&quot;: \&quot;In the floating Channel Rack window, the row whose number column reads &#x27;24&#x27; is labeled &#x27;古筝&#x27;; clicking its header row selects track 24.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 380,\n    \&quot;top\&quot;: 479,\n    \&quot;right\&quot;: 585,\n    \&quot;bottom\&quot;: 501\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 420,\n    \&quot;top\&quot;: 481,\n    \&quot;right\&quot;: 580,\n    \&quot;bottom\&quot;: 500\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 499,\n    \&quot;y\&quot;: 490\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 20.086447707988555,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 4700,
+        &quot;prompt_tokens&quot;: 3936,
+        &quot;total_tokens&quot;: 8636,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 4491,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 4491
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: select track 24\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nMixer level faders control mixer tracks; match the visible track header. Channel Rack volume, Mixer track level, and main monitor volume are different controls. Playlist tracks do not establish Mixer routing.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;38095348cdd5840743eed1ff873573827a6927683feb926c1f3783aafe07915e&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 672.8,
+        &quot;y&quot;: 26.1
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;:580,\&quot;y\&quot;:150}&quot;,
+      &quot;latency_seconds&quot;: 5.924560290994123,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 1373,
+        &quot;prompt_tokens&quot;: 447,
+        &quot;total_tokens&quot;: 1820,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 1357,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 1357
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 1160x174 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: select track 24\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nMixer level faders control mixer tracks; match the visible track header. Channel Rack volume, Mixer track level, and main monitor volume are different controls. Playlist tracks do not establish Mixer routing.\nProposed context (verify visually): panel=Channel Rack; entity=古筝; control=track header row (select track 24). Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          1160,
+          174
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;c576a5025ebac5f710e699886cde8b7fd3f7fe8ec4cf4677afe335c0d7aea7fe&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 26.120095457998104,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nMixer level faders control mixer tracks; match the visible track header. Channel Rack volume, Mixer track level, and main monitor volume are different controls. Playlist tracks do not establish Mixer routing.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Channel Rack&quot;,
+      &quot;entity&quot;: &quot;古筝&quot;,
+      &quot;control&quot;: &quot;track header row (select track 24)&quot;,
+      &quot;evidence&quot;: &quot;In the floating Channel Rack window, the row whose number column reads &#x27;24&#x27; is labeled &#x27;古筝&#x27;; clicking its header row selects track 24.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 380.0,
+        &quot;top&quot;: 479.0,
+        &quot;right&quot;: 585.0,
+        &quot;bottom&quot;: 501.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 420.0,
+        &quot;top&quot;: 481.0,
+        &quot;right&quot;: 580.0,
+        &quot;bottom&quot;: 500.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 499.0,
+        &quot;y&quot;: 490.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        945,
+        662,
+        1525,
+        749
+      ],
+      &quot;output_size&quot;: [
+        1160,
+        174
+      ],
+      &quot;scale&quot;: 2.0
+    },
+    &quot;candidates&quot;: {
+      &quot;initial&quot;: {
+        &quot;x&quot;: 1277.44,
+        &quot;y&quot;: 705.6
+      },
+      &quot;refined&quot;: {
+        &quot;x&quot;: 1281.4,
+        &quot;y&quot;: 675.05
+      }
+    }
+  }
+}</pre>

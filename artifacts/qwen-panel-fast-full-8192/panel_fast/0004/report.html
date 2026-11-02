@@ -1,0 +1,88 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel_fast</h1><p>choose chord type for 1</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;choose chord type for 1&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 865.28,
+    &quot;y&quot;: 659.52
+  },
+  &quot;strategy&quot;: &quot;panel_fast&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 865.28,
+        &quot;y&quot;: 659.52
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;AGM L (AGM L) – Ample Guitar Martin plugin window\&quot;,\n  \&quot;entity\&quot;: \&quot;1\&quot;,\n  \&quot;control\&quot;: \&quot;Chord-type cell for chord 1 (row 1 of the chord grid)\&quot;,\n  \&quot;evidence\&quot;: \&quot;In the Ample Guitar Martin chord grid, the orange &#x27;1&#x27; row header has a chord-type cell (&#x27;Caj&#x27;) immediately to its right.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 303,\n    \&quot;top\&quot;: 453,\n    \&quot;right\&quot;: 422,\n    \&quot;bottom\&quot;: 548\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 304,\n    \&quot;top\&quot;: 454,\n    \&quot;right\&quot;: 315,\n    \&quot;bottom\&quot;: 464\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 338,\n    \&quot;y\&quot;: 458\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 47.91460937500233,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 6323,
+        &quot;prompt_tokens&quot;: 3924,
+        &quot;total_tokens&quot;: 10247,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 6096,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 6096
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: choose chord type for 1\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;29033ab12921a9954eb76cf2e0378a77beabdd1fa36e307275e7200ccdaeb4e2&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 48.23443379101809,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;AGM L (AGM L) – Ample Guitar Martin plugin window&quot;,
+      &quot;entity&quot;: &quot;1&quot;,
+      &quot;control&quot;: &quot;Chord-type cell for chord 1 (row 1 of the chord grid)&quot;,
+      &quot;evidence&quot;: &quot;In the Ample Guitar Martin chord grid, the orange &#x27;1&#x27; row header has a chord-type cell (&#x27;Caj&#x27;) immediately to its right.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 303.0,
+        &quot;top&quot;: 453.0,
+        &quot;right&quot;: 422.0,
+        &quot;bottom&quot;: 548.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 304.0,
+        &quot;top&quot;: 454.0,
+        &quot;right&quot;: 315.0,
+        &quot;bottom&quot;: 464.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 338.0,
+        &quot;y&quot;: 458.0
+      }
+    },
+    &quot;localization&quot;: &quot;single_pass_panel_plan&quot;
+  }
+}</pre>

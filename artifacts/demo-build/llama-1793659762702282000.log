@@ -1,0 +1,47 @@
+0.00.000.098 I srv  llama_server: initializing ...
+0.00.126.623 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.127.227 W srv  llama_server: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+0.00.129.025 I srv    load_model: loading model '/Users/harrif/.cache/huggingface/hub/models--ggml-org--gemma-4-E2B-it-GGUF/snapshots/a1dac71d3ab220618f5a7573a52acdc4baf3ae3b/gemma-4-E2B-it-Q8_0.gguf'
+0.01.040.607 W load: control-looking token:     50 '<|tool_response>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.042.997 W load: control-looking token:    212 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.051.579 W load: special_eog_ids contains '<|tool_response>', removing '</s>' token from EOG list
+0.01.556.821 I cmn          init: llama threadpool init, n_threads = 6
+0.02.278.730 W init_audio: audio input is in experimental stage and may have reduced quality:
+    https://github.com/ggml-org/llama.cpp/discussions/13759
+0.02.278.793 I srv    load_model: loaded multimodal model, '/Users/harrif/.cache/huggingface/hub/models--ggml-org--gemma-4-E2B-it-GGUF/snapshots/a1dac71d3ab220618f5a7573a52acdc4baf3ae3b/mmproj-gemma-4-E2B-it-Q8_0.gguf'
+0.02.311.889 I srv    load_model: initializing, n_slots = 4, n_ctx_slot = 65536, kv_unified = 'true'
+0.02.320.017 I srv  llama_server: model loaded
+0.02.320.022 I srv  llama_server: listening on http://127.0.0.1:8080
+0.02.320.022 W srv  llama_server: notice: server default port will be changed to :9931 in a future release (ref: https://github.com/ggml-org/llama.cpp/pull/26508)
+1.12.206.833 I srv    operator(): operator(): cleaning up before exit...
+Received second interrupt, terminating immediately.
+llamacpp/ggml/src/ggml-metal/ggml-metal-device.m:1039: GGML_ASSERT([rsets->data count] == 0) failed
+WARNING: Using native backtrace. Set GGML_BACKTRACE_LLDB for more info.
+WARNING: GGML_BACKTRACE_LLDB may cause native MacOS Terminal.app to crash.
+See: https://github.com/ggml-org/llama.cpp/pull/17869
+0   llama                               0x0000000101109ad4 ggml_print_backtrace + 276
+1   llama                               0x000000010116654c ggml_abort + 144
+2   llama                               0x00000001010e5708 ggml_metal_device_init + 0
+3   llama                               0x00000001010e6508 ggml_metal_device_free + 144
+4   llama                               0x00000001010e8a04 _ZNSt3__16vectorINS_10unique_ptrI17ggml_metal_device25ggml_metal_device_deleterEENS_9allocatorIS4_EEED1B9nqe210106Ev + 72
+5   libsystem_c.dylib                   0x0000000188165bb0 __cxa_finalize_ranges + 436
+6   libsystem_c.dylib                   0x000000018816599c exit + 44
+7   llama                               0x000000010084ca40 _ZL14signal_handleri + 116
+8   libsystem_platform.dylib            0x00000001882c0144 _sigtramp + 56
+9   IOGPU                               0x00000001af9a7824 -[IOGPUMetalResource dealloc] + 192
+10  IOGPU                               0x00000001af992800 -[IOGPUMetalBuffer dealloc] + 356
+11  AGXMetalG13X                        0x0000000214426efc -[AGXBuffer dealloc] + 96
+12  AGXMetalG13X                        0x00000002144aabd0 -[AGXG13XFamilyBuffer dealloc] + 80
+13  IOGPU                               0x00000001af99e250 -[IOGPUMetalResidencySet commit] + 660
+14  llama                               0x00000001010e79d4 ggml_metal_buffer_free + 184
+15  llama                               0x0000000101113c78 ggml_vbuffer_free + 44
+16  llama                               0x0000000101113b80 ggml_gallocr_free + 128
+17  llama                               0x000000010111bf24 ggml_backend_sched_free + 144
+18  llama                               0x0000000100f5ed34 _ZN13llama_contextD2Ev + 588
+19  llama                               0x0000000100bb6e20 _ZN18common_init_result4implD2Ev + 272
+20  llama                               0x0000000100981e2c _ZN19server_context_impl7destroyEv + 160
+21  llama                               0x0000000100982060 _ZN19server_context_implD2Ev + 44
+22  llama                               0x000000010084aa4c _Z12llama_serverR13common_paramsiPPc + 25880
+23  llama                               0x000000010084442c _Z12llama_serveriPPc + 364
+24  llama                               0x000000010083ff80 main + 832
+25  dyld                                0x0000000187edfe80 start + 6688

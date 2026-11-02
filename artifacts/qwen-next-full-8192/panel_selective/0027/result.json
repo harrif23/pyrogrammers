@@ -1,0 +1,68 @@
+{
+  "instruction": "select input folder on browser",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1548.8,
+    "y": 456.48
+  },
+  "strategy": "panel_selective",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1548.8,
+        "y": 456.48
+      },
+      "raw_response": "{\"visible\":true,\"panel\":\"Ultimate Vocal Remover\",\"entity\":\"Select input folder button\",\"point\":{\"x\":605,\"y\":317},\"ambiguous\":false}",
+      "latency_seconds": 4.507499375002226,
+      "usage": {
+        "completion_tokens": 609,
+        "prompt_tokens": 3826,
+        "total_tokens": 4435,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 568,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 3825
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 568
+        }
+      },
+      "stage": "compact_plan",
+      "prompt": "Locate this FL Studio control: select input folder on browser\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nUse coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Identify the panel and exact named entity; distinguish neighboring controls by function. Return only {\"visible\":boolean,\"panel\":\"short name\",\"entity\":\"short name\",\"point\":{\"x\":number,\"y\":number},\"ambiguous\":boolean}. Set point=null if absent. Set ambiguous=true if multiple visible controls plausibly match the request. No explanation or bounding boxes.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "0c76007ea9255333b4cc9d9d4363e24ab8b3934992459c132500a2a0bd187e2f"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 4.591826042014873,
+  "status": "ok",
+  "metadata": {
+    "plan": {
+      "visible": true,
+      "panel": "Ultimate Vocal Remover",
+      "entity": "Select input folder button",
+      "point": {
+        "x": 605.0,
+        "y": 317.0
+      },
+      "ambiguous": false
+    },
+    "verification": "not_requested"
+  }
+}

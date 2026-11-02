@@ -1,0 +1,135 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>set target mixer track for violins spiccato</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;set target mixer track for violins spiccato&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: null,
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 916.48,
+        &quot;y&quot;: 665.28
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Channel Rack\&quot;,\n  \&quot;entity\&quot;: \&quot;violins spiccato\&quot;,\n  \&quot;control\&quot;: \&quot;Mixer target button (per-channel Mixer button that sets the channel&#x27;s target mixer track)\&quot;,\n  \&quot;evidence\&quot;: \&quot;In the Channel Rack, the row labeled &#x27;violins spiccato&#x27; shows its left-side Mute/Solo/Mixer button group and an empty track-number field; the Mixer button (last icon before the number field) on this row sets the channel&#x27;s target mixer track.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 335,\n    \&quot;top\&quot;: 455,\n    \&quot;right\&quot;: 540,\n    \&quot;bottom\&quot;: 469\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 381,\n    \&quot;top\&quot;: 456,\n    \&quot;right\&quot;: 539,\n    \&quot;bottom\&quot;: 469\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 358,\n    \&quot;y\&quot;: 462\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 94.50856104202103,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 22124,
+        &quot;prompt_tokens&quot;: 3941,
+        &quot;total_tokens&quot;: 26065,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 21879,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 21879
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: set target mixer track for violins spiccato\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nMixer level faders control mixer tracks; match the visible track header. Channel Rack volume, Mixer track level, and main monitor volume are different controls. Playlist tracks do not establish Mixer routing.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;7afe1346e451e923b7bcd7ca647b5aca6d2207a159857ec1e794795b8a4853f3&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: null,
+      &quot;raw_response&quot;: &quot;{\&quot;visible\&quot;: false}&quot;,
+      &quot;latency_seconds&quot;: 1.6676885839842726,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 357,
+        &quot;prompt_tokens&quot;: 463,
+        &quot;total_tokens&quot;: 820,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 349,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 349
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 1160x150 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: set target mixer track for violins spiccato\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nMixer level faders control mixer tracks; match the visible track header. Channel Rack volume, Mixer track level, and main monitor volume are different controls. Playlist tracks do not establish Mixer routing.\nProposed context (verify visually): panel=Channel Rack; entity=violins spiccato; control=Mixer target button (per-channel Mixer button that sets the channel&#x27;s target mixer track). Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          1160,
+          150
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;4d29210414c29020a0d87638bbe07476824151225931688da2f4bfb59d8a5cee&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 96.30410299997311,
+  &quot;status&quot;: &quot;not_found&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nMixer level faders control mixer tracks; match the visible track header. Channel Rack volume, Mixer track level, and main monitor volume are different controls. Playlist tracks do not establish Mixer routing.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Channel Rack&quot;,
+      &quot;entity&quot;: &quot;violins spiccato&quot;,
+      &quot;control&quot;: &quot;Mixer target button (per-channel Mixer button that sets the channel&#x27;s target mixer track)&quot;,
+      &quot;evidence&quot;: &quot;In the Channel Rack, the row labeled &#x27;violins spiccato&#x27; shows its left-side Mute/Solo/Mixer button group and an empty track-number field; the Mixer button (last icon before the number field) on this row sets the channel&#x27;s target mixer track.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 335.0,
+        &quot;top&quot;: 455.0,
+        &quot;right&quot;: 540.0,
+        &quot;bottom&quot;: 469.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 381.0,
+        &quot;top&quot;: 456.0,
+        &quot;right&quot;: 539.0,
+        &quot;bottom&quot;: 469.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 358.0,
+        &quot;y&quot;: 462.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        830,
+        628,
+        1410,
+        703
+      ],
+      &quot;output_size&quot;: [
+        1160,
+        150
+      ],
+      &quot;scale&quot;: 2.0
+    },
+    &quot;localization&quot;: &quot;target_not_visible&quot;
+  }
+}</pre>

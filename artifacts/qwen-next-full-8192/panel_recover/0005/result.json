@@ -1,0 +1,88 @@
+{
+  "instruction": "missing plugins help",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1500.16,
+    "y": 885.6
+  },
+  "strategy": "panel_recover",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1500.16,
+        "y": 885.6
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Problems loading the project dialog\",\n  \"entity\": \"Problems loading the project dialog\",\n  \"control\": \"Missing plugins help button\",\n  \"evidence\": \"The dialog's bottom button row shows 'Ok', 'Missing plugins help', and 'Missing samples info' buttons.\",\n  \"region\": {\n    \"left\": 551,\n    \"top\": 601,\n    \"right\": 621,\n    \"bottom\": 628\n  },\n  \"anchor\": {\n    \"left\": 551,\n    \"top\": 601,\n    \"right\": 621,\n    \"bottom\": 628\n  },\n  \"point\": {\n    \"x\": 586,\n    \"y\": 615\n  }\n}",
+      "latency_seconds": 6.134762457979377,
+      "usage": {
+        "completion_tokens": 686,
+        "prompt_tokens": 3921,
+        "total_tokens": 4607,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 482,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 3920
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 482
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: missing plugins help\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "d84aae37f278e1d3ccf252698e4109850c8a8924d5f3ceb9cb4f76857b5eccf3"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 6.451955333002843,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Problems loading the project dialog",
+      "entity": "Problems loading the project dialog",
+      "control": "Missing plugins help button",
+      "evidence": "The dialog's bottom button row shows 'Ok', 'Missing plugins help', and 'Missing samples info' buttons.",
+      "region": {
+        "left": 551.0,
+        "top": 601.0,
+        "right": 621.0,
+        "bottom": 628.0
+      },
+      "anchor": {
+        "left": 551.0,
+        "top": 601.0,
+        "right": 621.0,
+        "bottom": 628.0
+      },
+      "point": {
+        "x": 586.0,
+        "y": 615.0
+      }
+    },
+    "localization": "single_pass_panel_plan"
+  }
+}

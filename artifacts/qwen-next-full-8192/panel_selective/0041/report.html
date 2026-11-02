@@ -1,0 +1,68 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel_selective</h1><p>add more plugins to slot 2</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;add more plugins to slot 2&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 2516.48,
+    &quot;y&quot;: 192.96
+  },
+  &quot;strategy&quot;: &quot;panel_selective&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 2516.48,
+        &quot;y&quot;: 192.96
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;visible\&quot;:true,\&quot;panel\&quot;:\&quot;Mixer\&quot;,\&quot;entity\&quot;:\&quot;Slot 2\&quot;,\&quot;point\&quot;:{\&quot;x\&quot;:983,\&quot;y\&quot;:134},\&quot;ambiguous\&quot;:false}&quot;,
+      &quot;latency_seconds&quot;: 4.073266124993097,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 572,
+        &quot;prompt_tokens&quot;: 3828,
+        &quot;total_tokens&quot;: 4400,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 535,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 3827
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 535
+        }
+      },
+      &quot;stage&quot;: &quot;compact_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate this FL Studio control: add more plugins to slot 2\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nUse coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Identify the panel and exact named entity; distinguish neighboring controls by function. Return only {\&quot;visible\&quot;:boolean,\&quot;panel\&quot;:\&quot;short name\&quot;,\&quot;entity\&quot;:\&quot;short name\&quot;,\&quot;point\&quot;:{\&quot;x\&quot;:number,\&quot;y\&quot;:number},\&quot;ambiguous\&quot;:boolean}. Set point=null if absent. Set ambiguous=true if multiple visible controls plausibly match the request. No explanation or bounding boxes.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;9fdc1c12316310f8d5a446185b8a1c85740229909ea2d360301cd2052b2097ad&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 4.154205750004621,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Mixer&quot;,
+      &quot;entity&quot;: &quot;Slot 2&quot;,
+      &quot;point&quot;: {
+        &quot;x&quot;: 983.0,
+        &quot;y&quot;: 134.0
+      },
+      &quot;ambiguous&quot;: false
+    },
+    &quot;verification&quot;: &quot;not_requested&quot;
+  }
+}</pre>

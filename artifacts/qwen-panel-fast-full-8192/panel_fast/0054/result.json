@@ -1,0 +1,83 @@
+{
+  "instruction": "change song progress",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 368.64,
+    "y": 12.96
+  },
+  "strategy": "panel_fast",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 368.64,
+        "y": 12.96
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"toolbar\",\n  \"entity\": \"song position\",\n  \"control\": \"song progress slider\",\n  \"evidence\": \"Top transport bar shows a green position slider with a round handle immediately left of the 1:01:28 time readout.\",\n  \"region\": {\n    \"left\": 90,\n    \"top\": 2,\n    \"right\": 205,\n    \"bottom\": 18\n  },\n  \"anchor\": null,\n  \"point\": {\n    \"x\": 144,\n    \"y\": 9\n  }\n}",
+      "latency_seconds": 11.84734483397915,
+      "usage": {
+        "completion_tokens": 1763,
+        "prompt_tokens": 3921,
+        "total_tokens": 5684,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 1611,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 1611
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: change song progress\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "08d5bfa6a87d8629b3ae90cc912d5a6c3692bd5c9cb5d8176f664d0ceb9cfcd6"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 11.93530179100344,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "toolbar",
+      "entity": "song position",
+      "control": "song progress slider",
+      "evidence": "Top transport bar shows a green position slider with a round handle immediately left of the 1:01:28 time readout.",
+      "region": {
+        "left": 90.0,
+        "top": 2.0,
+        "right": 205.0,
+        "bottom": 18.0
+      },
+      "anchor": null,
+      "point": {
+        "x": 144.0,
+        "y": 9.0
+      }
+    },
+    "localization": "single_pass_panel_plan"
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "instruction": "use the draw tool",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 652.098,
+    "y": 50.61599999999999
+  },
+  "strategy": "panel",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 924.16,
+        "y": 60.48
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"toolbar\",\n  \"entity\": \"draw tool\",\n  \"control\": \"pencil icon\",\n  \"evidence\": \"Top toolbar contains a pencil-shaped icon (draw tool) between the select arrow and the link/magnet icons.\",\n  \"region\": {\n    \"left\": 0,\n    \"top\": 30,\n    \"right\": 560,\n    \"bottom\": 55\n  },\n  \"anchor\": null,\n  \"point\": {\n    \"x\": 361,\n    \"y\": 42\n  }\n}",
+      "latency_seconds": 2.910322332987562,
+      "usage": {
+        "completion_tokens": 511,
+        "prompt_tokens": 3895,
+        "total_tokens": 4406,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 364,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 364
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: use the draw tool\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "c445cc08713bff99cffcb71c03ac701983c54bad8219ff43e108731a0522981e"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    },
+    {
+      "point": {
+        "x": 886.784,
+        "y": 68.931
+      },
+      "raw_response": "{\"x\":433,\"y\":333}",
+      "latency_seconds": 81.79236908297753,
+      "usage": {
+        "completion_tokens": 17461,
+        "prompt_tokens": 603,
+        "total_tokens": 18064,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 17445,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 17445
+        }
+      },
+      "stage": "panel_localize",
+      "prompt": "Locate the requested control in this 2048x207 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: use the draw tool\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=toolbar; entity=draw tool; control=pencil icon. Return only {\"x\":number,\"y\":number}, or {\"visible\":false} if the exact target is absent.",
+      "image_sizes": [
+        [
+          2048,
+          207
+        ]
+      ],
+      "image_hashes": [
+        "4744e598b0b0718b272c52a9fcdaee7109e0cc98e92c9570df26218d1ad3aef9"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 84.83919787500054,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "toolbar",
+      "entity": "draw tool",
+      "control": "pencil icon",
+      "evidence": "Top toolbar contains a pencil-shaped icon (draw tool) between the select arrow and the link/magnet icons.",
+      "region": {
+        "left": 0.0,
+        "top": 30.0,
+        "right": 560.0,
+        "bottom": 55.0
+      },
+      "anchor": null,
+      "point": {
+        "x": 361.0,
+        "y": 42.0
+      }
+    },
+    "crop": {
+      "bounds": [
+        0,
+        0,
+        1506,
+        152
+      ],
+      "output_size": [
+        2048,
+        207
+      ],
+      "scale": 1.3598937583001327
+    },
+    "candidates": {
+      "initial": {
+        "x": 924.16,
+        "y": 60.48
+      },
+      "refined": {
+        "x": 652.098,
+        "y": 50.61599999999999
+      }
+    }
+  }
+}

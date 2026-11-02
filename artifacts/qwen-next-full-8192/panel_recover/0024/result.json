@@ -1,0 +1,88 @@
+{
+  "instruction": "adjust wet level",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1367.04,
+    "y": 499.68
+  },
+  "strategy": "panel_recover",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1367.04,
+        "y": 499.68
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Plugin window (Fruity Reeverb 2)\",\n  \"entity\": \"Fruity Reeverb 2 (shaker reverb)\",\n  \"control\": \"WET slider\",\n  \"evidence\": \"The open Fruity Reeverb 2 plugin window shows a vertical WET slider to the right of the DRY and ER sliders.\",\n  \"region\": {\n    \"left\": 504,\n    \"top\": 335,\n    \"right\": 540,\n    \"bottom\": 410\n  },\n  \"anchor\": {\n    \"left\": 334,\n    \"top\": 322,\n    \"right\": 545,\n    \"bottom\": 338\n  },\n  \"point\": {\n    \"x\": 534,\n    \"y\": 347\n  }\n}",
+      "latency_seconds": 15.422576792014297,
+      "usage": {
+        "completion_tokens": 2289,
+        "prompt_tokens": 3921,
+        "total_tokens": 6210,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 2069,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 3920
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 2069
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: adjust wet level\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "dc36bdb4815ff4b8f4d80d5a5d2b3be5da5cf3d82c0cac7213f478fb6b5e5644"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 15.506635124998866,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Plugin window (Fruity Reeverb 2)",
+      "entity": "Fruity Reeverb 2 (shaker reverb)",
+      "control": "WET slider",
+      "evidence": "The open Fruity Reeverb 2 plugin window shows a vertical WET slider to the right of the DRY and ER sliders.",
+      "region": {
+        "left": 504.0,
+        "top": 335.0,
+        "right": 540.0,
+        "bottom": 410.0
+      },
+      "anchor": {
+        "left": 334.0,
+        "top": 322.0,
+        "right": 545.0,
+        "bottom": 338.0
+      },
+      "point": {
+        "x": 534.0,
+        "y": 347.0
+      }
+    },
+    "localization": "single_pass_panel_plan"
+  }
+}

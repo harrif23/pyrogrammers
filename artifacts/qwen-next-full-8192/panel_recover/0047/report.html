@@ -1,0 +1,88 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel_recover</h1><p>select next instrument</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;select next instrument&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 1190.4,
+    &quot;y&quot;: 299.52
+  },
+  &quot;strategy&quot;: &quot;panel_recover&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 1190.4,
+        &quot;y&quot;: 299.52
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Kontakt Portable plugin window\&quot;,\n  \&quot;entity\&quot;: \&quot;Instrument selector (New (default))\&quot;,\n  \&quot;control\&quot;: \&quot;Next instrument arrow (right chevron)\&quot;,\n  \&quot;evidence\&quot;: \&quot;The Kontakt top bar shows the &#x27;New (default)&#x27; instrument name flanked by left/right navigation chevrons; the right chevron steps to the next instrument.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 330,\n    \&quot;top\&quot;: 198,\n    \&quot;right\&quot;: 475,\n    \&quot;bottom\&quot;: 220\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 335,\n    \&quot;top\&quot;: 200,\n    \&quot;right\&quot;: 432,\n    \&quot;bottom\&quot;: 218\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 465,\n    \&quot;y\&quot;: 208\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 25.217195292003453,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 4009,
+        &quot;prompt_tokens&quot;: 3921,
+        &quot;total_tokens&quot;: 7930,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 3789,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 3920
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 3789
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: select next instrument\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;99c3e334ca7002c3bb76a45edaad888a843620cc97c36135e538f5a4ab7abc6a&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 25.31870262499433,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Kontakt Portable plugin window&quot;,
+      &quot;entity&quot;: &quot;Instrument selector (New (default))&quot;,
+      &quot;control&quot;: &quot;Next instrument arrow (right chevron)&quot;,
+      &quot;evidence&quot;: &quot;The Kontakt top bar shows the &#x27;New (default)&#x27; instrument name flanked by left/right navigation chevrons; the right chevron steps to the next instrument.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 330.0,
+        &quot;top&quot;: 198.0,
+        &quot;right&quot;: 475.0,
+        &quot;bottom&quot;: 220.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 335.0,
+        &quot;top&quot;: 200.0,
+        &quot;right&quot;: 432.0,
+        &quot;bottom&quot;: 218.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 465.0,
+        &quot;y&quot;: 208.0
+      }
+    },
+    &quot;localization&quot;: &quot;single_pass_panel_plan&quot;
+  }
+}</pre>

@@ -1,0 +1,19 @@
+{"message":"Requesting speech authorization","event":"diagnostic","bundle":"local.flground.voice"}
+{"status":3,"message":"Speech authorization returned","event":"diagnostic"}
+{"event":"listening"}
+{"value":1,"event":"level"}
+{"value":1,"event":"level"}
+{"value":1,"event":"level"}
+{"value":1,"event":"level"}
+{"value":1,"event":"level"}
+{"value":1,"event":"level"}
+{"value":1,"event":"level"}
+{"text":"What","event":"partial"}
+{"text":"What is","event":"partial"}
+{"value":1,"event":"level"}
+{"value":1,"event":"level"}
+{"text":"What is the","event":"partial"}
+{"text":"What is the temp","event":"partial"}
+{"text":"What is the tempo","event":"partial"}
+{"text":"What is the tempo control","event":"partial"}
+{"text":"What is the tempo control","event":"transcript"}

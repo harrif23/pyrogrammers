@@ -1,0 +1,150 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>change language</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;change language&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 1141.875,
+    &quot;y&quot;: 600.55
+  },
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 1128.96,
+        &quot;y&quot;: 601.92
+      },
+      &quot;raw_response&quot;: &quot;```json\n{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Settings dialog - General tab\&quot;,\n  \&quot;entity\&quot;: \&quot;Language\&quot;,\n  \&quot;control\&quot;: \&quot;Language dropdown (English (US) (en))\&quot;,\n  \&quot;evidence\&quot;: \&quot;Settings &gt; General shows a &#x27;Language&#x27; section with a &#x27;Language&#x27; label and a dropdown currently set to &#x27;English (US) (en)&#x27;.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 371,\n    \&quot;top\&quot;: 392,\n    \&quot;right\&quot;: 500,\n    \&quot;bottom\&quot;: 427\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 381,\n    \&quot;top\&quot;: 413,\n    \&quot;right\&quot;: 404,\n    \&quot;bottom\&quot;: 424\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 441,\n    \&quot;y\&quot;: 418\n  }\n}\n```&quot;,
+      &quot;latency_seconds&quot;: 4.471927000005962,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 966,
+        &quot;prompt_tokens&quot;: 3893,
+        &quot;total_tokens&quot;: 4859,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 749,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 749
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: change language\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;48cddbf98a3de057b9b3b3325164a9bb92065fe3844a38cbc86e76b78d33b401&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 419.75,
+        &quot;y&quot;: 107.1
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;:575,\&quot;y\&quot;:630}&quot;,
+      &quot;latency_seconds&quot;: 1.6919591659971047,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 375,
+        &quot;prompt_tokens&quot;: 341,
+        &quot;total_tokens&quot;: 716,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 359,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 359
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 730x170 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: change language\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Settings dialog - General tab; entity=Language; control=Language dropdown (English (US) (en)). Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          730,
+          170
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;edf208e8743b95a9c54f968a9e88c7028e444294125b7c2123874a803a388bb7&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 6.255377374996897,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Settings dialog - General tab&quot;,
+      &quot;entity&quot;: &quot;Language&quot;,
+      &quot;control&quot;: &quot;Language dropdown (English (US) (en))&quot;,
+      &quot;evidence&quot;: &quot;Settings &gt; General shows a &#x27;Language&#x27; section with a &#x27;Language&#x27; label and a dropdown currently set to &#x27;English (US) (en)&#x27;.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 371.0,
+        &quot;top&quot;: 392.0,
+        &quot;right&quot;: 500.0,
+        &quot;bottom&quot;: 427.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 381.0,
+        &quot;top&quot;: 413.0,
+        &quot;right&quot;: 404.0,
+        &quot;bottom&quot;: 424.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 441.0,
+        &quot;y&quot;: 418.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        932,
+        547,
+        1297,
+        632
+      ],
+      &quot;output_size&quot;: [
+        730,
+        170
+      ],
+      &quot;scale&quot;: 2.0
+    },
+    &quot;candidates&quot;: {
+      &quot;initial&quot;: {
+        &quot;x&quot;: 1128.96,
+        &quot;y&quot;: 601.92
+      },
+      &quot;refined&quot;: {
+        &quot;x&quot;: 1141.875,
+        &quot;y&quot;: 600.55
+      }
+    }
+  }
+}</pre>

@@ -1,0 +1,150 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>change song progress</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;change song progress&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 250.031,
+    &quot;y&quot;: 23.5
+  },
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 250.88,
+        &quot;y&quot;: 20.16
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;toolbar\&quot;,\n  \&quot;entity\&quot;: \&quot;song position slider\&quot;,\n  \&quot;control\&quot;: \&quot;song position slider (drag/click to change song progress)\&quot;,\n  \&quot;evidence\&quot;: \&quot;Top transport bar shows the time readout &#x27;1:01:28&#x27; immediately right of a short green horizontal slider with a round handle near its right end; this slider is the song-position scrubber used to move the playhead through the song.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 84,\n    \&quot;top\&quot;: 6,\n    \&quot;right\&quot;: 200,\n    \&quot;bottom\&quot;: 22\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 160,\n    \&quot;top\&quot;: 6,\n    \&quot;right\&quot;: 200,\n    \&quot;bottom\&quot;: 22\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 98,\n    \&quot;y\&quot;: 14\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 18.718095209012972,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 3990,
+        &quot;prompt_tokens&quot;: 3894,
+        &quot;total_tokens&quot;: 7884,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 3767,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 3767
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: change song progress\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;08d5bfa6a87d8629b3ae90cc912d5a6c3692bd5c9cb5d8176f664d0ceb9cfcd6&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 100.062,
+        &quot;y&quot;: 47.0
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;:153,\&quot;y\&quot;:500}&quot;,
+      &quot;latency_seconds&quot;: 1.747383916983381,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 347,
+        &quot;prompt_tokens&quot;: 314,
+        &quot;total_tokens&quot;: 661,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 331,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 331
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 654x94 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: change song progress\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=toolbar; entity=song position slider; control=song position slider (drag/click to change song progress). Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          654,
+          94
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;98c6b8dea14ec67aa8c560a8259d345daab8413d48d9d44f339df25d25be1128&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 20.55235608300427,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;toolbar&quot;,
+      &quot;entity&quot;: &quot;song position slider&quot;,
+      &quot;control&quot;: &quot;song position slider (drag/click to change song progress)&quot;,
+      &quot;evidence&quot;: &quot;Top transport bar shows the time readout &#x27;1:01:28&#x27; immediately right of a short green horizontal slider with a round handle near its right end; this slider is the song-position scrubber used to move the playhead through the song.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 84.0,
+        &quot;top&quot;: 6.0,
+        &quot;right&quot;: 200.0,
+        &quot;bottom&quot;: 22.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 160.0,
+        &quot;top&quot;: 6.0,
+        &quot;right&quot;: 200.0,
+        &quot;bottom&quot;: 22.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 98.0,
+        &quot;y&quot;: 14.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        200,
+        0,
+        527,
+        47
+      ],
+      &quot;output_size&quot;: [
+        654,
+        94
+      ],
+      &quot;scale&quot;: 2.0
+    },
+    &quot;candidates&quot;: {
+      &quot;initial&quot;: {
+        &quot;x&quot;: 250.88,
+        &quot;y&quot;: 20.16
+      },
+      &quot;refined&quot;: {
+        &quot;x&quot;: 250.031,
+        &quot;y&quot;: 23.5
+      }
+    }
+  }
+}</pre>

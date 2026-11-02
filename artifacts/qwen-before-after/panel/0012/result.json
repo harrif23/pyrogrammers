@@ -1,0 +1,150 @@
+{
+  "instruction": "show automation clips",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 423.104,
+    "y": 131.926
+  },
+  "strategy": "panel",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 471.04,
+        "y": 128.16
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Playlist\",\n  \"entity\": \"Playlist toolbar\",\n  \"control\": \"Show automation clips\",\n  \"evidence\": \"In the Playlist panel's top toolbar, a curve/automation-line icon sits between the list-view and star icons, which is the 'show automation clips' toggle.\",\n  \"region\": {\n    \"left\": 135,\n    \"top\": 80,\n    \"right\": 200,\n    \"bottom\": 100\n  },\n  \"anchor\": {\n    \"left\": 245,\n    \"top\": 58,\n    \"right\": 325,\n    \"bottom\": 70\n  },\n  \"point\": {\n    \"x\": 184,\n    \"y\": 89\n  }\n}",
+      "latency_seconds": 11.072960749996128,
+      "usage": {
+        "completion_tokens": 2510,
+        "prompt_tokens": 3894,
+        "total_tokens": 6404,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 2310,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 2310
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: show automation clips\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "655a9f5fab075094bdf86a29d49c8fbb2cd2c1ca6427f21bc9e07bb2e79ac684"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    },
+    {
+      "point": {
+        "x": 206.208,
+        "y": 147.852
+      },
+      "raw_response": "{\"x\":192,\"y\":666}",
+      "latency_seconds": 22.316401666001184,
+      "usage": {
+        "completion_tokens": 5262,
+        "prompt_tokens": 457,
+        "total_tokens": 5719,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 5246,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 5246
+        }
+      },
+      "stage": "panel_localize",
+      "prompt": "Locate the requested control in this 1074x222 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: show automation clips\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Playlist; entity=Playlist toolbar; control=Show automation clips. Return only {\"x\":number,\"y\":number}, or {\"visible\":false} if the exact target is absent.",
+      "image_sizes": [
+        [
+          1074,
+          222
+        ]
+      ],
+      "image_hashes": [
+        "1769513791887c8c45b51a349e0c93eefcbb3cd62cf26938c4762affff822356"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 33.48092237499077,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Playlist",
+      "entity": "Playlist toolbar",
+      "control": "Show automation clips",
+      "evidence": "In the Playlist panel's top toolbar, a curve/automation-line icon sits between the list-view and star icons, which is the 'show automation clips' toggle.",
+      "region": {
+        "left": 135.0,
+        "top": 80.0,
+        "right": 200.0,
+        "bottom": 100.0
+      },
+      "anchor": {
+        "left": 245.0,
+        "top": 58.0,
+        "right": 325.0,
+        "bottom": 70.0
+      },
+      "point": {
+        "x": 184.0,
+        "y": 89.0
+      }
+    },
+    "crop": {
+      "bounds": [
+        320,
+        58,
+        857,
+        169
+      ],
+      "output_size": [
+        1074,
+        222
+      ],
+      "scale": 2.0
+    },
+    "candidates": {
+      "initial": {
+        "x": 471.04,
+        "y": 128.16
+      },
+      "refined": {
+        "x": 423.104,
+        "y": 131.926
+      }
+    }
+  }
+}

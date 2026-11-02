@@ -1,0 +1,150 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>DW Funk audition</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;DW Funk audition&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 805.918,
+    &quot;y&quot;: 620.366
+  },
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 808.96,
+        &quot;y&quot;: 616.32
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Addictive Drums 2 plugin window (kit list, left column)\&quot;,\n  \&quot;entity\&quot;: \&quot;DW Funk\&quot;,\n  \&quot;control\&quot;: \&quot;Audition (play) button next to the DW Funk kit entry\&quot;,\n  \&quot;evidence\&quot;: \&quot;In the AD2 left kit list, the row labeled &#x27;DW Funk&#x27; has a circular play/audition icon immediately to the left of its text, between &#x27;Crisp Kit&#x27; and &#x27;70s Kit&#x27;.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 300,\n    \&quot;top\&quot;: 372,\n    \&quot;right\&quot;: 375,\n    \&quot;bottom\&quot;: 600\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 322,\n    \&quot;top\&quot;: 422,\n    \&quot;right\&quot;: 346,\n    \&quot;bottom\&quot;: 436\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 316,\n    \&quot;y\&quot;: 428\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 4.2909534579957835,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 804,
+        &quot;prompt_tokens&quot;: 3894,
+        &quot;total_tokens&quot;: 4698,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 563,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 563
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: DW Funk audition\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;a5a45da2fb45af611187f89e719bf9d1b1fe4af14f71d6f8067c59db395aa638&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 109.836,
+        &quot;y&quot;: 204.732
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;:243,\&quot;y\&quot;:282}&quot;,
+      &quot;latency_seconds&quot;: 3.7426190419937484,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 827,
+        &quot;prompt_tokens&quot;: 564,
+        &quot;total_tokens&quot;: 1391,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 811,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 811
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 452x726 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: DW Funk audition\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Addictive Drums 2 plugin window (kit list, left column); entity=DW Funk; control=Audition (play) button next to the DW Funk kit entry. Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          452,
+          726
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;350c9876188ee564d57cefc5d6b19acbd3d38c8dcd03a48580b7619eed05d9f0&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 8.22619700001087,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Addictive Drums 2 plugin window (kit list, left column)&quot;,
+      &quot;entity&quot;: &quot;DW Funk&quot;,
+      &quot;control&quot;: &quot;Audition (play) button next to the DW Funk kit entry&quot;,
+      &quot;evidence&quot;: &quot;In the AD2 left kit list, the row labeled &#x27;DW Funk&#x27; has a circular play/audition icon immediately to the left of its text, between &#x27;Crisp Kit&#x27; and &#x27;70s Kit&#x27;.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 300.0,
+        &quot;top&quot;: 372.0,
+        &quot;right&quot;: 375.0,
+        &quot;bottom&quot;: 600.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 322.0,
+        &quot;top&quot;: 422.0,
+        &quot;right&quot;: 346.0,
+        &quot;bottom&quot;: 436.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 316.0,
+        &quot;y&quot;: 428.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        751,
+        518,
+        977,
+        881
+      ],
+      &quot;output_size&quot;: [
+        452,
+        726
+      ],
+      &quot;scale&quot;: 2.0
+    },
+    &quot;candidates&quot;: {
+      &quot;initial&quot;: {
+        &quot;x&quot;: 808.96,
+        &quot;y&quot;: 616.32
+      },
+      &quot;refined&quot;: {
+        &quot;x&quot;: 805.918,
+        &quot;y&quot;: 620.366
+      }
+    }
+  }
+}</pre>

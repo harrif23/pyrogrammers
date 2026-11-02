@@ -1,0 +1,21 @@
+{
+  "split": "full",
+  "examples": 57,
+  "strategies": [
+    "panel_recover",
+    "panel_compact",
+    "panel_selective"
+  ],
+  "concurrency": 20,
+  "max_tokens_override": 8192,
+  "maximum_calls": 285,
+  "coordinate_space": "normalized_1000",
+  "temperature": 0,
+  "primary_candidate": "panel_recover",
+  "reused_baseline": "artifacts/qwen-before-after/baseline/predictions.jsonl",
+  "comparison_note": "Reused baseline; differing token budgets will be explicitly flagged.",
+  "output": "artifacts/qwen-next-full-8192",
+  "estimated_cost": null,
+  "evaluation_note": "Full-set result is exploratory if any official examples influenced tuning.",
+  "started_utc": "2026-11-02T23:10:56.903287+00:00"
+}

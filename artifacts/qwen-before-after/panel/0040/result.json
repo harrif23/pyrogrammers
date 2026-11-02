@@ -1,0 +1,145 @@
+{
+  "instruction": "pause",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1261.0,
+    "y": 1078.0
+  },
+  "strategy": "panel",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1251.84,
+        "y": 1078.56
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Riffstation plugin window\",\n  \"entity\": \"Transport controls\",\n  \"control\": \"pause\",\n  \"evidence\": \"Bottom transport row of the Riffstation plugin shows loop, rewind, pause (two vertical bars), fast-forward and stop buttons; the pause button is the middle one with two vertical bars.\",\n  \"region\": {\n    \"left\": 450,\n    \"top\": 735,\n    \"right\": 535,\n    \"bottom\": 762\n  },\n  \"anchor\": null,\n  \"point\": {\n    \"x\": 489,\n    \"y\": 749\n  }\n}",
+      "latency_seconds": 3.934593459009193,
+      "usage": {
+        "completion_tokens": 782,
+        "prompt_tokens": 3892,
+        "total_tokens": 4674,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 612,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 612
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: pause\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "a365c35e04adf25bf454e284a3562e44cb528791e0a3e146362a0a9dd103722b"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    },
+    {
+      "point": {
+        "x": 240.0,
+        "y": 62.0
+      },
+      "raw_response": "{\"x\":500,\"y\":500}",
+      "latency_seconds": 1.3104147500125691,
+      "usage": {
+        "completion_tokens": 285,
+        "prompt_tokens": 297,
+        "total_tokens": 582,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 269,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 269
+        }
+      },
+      "stage": "panel_localize",
+      "prompt": "Locate the requested control in this 480x124 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: pause\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Riffstation plugin window; entity=Transport controls; control=pause. Return only {\"x\":number,\"y\":number}, or {\"visible\":false} if the exact target is absent.",
+      "image_sizes": [
+        [
+          480,
+          124
+        ]
+      ],
+      "image_hashes": [
+        "e77ed44dcc70550761cff2dc3c10d36d9388f5963d19de9bfbfa1793eb8c5841"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 5.367273291980382,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Riffstation plugin window",
+      "entity": "Transport controls",
+      "control": "pause",
+      "evidence": "Bottom transport row of the Riffstation plugin shows loop, rewind, pause (two vertical bars), fast-forward and stop buttons; the pause button is the middle one with two vertical bars.",
+      "region": {
+        "left": 450.0,
+        "top": 735.0,
+        "right": 535.0,
+        "bottom": 762.0
+      },
+      "anchor": null,
+      "point": {
+        "x": 489.0,
+        "y": 749.0
+      }
+    },
+    "crop": {
+      "bounds": [
+        1141,
+        1047,
+        1381,
+        1109
+      ],
+      "output_size": [
+        480,
+        124
+      ],
+      "scale": 2.0
+    },
+    "candidates": {
+      "initial": {
+        "x": 1251.84,
+        "y": 1078.56
+      },
+      "refined": {
+        "x": 1261.0,
+        "y": 1078.0
+      }
+    }
+  }
+}

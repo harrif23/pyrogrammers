@@ -1,0 +1,1 @@
+"""FLGround screenshot grounding harness."""

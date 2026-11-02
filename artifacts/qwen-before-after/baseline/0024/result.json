@@ -1,0 +1,56 @@
+{
+  "instruction": "adjust wet level",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1372.16,
+    "y": 509.76
+  },
+  "strategy": "baseline",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1372.16,
+        "y": 509.76
+      },
+      "raw_response": "{\"x\": 536, \"y\": 354}",
+      "latency_seconds": 2.6096823340049013,
+      "usage": {
+        "completion_tokens": 257,
+        "prompt_tokens": 3714,
+        "total_tokens": 3971,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 238,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 238
+        }
+      },
+      "stage": "predict",
+      "prompt": "Locate the UI control in this 2560x1440 screenshot. Return only a JSON object with numeric x and y. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Instruction: adjust wet level",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "dc36bdb4815ff4b8f4d80d5a5d2b3be5da5cf3d82c0cac7213f478fb6b5e5644"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 2.6923912499914877,
+  "status": "ok",
+  "metadata": {}
+}

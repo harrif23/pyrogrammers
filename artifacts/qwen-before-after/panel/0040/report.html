@@ -1,0 +1,145 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>pause</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;pause&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 1261.0,
+    &quot;y&quot;: 1078.0
+  },
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 1251.84,
+        &quot;y&quot;: 1078.56
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Riffstation plugin window\&quot;,\n  \&quot;entity\&quot;: \&quot;Transport controls\&quot;,\n  \&quot;control\&quot;: \&quot;pause\&quot;,\n  \&quot;evidence\&quot;: \&quot;Bottom transport row of the Riffstation plugin shows loop, rewind, pause (two vertical bars), fast-forward and stop buttons; the pause button is the middle one with two vertical bars.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 450,\n    \&quot;top\&quot;: 735,\n    \&quot;right\&quot;: 535,\n    \&quot;bottom\&quot;: 762\n  },\n  \&quot;anchor\&quot;: null,\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 489,\n    \&quot;y\&quot;: 749\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 3.934593459009193,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 782,
+        &quot;prompt_tokens&quot;: 3892,
+        &quot;total_tokens&quot;: 4674,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 612,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 612
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: pause\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;a365c35e04adf25bf454e284a3562e44cb528791e0a3e146362a0a9dd103722b&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 240.0,
+        &quot;y&quot;: 62.0
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;:500,\&quot;y\&quot;:500}&quot;,
+      &quot;latency_seconds&quot;: 1.3104147500125691,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 285,
+        &quot;prompt_tokens&quot;: 297,
+        &quot;total_tokens&quot;: 582,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 269,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 269
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 480x124 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: pause\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Riffstation plugin window; entity=Transport controls; control=pause. Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          480,
+          124
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;e77ed44dcc70550761cff2dc3c10d36d9388f5963d19de9bfbfa1793eb8c5841&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 5.367273291980382,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Riffstation plugin window&quot;,
+      &quot;entity&quot;: &quot;Transport controls&quot;,
+      &quot;control&quot;: &quot;pause&quot;,
+      &quot;evidence&quot;: &quot;Bottom transport row of the Riffstation plugin shows loop, rewind, pause (two vertical bars), fast-forward and stop buttons; the pause button is the middle one with two vertical bars.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 450.0,
+        &quot;top&quot;: 735.0,
+        &quot;right&quot;: 535.0,
+        &quot;bottom&quot;: 762.0
+      },
+      &quot;anchor&quot;: null,
+      &quot;point&quot;: {
+        &quot;x&quot;: 489.0,
+        &quot;y&quot;: 749.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        1141,
+        1047,
+        1381,
+        1109
+      ],
+      &quot;output_size&quot;: [
+        480,
+        124
+      ],
+      &quot;scale&quot;: 2.0
+    },
+    &quot;candidates&quot;: {
+      &quot;initial&quot;: {
+        &quot;x&quot;: 1251.84,
+        &quot;y&quot;: 1078.56
+      },
+      &quot;refined&quot;: {
+        &quot;x&quot;: 1261.0,
+        &quot;y&quot;: 1078.0
+      }
+    }
+  }
+}</pre>

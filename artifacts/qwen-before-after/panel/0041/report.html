@@ -1,0 +1,150 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>add more plugins to slot 2</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;add more plugins to slot 2&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 2372.22,
+    &quot;y&quot;: 195.99
+  },
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 2406.4,
+        &quot;y&quot;: 194.4
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Mixer\&quot;,\n  \&quot;entity\&quot;: \&quot;Slot 2\&quot;,\n  \&quot;control\&quot;: \&quot;Slot 2 plugin selector (click to open plugin list and add a plugin)\&quot;,\n  \&quot;evidence\&quot;: \&quot;In the right-hand Mixer panel (header &#x27;Mixer - AGM L&#x27;), the row labeled &#x27;Slot 2&#x27; is visible below &#x27;Fruity parametric EQ 2&#x27;, with a left selector arrow and a right knob; clicking the slot name opens the plugin dropdown to add a plugin to that slot.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 915,\n    \&quot;top\&quot;: 127,\n    \&quot;right\&quot;: 999,\n    \&quot;bottom\&quot;: 146\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 922,\n    \&quot;top\&quot;: 129,\n    \&quot;right\&quot;: 962,\n    \&quot;bottom\&quot;: 143\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 940,\n    \&quot;y\&quot;: 135\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 8.264081375004025,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 1774,
+        &quot;prompt_tokens&quot;: 3898,
+        &quot;total_tokens&quot;: 5672,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 1526,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 1526
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: add more plugins to slot 2\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;9fdc1c12316310f8d5a446185b8a1c85740229909ea2d360301cd2052b2097ad&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 82.44,
+        &quot;y&quot;: 49.98
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;:180,\&quot;y\&quot;:490}&quot;,
+      &quot;latency_seconds&quot;: 9.699073124997085,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 2152,
+        &quot;prompt_tokens&quot;: 303,
+        &quot;total_tokens&quot;: 2455,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 2136,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 2136
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 458x102 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: add more plugins to slot 2\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Mixer; entity=Slot 2; control=Slot 2 plugin selector (click to open plugin list and add a plugin). Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          458,
+          102
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;04b8fab44257c86eaa039a7bd0631c110676773be5e4fb711ed51b85ffe567c4&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 18.045546208013548,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Mixer&quot;,
+      &quot;entity&quot;: &quot;Slot 2&quot;,
+      &quot;control&quot;: &quot;Slot 2 plugin selector (click to open plugin list and add a plugin)&quot;,
+      &quot;evidence&quot;: &quot;In the right-hand Mixer panel (header &#x27;Mixer - AGM L&#x27;), the row labeled &#x27;Slot 2&#x27; is visible below &#x27;Fruity parametric EQ 2&#x27;, with a left selector arrow and a right knob; clicking the slot name opens the plugin dropdown to add a plugin to that slot.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 915.0,
+        &quot;top&quot;: 127.0,
+        &quot;right&quot;: 999.0,
+        &quot;bottom&quot;: 146.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 922.0,
+        &quot;top&quot;: 129.0,
+        &quot;right&quot;: 962.0,
+        &quot;bottom&quot;: 143.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 940.0,
+        &quot;y&quot;: 135.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        2331,
+        171,
+        2560,
+        222
+      ],
+      &quot;output_size&quot;: [
+        458,
+        102
+      ],
+      &quot;scale&quot;: 2.0
+    },
+    &quot;candidates&quot;: {
+      &quot;initial&quot;: {
+        &quot;x&quot;: 2406.4,
+        &quot;y&quot;: 194.4
+      },
+      &quot;refined&quot;: {
+        &quot;x&quot;: 2372.22,
+        &quot;y&quot;: 195.99
+      }
+    }
+  }
+}</pre>

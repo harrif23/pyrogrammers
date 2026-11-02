@@ -28,7 +28,7 @@ def is_fl_studio(name):
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--instruction',required=True)
-    parser.add_argument('--strategy',choices=['baseline','panel','panel_verify'],default='panel')
+    parser.add_argument('--strategy',choices=['baseline','panel','panel_fast','panel_recover','panel_verify'],default='panel_recover')
     parser.add_argument('--delay',type=int,default=5)
     parser.add_argument('--endpoint',default='http://127.0.0.1:8080/v1')
     parser.add_argument('--coordinates',default='normalized_1000',choices=['pixels','normalized_1000','normalized_1'])
@@ -43,9 +43,11 @@ def main():
     try:
         from flground.desktop_macos import capture
         from flground.harness import ground
-        from local_model import LocalModel
+        from flground.model import FireworksModel
         from flground.reports import save_report
-        model=LocalModel(args.endpoint,args.coordinates)
+        os.environ['FLGROUND_MAX_TOKENS']='8192'
+        os.environ['FLGROUND_TEMPERATURE']='0'
+        model=FireworksModel()
         emit(event='model',name=model.model)
         for remaining in range(args.delay,0,-1):
             emit(event='countdown',seconds=remaining)
@@ -57,6 +59,8 @@ def main():
         image.save(destination/'capture.png')
         emit(event='working',message='Finding your control…')
         result=ground(image,args.instruction,model,args.strategy,artifacts=destination)
+        from verify_target import verify_target
+        result=verify_target(image,args.instruction,model,result,destination)
         save_report(image,result,destination)
         emit(event='result',point=result.point.model_dump() if result.point else None,
              screenshot_size=list(image.size),desktop_size=list(desktop),
@@ -67,7 +71,12 @@ def main():
         (destination/'failure.json').write_text(json.dumps({
             'error':type(exc).__name__,
             'calls':[c.model_dump() for c in model.records] if model else []},indent=2))
-        emit(event='error',message=f'Could not finish ({type(exc).__name__}). Check llama-server on port 8080 and Screen Recording permission.',
+        if isinstance(exc, ValueError):
+            message=f'Model returned an invalid target ({type(exc).__name__}). Try again.'
+        else:
+            message=f'Could not finish ({type(exc).__name__}). See the saved failure report.'
+        print(f'{type(exc).__name__}: failure report {destination / "failure.json"}',file=sys.stderr,flush=True)
+        emit(event='error',message=message,
              report=str(destination/'failure.json'))
 
 

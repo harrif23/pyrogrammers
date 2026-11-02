@@ -1,0 +1,88 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel_fast</h1><p>turn off default echo</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;turn off default echo&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 576.0,
+    &quot;y&quot;: 277.92
+  },
+  &quot;strategy&quot;: &quot;panel_fast&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 576.0,
+        &quot;y&quot;: 277.92
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Plugin window (Ample Guitar Martin / AGM L)\&quot;,\n  \&quot;entity\&quot;: \&quot;AGM L (Ample Guitar Martin)\&quot;,\n  \&quot;control\&quot;: \&quot;Default echo toggle button (top toolbar, 3rd icon)\&quot;,\n  \&quot;evidence\&quot;: \&quot;The Ample Guitar Martin (AGM L) plugin&#x27;s top toolbar shows the row of function icons including the default-echo toggle.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 184,\n    \&quot;top\&quot;: 161,\n    \&quot;right\&quot;: 672,\n    \&quot;bottom\&quot;: 208\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 197,\n    \&quot;top\&quot;: 163,\n    \&quot;right\&quot;: 229,\n    \&quot;bottom\&quot;: 174\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 225,\n    \&quot;y\&quot;: 193\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 50.281857041001786,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 6988,
+        &quot;prompt_tokens&quot;: 3922,
+        &quot;total_tokens&quot;: 10910,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 6765,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 3921
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 6765
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: turn off default echo\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;ce48544583b88aece03a2d1f6faa36a691fcf2f4e375695b9069d1f38f4078c2&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 50.538707125000656,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Plugin window (Ample Guitar Martin / AGM L)&quot;,
+      &quot;entity&quot;: &quot;AGM L (Ample Guitar Martin)&quot;,
+      &quot;control&quot;: &quot;Default echo toggle button (top toolbar, 3rd icon)&quot;,
+      &quot;evidence&quot;: &quot;The Ample Guitar Martin (AGM L) plugin&#x27;s top toolbar shows the row of function icons including the default-echo toggle.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 184.0,
+        &quot;top&quot;: 161.0,
+        &quot;right&quot;: 672.0,
+        &quot;bottom&quot;: 208.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 197.0,
+        &quot;top&quot;: 163.0,
+        &quot;right&quot;: 229.0,
+        &quot;bottom&quot;: 174.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 225.0,
+        &quot;y&quot;: 193.0
+      }
+    },
+    &quot;localization&quot;: &quot;single_pass_panel_plan&quot;
+  }
+}</pre>

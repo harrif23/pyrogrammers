@@ -1,0 +1,40 @@
+{"message":"Requesting speech authorization","bundle":"local.flground.voice","event":"diagnostic"}
+{"message":"Speech authorization returned","event":"diagnostic","status":3}
+{"event":"listening"}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":0.93271613121032715}
+{"event":"level","value":1}
+{"event":"partial","text":"Where"}
+{"event":"level","value":1}
+{"event":"level","value":0.99388980865478516}
+{"event":"partial","text":"Where is"}
+{"event":"partial","text":"Where is the"}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":0.61477255821228027}
+{"event":"partial","text":"Where is the temp"}
+{"event":"level","value":0.57582473754882812}
+{"event":"level","value":0.74253618717193604}
+{"event":"partial","text":"Where is the tempo"}
+{"event":"level","value":0.70813232660293579}
+{"event":"level","value":1}
+{"event":"partial","text":"Where is the tempo control"}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":0.86560577154159546}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"partial","text":"Where is the tempo control can"}
+{"event":"partial","text":"Where is the tempo control can you"}
+{"event":"level","value":0.72769498825073242}
+{"text":"Where is the tempo control can you point","event":"partial"}
+{"text":"Where is the tempo control can you point me","event":"partial"}
+{"text":"Where is the tempo control can you point me","event":"partial"}
+{"text":"Where is the tempo control can you point me","event":"transcript"}

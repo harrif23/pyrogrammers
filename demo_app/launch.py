@@ -101,7 +101,7 @@ def main():
             if time.monotonic()>=deadline:
                 raise RuntimeError(f'Server not ready after {args.timeout}s. Check the log or occupied port.')
             time.sleep(.5)
-        print('Gemma is ready. Hold Option+Z in FL Studio to speak. Quit from the FL menu or press Ctrl-C here to finish.',flush=True)
+        print('Gemma transcription is ready; Fireworks handles screen grounding. Hold Option+Z in FL Studio to speak. Quit from the FL menu or press Ctrl-C here to finish.',flush=True)
         app=subprocess.Popen(app_command,cwd=ROOT)
         while app.poll() is None:
             if server is not None and server.poll() is not None:

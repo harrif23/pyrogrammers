@@ -1,0 +1,56 @@
+{
+  "instruction": "use the draw tool",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 186.88,
+    "y": 61.92
+  },
+  "strategy": "knowledge",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 186.88,
+        "y": 61.92
+      },
+      "raw_response": "{\"x\": 73, \"y\": 43}",
+      "latency_seconds": 4.879137500014622,
+      "usage": {
+        "completion_tokens": 707,
+        "prompt_tokens": 3783,
+        "total_tokens": 4490,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 690,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 690
+        }
+      },
+      "stage": "predict",
+      "prompt": "Locate the UI control in this 2560x1440 screenshot. Return only a JSON object with numeric x and y. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Instruction: use the draw tool\nFL Studio context:\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "c445cc08713bff99cffcb71c03ac701983c54bad8219ff43e108731a0522981e"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 4.9741091250034515,
+  "status": "ok",
+  "metadata": {}
+}

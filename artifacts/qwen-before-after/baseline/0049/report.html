@@ -1,0 +1,56 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: baseline</h1><p>change the channel panning of alice keys</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;change the channel panning of alice keys&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 865.28,
+    &quot;y&quot;: 194.4
+  },
+  &quot;strategy&quot;: &quot;baseline&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 865.28,
+        &quot;y&quot;: 194.4
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;: 338, \&quot;y\&quot;: 135}&quot;,
+      &quot;latency_seconds&quot;: 10.762507500010543,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 2326,
+        &quot;prompt_tokens&quot;: 3719,
+        &quot;total_tokens&quot;: 6045,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 2307,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 2307
+        }
+      },
+      &quot;stage&quot;: &quot;predict&quot;,
+      &quot;prompt&quot;: &quot;Locate the UI control in this 2560x1440 screenshot. Return only a JSON object with numeric x and y. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Instruction: change the channel panning of alice keys&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;f0104a6af487f65890c050bb85db94fda6f62089bec970fab24c23c9651fce4c&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 10.855938249995233,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {}
+}</pre>

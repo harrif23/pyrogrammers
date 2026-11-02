@@ -1,0 +1,150 @@
+{
+  "instruction": "change language",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1141.875,
+    "y": 600.55
+  },
+  "strategy": "panel",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1128.96,
+        "y": 601.92
+      },
+      "raw_response": "```json\n{\n  \"visible\": true,\n  \"panel\": \"Settings dialog - General tab\",\n  \"entity\": \"Language\",\n  \"control\": \"Language dropdown (English (US) (en))\",\n  \"evidence\": \"Settings > General shows a 'Language' section with a 'Language' label and a dropdown currently set to 'English (US) (en)'.\",\n  \"region\": {\n    \"left\": 371,\n    \"top\": 392,\n    \"right\": 500,\n    \"bottom\": 427\n  },\n  \"anchor\": {\n    \"left\": 381,\n    \"top\": 413,\n    \"right\": 404,\n    \"bottom\": 424\n  },\n  \"point\": {\n    \"x\": 441,\n    \"y\": 418\n  }\n}\n```",
+      "latency_seconds": 4.471927000005962,
+      "usage": {
+        "completion_tokens": 966,
+        "prompt_tokens": 3893,
+        "total_tokens": 4859,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 749,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 749
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: change language\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "48cddbf98a3de057b9b3b3325164a9bb92065fe3844a38cbc86e76b78d33b401"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    },
+    {
+      "point": {
+        "x": 419.75,
+        "y": 107.1
+      },
+      "raw_response": "{\"x\":575,\"y\":630}",
+      "latency_seconds": 1.6919591659971047,
+      "usage": {
+        "completion_tokens": 375,
+        "prompt_tokens": 341,
+        "total_tokens": 716,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 359,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 359
+        }
+      },
+      "stage": "panel_localize",
+      "prompt": "Locate the requested control in this 730x170 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: change language\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Settings dialog - General tab; entity=Language; control=Language dropdown (English (US) (en)). Return only {\"x\":number,\"y\":number}, or {\"visible\":false} if the exact target is absent.",
+      "image_sizes": [
+        [
+          730,
+          170
+        ]
+      ],
+      "image_hashes": [
+        "edf208e8743b95a9c54f968a9e88c7028e444294125b7c2123874a803a388bb7"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 6.255377374996897,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Settings dialog - General tab",
+      "entity": "Language",
+      "control": "Language dropdown (English (US) (en))",
+      "evidence": "Settings > General shows a 'Language' section with a 'Language' label and a dropdown currently set to 'English (US) (en)'.",
+      "region": {
+        "left": 371.0,
+        "top": 392.0,
+        "right": 500.0,
+        "bottom": 427.0
+      },
+      "anchor": {
+        "left": 381.0,
+        "top": 413.0,
+        "right": 404.0,
+        "bottom": 424.0
+      },
+      "point": {
+        "x": 441.0,
+        "y": 418.0
+      }
+    },
+    "crop": {
+      "bounds": [
+        932,
+        547,
+        1297,
+        632
+      ],
+      "output_size": [
+        730,
+        170
+      ],
+      "scale": 2.0
+    },
+    "candidates": {
+      "initial": {
+        "x": 1128.96,
+        "y": 601.92
+      },
+      "refined": {
+        "x": 1141.875,
+        "y": 600.55
+      }
+    }
+  }
+}

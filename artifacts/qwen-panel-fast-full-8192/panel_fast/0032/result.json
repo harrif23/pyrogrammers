@@ -1,0 +1,88 @@
+{
+  "instruction": "reverse the audio",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1003.52,
+    "y": 1065.6
+  },
+  "strategy": "panel_fast",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1003.52,
+        "y": 1065.6
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Plugin window '双滚擦 (Master)' (audio editor)\",\n  \"entity\": \"Reverse (Precomputed effects radio button)\",\n  \"control\": \"Reverse radio button\",\n  \"evidence\": \"In the open plugin window's 'Precomputed effects' section, a 'Reverse' radio button is visible below 'Normalize'.\",\n  \"region\": {\n    \"left\": 388,\n    \"top\": 685,\n    \"right\": 480,\n    \"bottom\": 750\n  },\n  \"anchor\": {\n    \"left\": 395,\n    \"top\": 735,\n    \"right\": 415,\n    \"bottom\": 745\n  },\n  \"point\": {\n    \"x\": 392,\n    \"y\": 740\n  }\n}",
+      "latency_seconds": 8.72813687499729,
+      "usage": {
+        "completion_tokens": 1219,
+        "prompt_tokens": 3921,
+        "total_tokens": 5140,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 1006,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 1006
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: reverse the audio\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "0caa0e664c96ae18308ea848be6b525404be994e1c35d01e05649fe04914baec"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 8.801199707988417,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Plugin window '双滚擦 (Master)' (audio editor)",
+      "entity": "Reverse (Precomputed effects radio button)",
+      "control": "Reverse radio button",
+      "evidence": "In the open plugin window's 'Precomputed effects' section, a 'Reverse' radio button is visible below 'Normalize'.",
+      "region": {
+        "left": 388.0,
+        "top": 685.0,
+        "right": 480.0,
+        "bottom": 750.0
+      },
+      "anchor": {
+        "left": 395.0,
+        "top": 735.0,
+        "right": 415.0,
+        "bottom": 745.0
+      },
+      "point": {
+        "x": 392.0,
+        "y": 740.0
+      }
+    },
+    "localization": "single_pass_panel_plan"
+  }
+}

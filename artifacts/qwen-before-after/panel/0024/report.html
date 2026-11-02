@@ -1,0 +1,150 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>adjust wet level</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;adjust wet level&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 1372.675,
+    &quot;y&quot;: 509.64
+  },
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 1367.04,
+        &quot;y&quot;: 495.36
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Fruity Reeverb 2 (shaker reverb) plugin window\&quot;,\n  \&quot;entity\&quot;: \&quot;Fruity Reeverb 2 (shaker reverb)\&quot;,\n  \&quot;control\&quot;: \&quot;WET slider\&quot;,\n  \&quot;evidence\&quot;: \&quot;Open plugin window titled &#x27;Fruity Reeverb 2 (shaker reverb)&#x27; shows three vertical sliders labeled DRY, ER, WET; the WET slider is the wet-level control.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 504,\n    \&quot;top\&quot;: 333,\n    \&quot;right\&quot;: 543,\n    \&quot;bottom\&quot;: 417\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 530,\n    \&quot;top\&quot;: 404,\n    \&quot;right\&quot;: 538,\n    \&quot;bottom\&quot;: 413\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 534,\n    \&quot;y\&quot;: 344\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 4.999954041006276,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 898,
+        &quot;prompt_tokens&quot;: 3894,
+        &quot;total_tokens&quot;: 4792,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 659,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 659
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: adjust wet level\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;dc36bdb4815ff4b8f4d80d5a5d2b3be5da5cf3d82c0cac7213f478fb6b5e5644&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 181.35,
+        &quot;y&quot;: 77.28
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;:775,\&quot;y\&quot;:280}&quot;,
+      &quot;latency_seconds&quot;: 2.584734042000491,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 520,
+        &quot;prompt_tokens&quot;: 313,
+        &quot;total_tokens&quot;: 833,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 504,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 504
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 234x276 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: adjust wet level\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Fruity Reeverb 2 (shaker reverb) plugin window; entity=Fruity Reeverb 2 (shaker reverb); control=WET slider. Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          234,
+          276
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;629eaa5c24150732f430ac6098d2af310bac4e48a3bc158deb46561286b388f4&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 7.6773549590143375,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Fruity Reeverb 2 (shaker reverb) plugin window&quot;,
+      &quot;entity&quot;: &quot;Fruity Reeverb 2 (shaker reverb)&quot;,
+      &quot;control&quot;: &quot;WET slider&quot;,
+      &quot;evidence&quot;: &quot;Open plugin window titled &#x27;Fruity Reeverb 2 (shaker reverb)&#x27; shows three vertical sliders labeled DRY, ER, WET; the WET slider is the wet-level control.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 504.0,
+        &quot;top&quot;: 333.0,
+        &quot;right&quot;: 543.0,
+        &quot;bottom&quot;: 417.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 530.0,
+        &quot;top&quot;: 404.0,
+        &quot;right&quot;: 538.0,
+        &quot;bottom&quot;: 413.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 534.0,
+        &quot;y&quot;: 344.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        1282,
+        471,
+        1399,
+        609
+      ],
+      &quot;output_size&quot;: [
+        234,
+        276
+      ],
+      &quot;scale&quot;: 2.0
+    },
+    &quot;candidates&quot;: {
+      &quot;initial&quot;: {
+        &quot;x&quot;: 1367.04,
+        &quot;y&quot;: 495.36
+      },
+      &quot;refined&quot;: {
+        &quot;x&quot;: 1372.675,
+        &quot;y&quot;: 509.64
+      }
+    }
+  }
+}</pre>

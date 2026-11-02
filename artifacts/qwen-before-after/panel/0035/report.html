@@ -1,0 +1,150 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>choose midi channel</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;choose midi channel&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 889.52,
+    &quot;y&quot;: 374.04
+  },
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 1044.48,
+        &quot;y&quot;: 372.96
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Kontakt Portable plugin window\&quot;,\n  \&quot;entity\&quot;: \&quot;Susato Whistle KEY\&quot;,\n  \&quot;control\&quot;: \&quot;MIDI Ch\&quot;,\n  \&quot;evidence\&quot;: \&quot;In the Kontakt multi-rack instrument row, the field labeled &#x27;MIDI Ch: [A] 1&#x27; sits beside the Output and Voices fields, providing the per-instrument MIDI channel selector.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 316,\n    \&quot;top\&quot;: 222,\n    \&quot;right\&quot;: 559,\n    \&quot;bottom\&quot;: 271\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 340,\n    \&quot;top\&quot;: 229,\n    \&quot;right\&quot;: 422,\n    \&quot;bottom\&quot;: 240\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 408,\n    \&quot;y\&quot;: 259\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 12.42144270800054,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 2815,
+        &quot;prompt_tokens&quot;: 3936,
+        &quot;total_tokens&quot;: 6751,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 2597,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 2597
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: choose midi channel\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;fab97ed25ea66c124381da3c0e27922ee295b4f83074077ddc7a1d37602a9b4c&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 227.04,
+        &quot;y&quot;: 174.08
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;:165,\&quot;y\&quot;:640}&quot;,
+      &quot;latency_seconds&quot;: 6.112048040988157,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 1384,
+        &quot;prompt_tokens&quot;: 611,
+        &quot;total_tokens&quot;: 1995,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 1368,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 1368
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 1376x272 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: choose midi channel\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.\nProposed context (verify visually): panel=Kontakt Portable plugin window; entity=Susato Whistle KEY; control=MIDI Ch. Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          1376,
+          272
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;33e2fc05affdd286931fadabf811add7ba17f2d38df97e7537d0672743f6d11c&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 18.675967749994015,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Kontakt Portable plugin window&quot;,
+      &quot;entity&quot;: &quot;Susato Whistle KEY&quot;,
+      &quot;control&quot;: &quot;MIDI Ch&quot;,
+      &quot;evidence&quot;: &quot;In the Kontakt multi-rack instrument row, the field labeled &#x27;MIDI Ch: [A] 1&#x27; sits beside the Output and Voices fields, providing the per-instrument MIDI channel selector.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 316.0,
+        &quot;top&quot;: 222.0,
+        &quot;right&quot;: 559.0,
+        &quot;bottom&quot;: 271.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 340.0,
+        &quot;top&quot;: 229.0,
+        &quot;right&quot;: 422.0,
+        &quot;bottom&quot;: 240.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 408.0,
+        &quot;y&quot;: 259.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        776,
+        287,
+        1464,
+        423
+      ],
+      &quot;output_size&quot;: [
+        1376,
+        272
+      ],
+      &quot;scale&quot;: 2.0
+    },
+    &quot;candidates&quot;: {
+      &quot;initial&quot;: {
+        &quot;x&quot;: 1044.48,
+        &quot;y&quot;: 372.96
+      },
+      &quot;refined&quot;: {
+        &quot;x&quot;: 889.52,
+        &quot;y&quot;: 374.04
+      }
+    }
+  }
+}</pre>

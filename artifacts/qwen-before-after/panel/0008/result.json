@@ -1,0 +1,150 @@
+{
+  "instruction": "view presets",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1503.098,
+    "y": 403.14
+  },
+  "strategy": "panel",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1489.92,
+        "y": 403.2
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Channel Rack\",\n  \"entity\": \"Channel Rack\",\n  \"control\": \"Presets button\",\n  \"evidence\": \"The open Channel Rack window (showing channels like 'Alice keys', 'ADD snare', 'VAD1 Closed HiHat 015') has a 'Presets' label with a dropdown caret on its right side, used to view/load presets.\",\n  \"region\": {\n    \"left\": 352,\n    \"top\": 95,\n    \"right\": 645,\n    \"bottom\": 295\n  },\n  \"anchor\": {\n    \"left\": 352,\n    \"top\": 101,\n    \"right\": 645,\n    \"bottom\": 118\n  },\n  \"point\": {\n    \"x\": 582,\n    \"y\": 280\n  }\n}",
+      "latency_seconds": 17.00553520800895,
+      "usage": {
+        "completion_tokens": 3837,
+        "prompt_tokens": 3893,
+        "total_tokens": 7730,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 3611,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 3611
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: view presets\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "29495db7052b0466ba0ec3f03ba72d8d71a8bf1ba9603a0c206fbb5893bb21fa"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    },
+    {
+      "point": {
+        "x": 1280.196,
+        "y": 610.28
+      },
+      "raw_response": "{\"x\":774,\"y\":836}",
+      "latency_seconds": 2.1342193329764996,
+      "usage": {
+        "completion_tokens": 364,
+        "prompt_tokens": 1415,
+        "total_tokens": 1779,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 348,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 348
+        }
+      },
+      "stage": "panel_localize",
+      "prompt": "Locate the requested control in this 1654x730 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: view presets\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Channel Rack; entity=Channel Rack; control=Presets button. Return only {\"x\":number,\"y\":number}, or {\"visible\":false} if the exact target is absent.",
+      "image_sizes": [
+        [
+          1654,
+          730
+        ]
+      ],
+      "image_hashes": [
+        "227226ad45860798daa42f7a7dfd9cf83d9cfbf5099a69161f56a869a220bac9"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 19.33274566702312,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Channel Rack",
+      "entity": "Channel Rack",
+      "control": "Presets button",
+      "evidence": "The open Channel Rack window (showing channels like 'Alice keys', 'ADD snare', 'VAD1 Closed HiHat 015') has a 'Presets' label with a dropdown caret on its right side, used to view/load presets.",
+      "region": {
+        "left": 352.0,
+        "top": 95.0,
+        "right": 645.0,
+        "bottom": 295.0
+      },
+      "anchor": {
+        "left": 352.0,
+        "top": 101.0,
+        "right": 645.0,
+        "bottom": 118.0
+      },
+      "point": {
+        "x": 582.0,
+        "y": 280.0
+      }
+    },
+    "crop": {
+      "bounds": [
+        863,
+        98,
+        1690,
+        463
+      ],
+      "output_size": [
+        1654,
+        730
+      ],
+      "scale": 2.0
+    },
+    "candidates": {
+      "initial": {
+        "x": 1489.92,
+        "y": 403.2
+      },
+      "refined": {
+        "x": 1503.098,
+        "y": 403.14
+      }
+    }
+  }
+}

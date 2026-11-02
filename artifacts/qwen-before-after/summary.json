@@ -1,0 +1,72 @@
+{
+  "baseline": {
+    "correct": 26,
+    "total": 57,
+    "accuracy": 0.45614035087719296,
+    "errors": 0,
+    "abstentions": 0,
+    "mean_latency_seconds": 6.0323839795968714,
+    "p95_latency_seconds": 26.61194445900037,
+    "model_calls": 57,
+    "usage": {
+      "completion_tokens": 63619,
+      "prompt_tokens": 211782,
+      "total_tokens": 275401
+    },
+    "slices": {
+      "icon": {
+        "correct": 10,
+        "total": 31
+      },
+      "text": {
+        "correct": 16,
+        "total": 26
+      }
+    },
+    "estimated_cost": null
+  },
+  "panel": {
+    "correct": 26,
+    "total": 57,
+    "accuracy": 0.45614035087719296,
+    "errors": 4,
+    "abstentions": 7,
+    "mean_latency_seconds": 26.98800666587787,
+    "p95_latency_seconds": 124.81885087498813,
+    "model_calls": 108,
+    "usage": {
+      "completion_tokens": 345078,
+      "prompt_tokens": 251977,
+      "total_tokens": 597055
+    },
+    "slices": {
+      "icon": {
+        "correct": 9,
+        "total": 31
+      },
+      "text": {
+        "correct": 17,
+        "total": 26
+      }
+    },
+    "estimated_cost": null,
+    "comparison": {
+      "compatibility": "model/settings matched; inspect prompts and source hashes in manifests",
+      "baseline_correct": 26,
+      "fixes": [
+        "fruitloops_windows_10",
+        "fruitloops_windows_11",
+        "fruitloops_windows_19",
+        "fruitloops_windows_48"
+      ],
+      "regressions": [
+        "fruitloops_windows_27",
+        "fruitloops_windows_41",
+        "fruitloops_windows_46",
+        "fruitloops_windows_52"
+      ],
+      "net_fixes": 0,
+      "delta_percentage_points": 0.0
+    }
+  }
+}

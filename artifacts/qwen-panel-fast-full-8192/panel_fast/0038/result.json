@@ -1,0 +1,88 @@
+{
+  "instruction": "change the size",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 558.08,
+    "y": 90.72
+  },
+  "strategy": "panel_fast",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 558.08,
+        "y": 90.72
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Piano roll\",\n  \"entity\": \"Piano roll\",\n  \"control\": \"Note/grid size button (rightmost icon in the Piano roll toolbar)\",\n  \"evidence\": \"The Piano roll toolbar row (left of the 'Piano roll - Alice keys' header) ends with a size-toggle icon after the zoom magnifiers.\",\n  \"region\": {\n    \"left\": 184,\n    \"top\": 58,\n    \"right\": 316,\n    \"bottom\": 69\n  },\n  \"anchor\": {\n    \"left\": 254,\n    \"top\": 59,\n    \"right\": 316,\n    \"bottom\": 67\n  },\n  \"point\": {\n    \"x\": 218,\n    \"y\": 63\n  }\n}",
+      "latency_seconds": 35.78246412501903,
+      "usage": {
+        "completion_tokens": 5535,
+        "prompt_tokens": 3921,
+        "total_tokens": 9456,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 5325,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 3920
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 5325
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: change the size\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "b148da43d5bd7ffb45952bb04ba98b17cf6519131bb2094dd19e76dd1b34b4d9"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 35.8667666669935,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Piano roll",
+      "entity": "Piano roll",
+      "control": "Note/grid size button (rightmost icon in the Piano roll toolbar)",
+      "evidence": "The Piano roll toolbar row (left of the 'Piano roll - Alice keys' header) ends with a size-toggle icon after the zoom magnifiers.",
+      "region": {
+        "left": 184.0,
+        "top": 58.0,
+        "right": 316.0,
+        "bottom": 69.0
+      },
+      "anchor": {
+        "left": 254.0,
+        "top": 59.0,
+        "right": 316.0,
+        "bottom": 67.0
+      },
+      "point": {
+        "x": 218.0,
+        "y": 63.0
+      }
+    },
+    "localization": "single_pass_panel_plan"
+  }
+}

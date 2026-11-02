@@ -1,0 +1,42 @@
+{
+  "correct": 14,
+  "total": 34,
+  "accuracy": 0.4117647058823529,
+  "errors": 7,
+  "abstentions": 0,
+  "mean_latency_seconds": 12.806486144614823,
+  "p95_latency_seconds": 31.226709458016558,
+  "model_calls": 34,
+  "usage": {
+    "completion_tokens": 52534,
+    "prompt_tokens": 129015,
+    "total_tokens": 181549
+  },
+  "slices": {
+    "icon": {
+      "correct": 4,
+      "total": 19
+    },
+    "text": {
+      "correct": 10,
+      "total": 15
+    }
+  },
+  "estimated_cost": null,
+  "comparison": {
+    "compatibility": "UNMATCHED token budgets: baseline=32768, candidate=4096; comparison includes budget and harness changes",
+    "baseline_correct": 14,
+    "fixes": [
+      "fruitloops_windows_10",
+      "fruitloops_windows_34",
+      "fruitloops_windows_48"
+    ],
+    "regressions": [
+      "fruitloops_windows_20",
+      "fruitloops_windows_41",
+      "fruitloops_windows_52"
+    ],
+    "net_fixes": 0,
+    "delta_percentage_points": 0.0
+  }
+}

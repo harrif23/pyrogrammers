@@ -1,0 +1,59 @@
+{
+  "instruction": "legeto slide",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": null,
+  "strategy": "panel_compact",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": null,
+      "raw_response": "{\"visible\":false,\"panel\":\"Piano roll\",\"entity\":\"legato slide\",\"point\":null,\"ambiguous\":false}",
+      "latency_seconds": 17.986124291986926,
+      "usage": {
+        "completion_tokens": 1208,
+        "prompt_tokens": 3825,
+        "total_tokens": 5033,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 1178,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 1178
+        }
+      },
+      "stage": "compact_plan",
+      "prompt": "Locate this FL Studio control: legeto slide\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nUse coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Identify the panel and exact named entity; distinguish neighboring controls by function. Return only {\"visible\":boolean,\"panel\":\"short name\",\"entity\":\"short name\",\"point\":{\"x\":number,\"y\":number},\"ambiguous\":boolean}. Set point=null if absent. Set ambiguous=true if multiple visible controls plausibly match the request. No explanation or bounding boxes.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "70ab2aa1ca9be0932176da1062e95d51f5ac2f33e17cef5c842cdfb3415788b0"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 18.338697000028333,
+  "status": "not_found",
+  "metadata": {
+    "plan": {
+      "visible": false,
+      "panel": "Piano roll",
+      "entity": "legato slide",
+      "point": null,
+      "ambiguous": false
+    },
+    "verification": "not_requested"
+  }
+}

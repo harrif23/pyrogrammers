@@ -1,0 +1,88 @@
+{
+  "instruction": "view presets",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1505.28,
+    "y": 400.32
+  },
+  "strategy": "panel_recover",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1505.28,
+        "y": 400.32
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Channel Rack\",\n  \"entity\": \"Presets\",\n  \"control\": \"Presets dropdown button\",\n  \"evidence\": \"The Channel Rack window header shows a 'Presets' label with a dropdown arrow on its right side.\",\n  \"region\": {\n    \"left\": 565,\n    \"top\": 271,\n    \"right\": 612,\n    \"bottom\": 287\n  },\n  \"anchor\": {\n    \"left\": 578,\n    \"top\": 273,\n    \"right\": 600,\n    \"bottom\": 285\n  },\n  \"point\": {\n    \"x\": 588,\n    \"y\": 278\n  }\n}",
+      "latency_seconds": 9.030659542011563,
+      "usage": {
+        "completion_tokens": 1083,
+        "prompt_tokens": 3920,
+        "total_tokens": 5003,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 889,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 3919
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 889
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: view presets\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "29495db7052b0466ba0ec3f03ba72d8d71a8bf1ba9603a0c206fbb5893bb21fa"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 9.437088541017147,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Channel Rack",
+      "entity": "Presets",
+      "control": "Presets dropdown button",
+      "evidence": "The Channel Rack window header shows a 'Presets' label with a dropdown arrow on its right side.",
+      "region": {
+        "left": 565.0,
+        "top": 271.0,
+        "right": 612.0,
+        "bottom": 287.0
+      },
+      "anchor": {
+        "left": 578.0,
+        "top": 273.0,
+        "right": 600.0,
+        "bottom": 285.0
+      },
+      "point": {
+        "x": 588.0,
+        "y": 278.0
+      }
+    },
+    "localization": "single_pass_panel_plan"
+  }
+}

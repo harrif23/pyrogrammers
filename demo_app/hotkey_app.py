@@ -113,7 +113,7 @@ class HotkeyDemo(Demo):
         self.hud_until=0
         self.mic.setEnabled_(False)
         self.spawn([sys.executable,str(ROOT/'demo_app/backend.py'),'--instruction='+text,
-                    '--strategy','panel','--delay','0','--endpoint',window_app.OPTIONS.endpoint,
+                    '--strategy','panel_recover','--delay','0','--endpoint',window_app.OPTIONS.endpoint,
                     '--coordinates',window_app.OPTIONS.coordinates],'ground')
         self.tray.button().setTitle_('FL …')
 

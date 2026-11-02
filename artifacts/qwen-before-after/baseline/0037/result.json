@@ -1,0 +1,56 @@
+{
+  "instruction": "detect tempo",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1128.96,
+    "y": 1154.88
+  },
+  "strategy": "baseline",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1128.96,
+        "y": 1154.88
+      },
+      "raw_response": "{\"x\": 441, \"y\": 802}",
+      "latency_seconds": 1.7531624590046704,
+      "usage": {
+        "completion_tokens": 209,
+        "prompt_tokens": 3713,
+        "total_tokens": 3922,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 190,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 190
+        }
+      },
+      "stage": "predict",
+      "prompt": "Locate the UI control in this 2560x1440 screenshot. Return only a JSON object with numeric x and y. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Instruction: detect tempo",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "f231808169be9679b7627763270af264bdcd5e8cf172a5e4022706ba7ec852f8"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 1.829154999984894,
+  "status": "ok",
+  "metadata": {}
+}

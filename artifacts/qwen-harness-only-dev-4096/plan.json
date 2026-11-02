@@ -1,0 +1,20 @@
+{
+  "split": "dev",
+  "examples": 34,
+  "strategies": [
+    "knowledge",
+    "panel_fast"
+  ],
+  "concurrency": 15,
+  "max_tokens_override": 4096,
+  "maximum_calls": 68,
+  "coordinate_space": "normalized_1000",
+  "temperature": 0,
+  "primary_candidate": "knowledge",
+  "reused_baseline": "artifacts/qwen-before-after/baseline/predictions.jsonl",
+  "comparison_note": "Reused baseline; differing token budgets will be explicitly flagged.",
+  "output": "artifacts/qwen-harness-only-dev-4096",
+  "estimated_cost": null,
+  "evaluation_note": "Full-set result is exploratory if any official examples influenced tuning.",
+  "started_utc": "2026-11-02T23:02:12.919921+00:00"
+}

@@ -1,0 +1,150 @@
+{
+  "instruction": "adjust attack time",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1027.68,
+    "y": 739.33
+  },
+  "strategy": "panel",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1018.88,
+        "y": 740.16
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Plugin window (synthesizer) for VAD1 Claps 011\",\n  \"entity\": \"VAD1 Claps 011\",\n  \"control\": \"Envelope ATT knob\",\n  \"evidence\": \"The open plugin window titled 'VAD1 Claps 011 (VAD1 Claps 011)' shows an Envelope section whose bottom row of knobs is labeled DELAY, ATT, HOLD, DEC, SUS, REL; the ATT knob is the attack-time control.\",\n  \"region\": {\n    \"left\": 375,\n    \"top\": 425,\n    \"right\": 485,\n    \"bottom\": 555\n  },\n  \"anchor\": {\n    \"left\": 375,\n    \"top\": 348,\n    \"right\": 460,\n    \"bottom\": 362\n  },\n  \"point\": {\n    \"x\": 398,\n    \"y\": 514\n  }\n}",
+      "latency_seconds": 13.430099791003158,
+      "usage": {
+        "completion_tokens": 2971,
+        "prompt_tokens": 3894,
+        "total_tokens": 6865,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 2717,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 2717
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: adjust attack time\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "67678836faf1a66db07136da134f582f16b2ca2a5365d597c45be7350a4bfd6f"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    },
+    {
+      "point": {
+        "x": 165.36,
+        "y": 506.66
+      },
+      "raw_response": "{\"x\":265,\"y\":770}",
+      "latency_seconds": 7.974663250002777,
+      "usage": {
+        "completion_tokens": 1795,
+        "prompt_tokens": 661,
+        "total_tokens": 2456,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 1779,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 1779
+        }
+      },
+      "stage": "panel_localize",
+      "prompt": "Locate the requested control in this 624x658 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: adjust attack time\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Plugin window (synthesizer) for VAD1 Claps 011; entity=VAD1 Claps 011; control=Envelope ATT knob. Return only {\"x\":number,\"y\":number}, or {\"visible\":false} if the exact target is absent.",
+      "image_sizes": [
+        [
+          624,
+          658
+        ]
+      ],
+      "image_hashes": [
+        "f0c0df9a812041f5f7413999480a78f56bf5fc1dbdad781d5abe5d7e0c893008"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 21.52085033399635,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Plugin window (synthesizer) for VAD1 Claps 011",
+      "entity": "VAD1 Claps 011",
+      "control": "Envelope ATT knob",
+      "evidence": "The open plugin window titled 'VAD1 Claps 011 (VAD1 Claps 011)' shows an Envelope section whose bottom row of knobs is labeled DELAY, ATT, HOLD, DEC, SUS, REL; the ATT knob is the attack-time control.",
+      "region": {
+        "left": 375.0,
+        "top": 425.0,
+        "right": 485.0,
+        "bottom": 555.0
+      },
+      "anchor": {
+        "left": 375.0,
+        "top": 348.0,
+        "right": 460.0,
+        "bottom": 362.0
+      },
+      "point": {
+        "x": 398.0,
+        "y": 514.0
+      }
+    },
+    "crop": {
+      "bounds": [
+        945,
+        486,
+        1257,
+        815
+      ],
+      "output_size": [
+        624,
+        658
+      ],
+      "scale": 2.0
+    },
+    "candidates": {
+      "initial": {
+        "x": 1018.88,
+        "y": 740.16
+      },
+      "refined": {
+        "x": 1027.68,
+        "y": 739.33
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "instruction": "next drum set",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1781.76,
+    "y": 668.16
+  },
+  "strategy": "knowledge",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1781.76,
+        "y": 668.16
+      },
+      "raw_response": "{\n  \"x\": 696,\n  \"y\": 464\n}",
+      "latency_seconds": 3.340132583020022,
+      "usage": {
+        "completion_tokens": 382,
+        "prompt_tokens": 3824,
+        "total_tokens": 4206,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 357,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 357
+        }
+      },
+      "stage": "predict",
+      "prompt": "Locate the UI control in this 2560x1440 screenshot. Return only a JSON object with numeric x and y. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Instruction: next drum set\nFL Studio context:\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "4c48409029185e03d6128187b123b7cd17f439ece349f26a2f6f4b273ad0379d"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 3.4730529579974245,
+  "status": "ok",
+  "metadata": {}
+}

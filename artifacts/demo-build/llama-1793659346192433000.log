@@ -1,0 +1,43 @@
+0.00.000.253 I srv  llama_server: initializing ...
+0.00.138.983 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.140.213 W srv  llama_server: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+0.00.141.969 I srv    load_model: loading model '/Users/harrif/.cache/huggingface/hub/models--ggml-org--gemma-4-E2B-it-GGUF/snapshots/a1dac71d3ab220618f5a7573a52acdc4baf3ae3b/gemma-4-E2B-it-Q8_0.gguf'
+0.01.186.823 W load: control-looking token:     50 '<|tool_response>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.188.817 W load: control-looking token:    212 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.195.755 W load: special_eog_ids contains '<|tool_response>', removing '</s>' token from EOG list
+0.06.582.478 I cmn          init: llama threadpool init, n_threads = 6
+0.07.867.974 W init_audio: audio input is in experimental stage and may have reduced quality:
+    https://github.com/ggml-org/llama.cpp/discussions/13759
+0.07.868.479 I srv    load_model: loaded multimodal model, '/Users/harrif/.cache/huggingface/hub/models--ggml-org--gemma-4-E2B-it-GGUF/snapshots/a1dac71d3ab220618f5a7573a52acdc4baf3ae3b/mmproj-gemma-4-E2B-it-Q8_0.gguf'
+0.07.901.625 I srv    load_model: initializing, n_slots = 4, n_ctx_slot = 65536, kv_unified = 'true'
+0.07.924.706 I srv  llama_server: model loaded
+0.07.924.713 I srv  llama_server: listening on http://127.0.0.1:8080
+0.07.924.713 W srv  llama_server: notice: server default port will be changed to :9931 in a future release (ref: https://github.com/ggml-org/llama.cpp/pull/26508)
+6.18.469.322 I srv    operator(): operator(): cleaning up before exit...
+Received second interrupt, terminating immediately.
+llamacpp/ggml/src/ggml-metal/ggml-metal-device.m:1039: GGML_ASSERT([rsets->data count] == 0) failed
+WARNING: Using native backtrace. Set GGML_BACKTRACE_LLDB for more info.
+WARNING: GGML_BACKTRACE_LLDB may cause native MacOS Terminal.app to crash.
+See: https://github.com/ggml-org/llama.cpp/pull/17869
+0   llama                               0x0000000101229ad4 ggml_print_backtrace + 276
+1   llama                               0x000000010128654c ggml_abort + 144
+2   llama                               0x0000000101205708 ggml_metal_device_init + 0
+3   llama                               0x0000000101206508 ggml_metal_device_free + 144
+4   llama                               0x0000000101208a04 _ZNSt3__16vectorINS_10unique_ptrI17ggml_metal_device25ggml_metal_device_deleterEENS_9allocatorIS4_EEED1B9nqe210106Ev + 72
+5   libsystem_c.dylib                   0x0000000188165bb0 __cxa_finalize_ranges + 436
+6   libsystem_c.dylib                   0x000000018816599c exit + 44
+7   llama                               0x000000010096ca40 _ZL14signal_handleri + 116
+8   libsystem_platform.dylib            0x00000001882c0144 _sigtramp + 56
+9   llama                               0x00000001012079cc ggml_metal_buffer_free + 176
+10  llama                               0x00000001012079cc ggml_metal_buffer_free + 176
+11  llama                               0x0000000101233c78 ggml_vbuffer_free + 44
+12  llama                               0x0000000101233b80 ggml_gallocr_free + 128
+13  llama                               0x000000010123bf24 ggml_backend_sched_free + 144
+14  llama                               0x000000010107ed34 _ZN13llama_contextD2Ev + 588
+15  llama                               0x0000000100cd6e20 _ZN18common_init_result4implD2Ev + 272
+16  llama                               0x0000000100aa1e2c _ZN19server_context_impl7destroyEv + 160
+17  llama                               0x0000000100aa2060 _ZN19server_context_implD2Ev + 44
+18  llama                               0x000000010096aa4c _Z12llama_serverR13common_paramsiPPc + 25880
+19  llama                               0x000000010096442c _Z12llama_serveriPPc + 364
+20  llama                               0x000000010095ff80 main + 832
+21  dyld                                0x0000000187edfe80 start + 6688

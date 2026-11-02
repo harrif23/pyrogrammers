@@ -1,0 +1,68 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel_compact</h1><p>reroute channel to violins spiccato</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;reroute channel to violins spiccato&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 1121.28,
+    &quot;y&quot;: 630.72
+  },
+  &quot;strategy&quot;: &quot;panel_compact&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 1121.28,
+        &quot;y&quot;: 630.72
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;visible\&quot;:true,\&quot;panel\&quot;:\&quot;context menu\&quot;,\&quot;entity\&quot;:\&quot;violins spiccato\&quot;,\&quot;point\&quot;:{\&quot;x\&quot;:438,\&quot;y\&quot;:438},\&quot;ambiguous\&quot;:false}&quot;,
+      &quot;latency_seconds&quot;: 6.430935999989742,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 252,
+        &quot;prompt_tokens&quot;: 3872,
+        &quot;total_tokens&quot;: 4124,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 213,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 213
+        }
+      },
+      &quot;stage&quot;: &quot;compact_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate this FL Studio control: reroute channel to violins spiccato\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.\nUse coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Identify the panel and exact named entity; distinguish neighboring controls by function. Return only {\&quot;visible\&quot;:boolean,\&quot;panel\&quot;:\&quot;short name\&quot;,\&quot;entity\&quot;:\&quot;short name\&quot;,\&quot;point\&quot;:{\&quot;x\&quot;:number,\&quot;y\&quot;:number},\&quot;ambiguous\&quot;:boolean}. Set point=null if absent. Set ambiguous=true if multiple visible controls plausibly match the request. No explanation or bounding boxes.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;7e79f5d162b1140f4ae16ec292893e9ccc4c01dc756b135c6431c115408e0b80&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 6.770397457992658,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;context menu&quot;,
+      &quot;entity&quot;: &quot;violins spiccato&quot;,
+      &quot;point&quot;: {
+        &quot;x&quot;: 438.0,
+        &quot;y&quot;: 438.0
+      },
+      &quot;ambiguous&quot;: false
+    },
+    &quot;verification&quot;: &quot;not_requested&quot;
+  }
+}</pre>

@@ -1,3 +1,32 @@
+Latest demo correction: Fireworks sometimes describes the right target but supplies
+an incorrect coordinate. After the harness, the desktop demo now runs an additional
+localization call on a 768-pixel context crop around the prediction, explicitly mapping
+crop coordinates back to the screen. This is demo-only, adds latency, and is NOT part
+of the published 32/57 score. The saved tempo failure was replayed successfully:
+verification returned a point inside the visible BPM field. Other requests remain
+unvalidated; this is not a guarantee of correct pointing.
+
+# Current demo architecture
+
+Hold Option+Z to record microphone audio and display real microphone levels. Release
+sends a 16 kHz mono WAV to local Gemma 4 via llama-server for transcription. Apple
+Speech recognition is no longer used. The transcript and a fresh whole-display
+screenshot then go to the Fireworks deployment configured in `.env`, using
+`panel_recover` (8192-token ceiling, temperature 0). This is the benchmark harness;
+Gemma does not choose screen coordinates. No OCR or fixed screen coordinates are used.
+
+The local endpoint option applies only to transcription. Grounding uses Fireworks
+configuration from the repository working directory. Audio remains local; screenshots
+and transcripts are sent to Fireworks and incur inference usage. Logs/audio are saved
+under artifacts/demo-build/logs and grounding reports under artifacts/voice-demo.
+
+Validation: rebuilt native audio recorder; 24 focused tests passed. A synthetic audio
+request reached local Gemma and recovered the requested phrase with trailing noise.
+Live hotkey-to-Fireworks-to-overlay behavior still needs testing after restarting.
+
+The historical implementation notes below describe earlier iterations and are
+superseded by the routing described above.
+
 FLGround hold-to-talk demo
 
 One-command launch from the repository root:
@@ -136,3 +165,11 @@ bundle Info.plist, because the helper is launched directly with subprocess pipes
 `artifacts/demo-build/FLGround Voice.app/Contents/MacOS/FLGroundVoice --check-metadata`
 (with the executable path quoted) validates metadata without requesting microphone
 access. Actual speech capture still requires a live permission/recording check.
+
+Follow-up fix: the live TCC crash persisted with direct subprocess execution despite
+embedded metadata. Speech now launches through `open -n -W` (Launch Services), with
+file-based events and a stop signal for key release. Session files live in
+`artifacts/demo-build/logs/voice-*.jsonl` and `.log`; they contain transcripts and
+should remain local. The terminal prints each log path. Backend stderr is also saved.
+Live validation confirmed speech authorization, microphone levels and partial
+transcriptions through this launch path; that is separate from end-to-end grounding.

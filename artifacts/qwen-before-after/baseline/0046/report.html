@@ -1,0 +1,56 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: baseline</h1><p>use high quality</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;use high quality&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 1144.32,
+    &quot;y&quot;: 724.32
+  },
+  &quot;strategy&quot;: &quot;baseline&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 1144.32,
+        &quot;y&quot;: 724.32
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;: 447, \&quot;y\&quot;: 503}&quot;,
+      &quot;latency_seconds&quot;: 27.15371674997732,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 6438,
+        &quot;prompt_tokens&quot;: 3714,
+        &quot;total_tokens&quot;: 10152,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 6419,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 6419
+        }
+      },
+      &quot;stage&quot;: &quot;predict&quot;,
+      &quot;prompt&quot;: &quot;Locate the UI control in this 2560x1440 screenshot. Return only a JSON object with numeric x and y. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Instruction: use high quality&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;003b297012a39544c354cd9a643ac36c83ae6397902984191e17490b77c0b2fe&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 27.246049333014525,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {}
+}</pre>

@@ -1,0 +1,129 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>What is the tempo control</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;What is the tempo control&quot;,
+  &quot;image_width&quot;: 1512,
+  &quot;image_height&quot;: 982,
+  &quot;point&quot;: {
+    &quot;x&quot;: 730.75,
+    &quot;y&quot;: 3.9600000000000004
+  },
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;/Users/harrif/.cache/huggingface/hub/models--ggml-org--gemma-4-E2B-it-GGUF/snapshots/a1dac71d3ab220618f5a7573a52acdc4baf3ae3b/gemma-4-E2B-it-Q8_0.gguf&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 680.4,
+        &quot;y&quot;: 29.46
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Transport Bar\&quot;,\n  \&quot;entity\&quot;: \&quot;Tempo Control\&quot;,\n  \&quot;control\&quot;: \&quot;BPM Display\&quot;,\n  \&quot;evidence\&quot;: \&quot;The numerical display showing the current tempo (128.00 BPM) is visible in the top center of the screen.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 350,\n    \&quot;top\&quot;: 10,\n    \&quot;right\&quot;: 550,\n    \&quot;bottom\&quot;: 50\n  },\n  \&quot;anchor\&quot;: null,\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 450,\n    \&quot;y\&quot;: 30\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 15.148556208994705,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 531,
+        &quot;prompt_tokens&quot;: 906,
+        &quot;total_tokens&quot;: 1437,
+        &quot;completion_tokens_details&quot;: null,
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 1512x982 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: What is the tempo control\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          1512,
+          982
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;55fcfb135d75d4ac97cd26451ae948859179a27bc602813f2bad5956abc65e3f&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 435.5,
+        &quot;y&quot;: 7.92
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;:650,\&quot;y\&quot;:60}&quot;,
+      &quot;latency_seconds&quot;: 13.542517916008364,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 575,
+        &quot;prompt_tokens&quot;: 261,
+        &quot;total_tokens&quot;: 836,
+        &quot;completion_tokens_details&quot;: null,
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 670x132 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: What is the tempo control\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Transport Bar; entity=Tempo Control; control=BPM Display. Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          670,
+          132
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;b00c1869ab7ccb1e48ea682f5ad850201aeabe3625b4573930d09e8c626285e1&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 28.73519100001431,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Transport Bar&quot;,
+      &quot;entity&quot;: &quot;Tempo Control&quot;,
+      &quot;control&quot;: &quot;BPM Display&quot;,
+      &quot;evidence&quot;: &quot;The numerical display showing the current tempo (128.00 BPM) is visible in the top center of the screen.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 350.0,
+        &quot;top&quot;: 10.0,
+        &quot;right&quot;: 550.0,
+        &quot;bottom&quot;: 50.0
+      },
+      &quot;anchor&quot;: null,
+      &quot;point&quot;: {
+        &quot;x&quot;: 450.0,
+        &quot;y&quot;: 30.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        513,
+        0,
+        848,
+        66
+      ],
+      &quot;output_size&quot;: [
+        670,
+        132
+      ],
+      &quot;scale&quot;: 2.0
+    },
+    &quot;candidates&quot;: {
+      &quot;initial&quot;: {
+        &quot;x&quot;: 680.4,
+        &quot;y&quot;: 29.46
+      },
+      &quot;refined&quot;: {
+        &quot;x&quot;: 730.75,
+        &quot;y&quot;: 3.9600000000000004
+      }
+    }
+  }
+}</pre>

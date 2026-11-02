@@ -1,0 +1,56 @@
+{
+  "instruction": "use smart fine tool",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 238.08,
+    "y": 61.92
+  },
+  "strategy": "baseline",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 238.08,
+        "y": 61.92
+      },
+      "raw_response": "{\"x\": 93, \"y\": 43}",
+      "latency_seconds": 5.226595875021303,
+      "usage": {
+        "completion_tokens": 883,
+        "prompt_tokens": 3715,
+        "total_tokens": 4598,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 866,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 866
+        }
+      },
+      "stage": "predict",
+      "prompt": "Locate the UI control in this 2560x1440 screenshot. Return only a JSON object with numeric x and y. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Instruction: use smart fine tool",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "a5ef8784c4f132cd7224029a990b2e9bf39eaa895f82f6098a518a602c4a095c"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 5.303080500016222,
+  "status": "ok",
+  "metadata": {}
+}

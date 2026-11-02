@@ -1,0 +1,88 @@
+{
+  "instruction": "adjust volume level of a certain hz corresponding to point 2",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 944.64,
+    "y": 542.88
+  },
+  "strategy": "panel_fast",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 944.64,
+        "y": 542.88
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Fruity parametric EQ 2 plugin window\",\n  \"entity\": \"Fruity parametric EQ 2 (Alice keys) – band 2\",\n  \"control\": \"Band 2 gain node (point 2) on the frequency curve\",\n  \"evidence\": \"The floating Fruity parametric EQ 2 window shows numbered nodes on the response curve; node 2 is the second point whose vertical position sets that band's volume/gain.\",\n  \"region\": {\n    \"left\": 314,\n    \"top\": 262,\n    \"right\": 590,\n    \"bottom\": 524\n  },\n  \"anchor\": {\n    \"left\": 326,\n    \"top\": 264,\n    \"right\": 410,\n    \"bottom\": 276\n  },\n  \"point\": {\n    \"x\": 369,\n    \"y\": 377\n  }\n}",
+      "latency_seconds": 17.056922332994873,
+      "usage": {
+        "completion_tokens": 1873,
+        "prompt_tokens": 4013,
+        "total_tokens": 5886,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 1632,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 1632
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: adjust volume level of a certain hz corresponding to point 2\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.\nMixer level faders control mixer tracks; match the visible track header. Channel Rack volume, Mixer track level, and main monitor volume are different controls. Playlist tracks do not establish Mixer routing.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "10b7cd4c89389fbea3e5c4e55acb413e61f25a190c39cf6cead883e6d4019052"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 17.388752790982835,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.\nMixer level faders control mixer tracks; match the visible track header. Channel Rack volume, Mixer track level, and main monitor volume are different controls. Playlist tracks do not establish Mixer routing.",
+    "plan": {
+      "visible": true,
+      "panel": "Fruity parametric EQ 2 plugin window",
+      "entity": "Fruity parametric EQ 2 (Alice keys) – band 2",
+      "control": "Band 2 gain node (point 2) on the frequency curve",
+      "evidence": "The floating Fruity parametric EQ 2 window shows numbered nodes on the response curve; node 2 is the second point whose vertical position sets that band's volume/gain.",
+      "region": {
+        "left": 314.0,
+        "top": 262.0,
+        "right": 590.0,
+        "bottom": 524.0
+      },
+      "anchor": {
+        "left": 326.0,
+        "top": 264.0,
+        "right": 410.0,
+        "bottom": 276.0
+      },
+      "point": {
+        "x": 369.0,
+        "y": 377.0
+      }
+    },
+    "localization": "single_pass_panel_plan"
+  }
+}

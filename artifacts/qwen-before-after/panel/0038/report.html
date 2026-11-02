@@ -1,0 +1,150 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>change the size</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;change the size&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 489.86,
+    &quot;y&quot;: 88.04
+  },
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 601.6,
+        &quot;y&quot;: 112.32
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Piano roll\&quot;,\n  \&quot;entity\&quot;: \&quot;Piano roll - Alice keys\&quot;,\n  \&quot;control\&quot;: \&quot;Change size tool\&quot;,\n  \&quot;evidence\&quot;: \&quot;The docked window header reads &#x27;Piano roll - Alice keys&#x27;. Directly below that header is the piano roll toolbar row containing the note editing/zoom icons, including the change-size (note with vertical resize arrows) tool.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 135,\n    \&quot;top\&quot;: 55,\n    \&quot;right\&quot;: 1000,\n    \&quot;bottom\&quot;: 120\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 262,\n    \&quot;top\&quot;: 58,\n    \&quot;right\&quot;: 325,\n    \&quot;bottom\&quot;: 72\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 235,\n    \&quot;y\&quot;: 78\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 77.8023068330076,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 18855,
+        &quot;prompt_tokens&quot;: 3894,
+        &quot;total_tokens&quot;: 22749,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 18635,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 18635
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: change the size\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;b148da43d5bd7ffb45952bb04ba98b17cf6519131bb2094dd19e76dd1b34b4d9&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 255.86,
+        &quot;y&quot;: 88.04
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;:110,\&quot;y\&quot;:310}&quot;,
+      &quot;latency_seconds&quot;: 59.76566970802378,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 13787,
+        &quot;prompt_tokens&quot;: 880,
+        &quot;total_tokens&quot;: 14667,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 13771,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 13771
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 2326x284 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: change the size\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Piano roll; entity=Piano roll - Alice keys; control=Change size tool. Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2326,
+          284
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;ab27a8c9f7c1dee8f41cf7bca6873cf662efd5e54a240db2e8040311ce962a77&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 137.68909625001834,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Piano roll&quot;,
+      &quot;entity&quot;: &quot;Piano roll - Alice keys&quot;,
+      &quot;control&quot;: &quot;Change size tool&quot;,
+      &quot;evidence&quot;: &quot;The docked window header reads &#x27;Piano roll - Alice keys&#x27;. Directly below that header is the piano roll toolbar row containing the note editing/zoom icons, including the change-size (note with vertical resize arrows) tool.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 135.0,
+        &quot;top&quot;: 55.0,
+        &quot;right&quot;: 1000.0,
+        &quot;bottom&quot;: 120.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 262.0,
+        &quot;top&quot;: 58.0,
+        &quot;right&quot;: 325.0,
+        &quot;bottom&quot;: 72.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 235.0,
+        &quot;y&quot;: 78.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        234,
+        0,
+        2560,
+        284
+      ],
+      &quot;output_size&quot;: [
+        2326,
+        284
+      ],
+      &quot;scale&quot;: 1.0
+    },
+    &quot;candidates&quot;: {
+      &quot;initial&quot;: {
+        &quot;x&quot;: 601.6,
+        &quot;y&quot;: 112.32
+      },
+      &quot;refined&quot;: {
+        &quot;x&quot;: 489.86,
+        &quot;y&quot;: 88.04
+      }
+    }
+  }
+}</pre>

@@ -1,0 +1,171 @@
+{"event":"diagnostic","bundle":"local.flground.voice","message":"Requesting speech authorization"}
+{"event":"diagnostic","message":"Speech authorization returned","status":3}
+{"event":"listening"}
+{"event":"level","value":0.37048700451850891}
+{"event":"level","value":0.34172728657722473}
+{"event":"level","value":0.37748217582702637}
+{"event":"level","value":0.34317535161972046}
+{"event":"level","value":0.34935221076011658}
+{"event":"level","value":0.34670019149780273}
+{"event":"level","value":0.41696909070014954}
+{"event":"level","value":0.40301975607872009}
+{"event":"level","value":0.36535102128982544}
+{"event":"level","value":0.26930844783782959}
+{"event":"level","value":0.34521585702896118}
+{"event":"level","value":0.34563723206520081}
+{"event":"level","value":0.31085112690925598}
+{"event":"level","value":0.34295934438705444}
+{"event":"level","value":0.25776231288909912}
+{"event":"level","value":0.3898065984249115}
+{"event":"level","value":0.42855140566825867}
+{"event":"level","value":0.31550407409667969}
+{"event":"level","value":0.40573149919509888}
+{"event":"level","value":0.61325126886367798}
+{"event":"level","value":0.40347820520401001}
+{"event":"level","value":0.35666221380233765}
+{"event":"level","value":0.36072629690170288}
+{"event":"level","value":0.41714221239089966}
+{"event":"level","value":0.43348404765129089}
+{"event":"level","value":0.27257776260375977}
+{"event":"level","value":0.37899565696716309}
+{"event":"level","value":0.34623715281486511}
+{"event":"level","value":0.43325436115264893}
+{"event":"level","value":0.59132242202758789}
+{"event":"level","value":0.45538905262947083}
+{"event":"level","value":0.46877112984657288}
+{"event":"level","value":0.35404321551322937}
+{"event":"level","value":0.38304552435874939}
+{"event":"level","value":0.30956196784973145}
+{"event":"level","value":0.25754386186599731}
+{"event":"level","value":0.44744637608528137}
+{"event":"level","value":0.54536455869674683}
+{"event":"level","value":0.51376008987426758}
+{"event":"level","value":0.4152769148349762}
+{"event":"level","value":0.38576927781105042}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":0.70131188631057739}
+{"event":"level","value":0.41242849826812744}
+{"event":"level","value":0.36731600761413574}
+{"event":"level","value":0.27310740947723389}
+{"event":"level","value":0.43532386422157288}
+{"event":"level","value":1}
+{"event":"level","value":0.41954845190048218}
+{"event":"partial","text":"Is everything"}
+{"event":"level","value":0.45893800258636475}
+{"event":"level","value":0.41356715559959412}
+{"event":"level","value":0.33368793129920959}
+{"event":"level","value":0.27592930197715759}
+{"event":"level","value":0.20656117796897888}
+{"event":"level","value":0.81847846508026123}
+{"event":"level","value":0.73622673749923706}
+{"event":"level","value":0.54873526096343994}
+{"event":"level","value":0.94423770904541016}
+{"event":"level","value":0.62083548307418823}
+{"event":"level","value":1}
+{"event":"partial","text":"Everything is"}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":0.83580255508422852}
+{"event":"level","value":1}
+{"event":"partial","text":"Is it should"}
+{"event":"level","value":1}
+{"event":"partial","text":"Yes it should"}
+{"event":"partial","text":"Yes it should be"}
+{"event":"level","value":0.79439014196395874}
+{"event":"level","value":0.56897968053817749}
+{"event":"partial","text":"Yes it should be in"}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":0.37555718421936035}
+{"event":"level","value":0.44234061241149902}
+{"event":"level","value":0.36725300550460815}
+{"event":"partial","text":"Yes it should be in art"}
+{"event":"level","value":0.28923961520195007}
+{"event":"level","value":0.24111451208591461}
+{"event":"level","value":0.20316497981548309}
+{"event":"level","value":0.33057337999343872}
+{"event":"level","value":0.51392781734466553}
+{"event":"partial","text":"Yes it should be in artifact"}
+{"event":"partial","text":"Yes it should be in artifacts"}
+{"event":"level","value":0.5772320032119751}
+{"event":"level","value":0.56109112501144409}
+{"event":"level","value":0.39224815368652344}
+{"event":"level","value":0.87083673477172852}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"partial","text":"Is everything yes it should be in artifacts"}
+{"event":"level","value":0.99167287349700928}
+{"event":"level","value":0.58503210544586182}
+{"event":"level","value":0.52329790592193604}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":0.56569528579711914}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":0.88049739599227905}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"partial","text":"Be"}
+{"event":"partial","text":"Ben"}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"partial","text":"Bench"}
+{"event":"level","value":0.80479097366333008}
+{"event":"level","value":0.31173804402351379}
+{"event":"level","value":0.33928877115249634}
+{"event":"partial","text":"Benchmark"}
+{"event":"level","value":0.34868571162223816}
+{"event":"level","value":0.28497934341430664}
+{"event":"partial","text":"Benchmark data"}
+{"event":"level","value":0.35961771011352539}
+{"event":"level","value":0.30360683798789978}
+{"event":"level","value":0.3443988561630249}
+{"event":"level","value":0.72754693031311035}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":0.51168364286422729}
+{"event":"level","value":1}
+{"event":"level","value":0.48799389600753784}
+{"event":"level","value":1}
+{"event":"level","value":0.55154716968536377}
+{"event":"partial","text":"Benchmark data no no"}
+{"event":"partial","text":"Benchmark data no no no"}
+{"event":"level","value":0.85556060075759888}
+{"event":"level","value":0.76143217086791992}
+{"event":"level","value":0.82866859436035156}
+{"event":"partial","text":"Benchmark data no no no not"}
+{"event":"level","value":1}
+{"event":"level","value":0.60281234979629517}
+{"event":"partial","text":"Benchmark data no no no not Benjamin"}
+{"event":"level","value":0.44928187131881714}
+{"event":"level","value":0.45188397169113159}
+{"event":"level","value":0.27828806638717651}
+{"event":"partial","text":"Benchmark data no no no not bench"}
+{"event":"level","value":0.21676349639892578}
+{"event":"level","value":0.22188015282154083}
+{"event":"partial","text":"Benchmark data no no no not bench data"}
+{"event":"level","value":0.28554773330688477}
+{"event":"level","value":0.27687934041023254}
+{"event":"level","value":0.26436391472816467}
+{"event":"level","value":0.1952962726354599}
+{"text":"Benchmark data no no no not bench data","event":"partial"}
+{"text":"Benchmark data no no no not bench data","event":"transcript"}

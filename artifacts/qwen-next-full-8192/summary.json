@@ -1,0 +1,180 @@
+{
+  "baseline_reused": {
+    "correct": 26,
+    "total": 57,
+    "accuracy": 0.45614035087719296,
+    "errors": 0,
+    "abstentions": 0,
+    "mean_latency_seconds": 6.0323839795968714,
+    "p95_latency_seconds": 26.61194445900037,
+    "model_calls": 57,
+    "usage": {
+      "completion_tokens": 63619,
+      "prompt_tokens": 211782,
+      "total_tokens": 275401
+    },
+    "slices": {
+      "icon": {
+        "correct": 10,
+        "total": 31
+      },
+      "text": {
+        "correct": 16,
+        "total": 26
+      }
+    },
+    "estimated_cost": null
+  },
+  "panel_recover": {
+    "correct": 32,
+    "total": 57,
+    "accuracy": 0.5614035087719298,
+    "errors": 1,
+    "abstentions": 2,
+    "mean_latency_seconds": 16.33592615059726,
+    "p95_latency_seconds": 56.124884457996814,
+    "model_calls": 62,
+    "usage": {
+      "completion_tokens": 143515,
+      "prompt_tokens": 242779,
+      "total_tokens": 386294
+    },
+    "slices": {
+      "icon": {
+        "correct": 10,
+        "total": 31
+      },
+      "text": {
+        "correct": 22,
+        "total": 26
+      }
+    },
+    "estimated_cost": null,
+    "comparison": {
+      "compatibility": "UNMATCHED token budgets: baseline=32768, candidate=8192; comparison includes budget and harness changes",
+      "baseline_correct": 26,
+      "fixes": [
+        "fruitloops_windows_11",
+        "fruitloops_windows_10",
+        "fruitloops_windows_19",
+        "fruitloops_windows_17",
+        "fruitloops_windows_15",
+        "fruitloops_windows_9",
+        "fruitloops_windows_18",
+        "fruitloops_windows_34",
+        "fruitloops_windows_31",
+        "fruitloops_windows_13",
+        "fruitloops_windows_48"
+      ],
+      "regressions": [
+        "fruitloops_windows_20",
+        "fruitloops_windows_41",
+        "fruitloops_windows_44",
+        "fruitloops_windows_54",
+        "fruitloops_windows_52"
+      ],
+      "net_fixes": 6,
+      "delta_percentage_points": 10.526315789473685
+    }
+  },
+  "panel_compact": {
+    "correct": 31,
+    "total": 57,
+    "accuracy": 0.543859649122807,
+    "errors": 6,
+    "abstentions": 3,
+    "mean_latency_seconds": 14.407411296736539,
+    "p95_latency_seconds": 50.45953299998655,
+    "model_calls": 57,
+    "usage": {
+      "completion_tokens": 89800,
+      "prompt_tokens": 218670,
+      "total_tokens": 308470
+    },
+    "slices": {
+      "icon": {
+        "correct": 11,
+        "total": 31
+      },
+      "text": {
+        "correct": 20,
+        "total": 26
+      }
+    },
+    "estimated_cost": null,
+    "comparison": {
+      "compatibility": "UNMATCHED token budgets: baseline=32768, candidate=8192; comparison includes budget and harness changes",
+      "baseline_correct": 26,
+      "fixes": [
+        "fruitloops_windows_18",
+        "fruitloops_windows_13",
+        "fruitloops_windows_19",
+        "fruitloops_windows_15",
+        "fruitloops_windows_11",
+        "fruitloops_windows_34",
+        "fruitloops_windows_45",
+        "fruitloops_windows_48",
+        "fruitloops_windows_9"
+      ],
+      "regressions": [
+        "fruitloops_windows_41",
+        "fruitloops_windows_49",
+        "fruitloops_windows_54",
+        "fruitloops_windows_52"
+      ],
+      "net_fixes": 5,
+      "delta_percentage_points": 8.771929824561404
+    }
+  },
+  "panel_selective": {
+    "correct": 31,
+    "total": 57,
+    "accuracy": 0.543859649122807,
+    "errors": 2,
+    "abstentions": 3,
+    "mean_latency_seconds": 8.587408472243656,
+    "p95_latency_seconds": 35.82700091699371,
+    "model_calls": 58,
+    "usage": {
+      "completion_tokens": 68788,
+      "prompt_tokens": 224747,
+      "total_tokens": 293535
+    },
+    "slices": {
+      "icon": {
+        "correct": 11,
+        "total": 31
+      },
+      "text": {
+        "correct": 20,
+        "total": 26
+      }
+    },
+    "estimated_cost": null,
+    "comparison": {
+      "compatibility": "UNMATCHED token budgets: baseline=32768, candidate=8192; comparison includes budget and harness changes",
+      "baseline_correct": 26,
+      "fixes": [
+        "fruitloops_windows_18",
+        "fruitloops_windows_9",
+        "fruitloops_windows_13",
+        "fruitloops_windows_11",
+        "fruitloops_windows_19",
+        "fruitloops_windows_15",
+        "fruitloops_windows_34",
+        "fruitloops_windows_31",
+        "fruitloops_windows_45",
+        "fruitloops_windows_48"
+      ],
+      "regressions": [
+        "fruitloops_windows_2",
+        "fruitloops_windows_41",
+        "fruitloops_windows_52",
+        "fruitloops_windows_54",
+        "fruitloops_windows_40"
+      ],
+      "net_fixes": 5,
+      "delta_percentage_points": 8.771929824561404
+    }
+  }
+}

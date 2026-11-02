@@ -1,0 +1,150 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>missing plugins help</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;missing plugins help&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 1504.354,
+    &quot;y&quot;: 886.3700000000001
+  },
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 1512.96,
+        &quot;y&quot;: 888.48
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Problems loading the project dialog\&quot;,\n  \&quot;entity\&quot;: \&quot;Missing plugins help button\&quot;,\n  \&quot;control\&quot;: \&quot;button\&quot;,\n  \&quot;evidence\&quot;: \&quot;Dialog titled &#x27;Problems loading the project&#x27; shows three bottom buttons: Ok, Missing plugins help, Missing samples info. The &#x27;Missing plugins help&#x27; button is visible between Ok and Missing samples info.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 303,\n    \&quot;top\&quot;: 347,\n    \&quot;right\&quot;: 707,\n    \&quot;bottom\&quot;: 642\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 555,\n    \&quot;top\&quot;: 605,\n    \&quot;right\&quot;: 622,\n    \&quot;bottom\&quot;: 630\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 591,\n    \&quot;y\&quot;: 617\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 3.7685630840132944,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 702,
+        &quot;prompt_tokens&quot;: 3894,
+        &quot;total_tokens&quot;: 4596,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 486,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 486
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: missing plugins help\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;d84aae37f278e1d3ccf252698e4109850c8a8924d5f3ceb9cb4f76857b5eccf3&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 1404.928,
+        &quot;y&quot;: 790.037
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;: 686, \&quot;y\&quot;: 829}&quot;,
+      &quot;latency_seconds&quot;: 2.0597980419988744,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 347,
+        &quot;prompt_tokens&quot;: 2144,
+        &quot;total_tokens&quot;: 2491,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 328,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 328
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 2048x953 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: missing plugins help\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Problems loading the project dialog; entity=Missing plugins help button; control=button. Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2048,
+          953
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;ecc36dff661323b8964926a797c9d983445b9f05b757a48aa9dd46c36a571e84&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 5.987888875009958,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Problems loading the project dialog&quot;,
+      &quot;entity&quot;: &quot;Missing plugins help button&quot;,
+      &quot;control&quot;: &quot;button&quot;,
+      &quot;evidence&quot;: &quot;Dialog titled &#x27;Problems loading the project&#x27; shows three bottom buttons: Ok, Missing plugins help, Missing samples info. The &#x27;Missing plugins help&#x27; button is visible between Ok and Missing samples info.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 303.0,
+        &quot;top&quot;: 347.0,
+        &quot;right&quot;: 707.0,
+        &quot;bottom&quot;: 642.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 555.0,
+        &quot;top&quot;: 605.0,
+        &quot;right&quot;: 622.0,
+        &quot;bottom&quot;: 630.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 591.0,
+        &quot;y&quot;: 617.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        723,
+        447,
+        1862,
+        977
+      ],
+      &quot;output_size&quot;: [
+        2048,
+        953
+      ],
+      &quot;scale&quot;: 1.7980684811237928
+    },
+    &quot;candidates&quot;: {
+      &quot;initial&quot;: {
+        &quot;x&quot;: 1512.96,
+        &quot;y&quot;: 888.48
+      },
+      &quot;refined&quot;: {
+        &quot;x&quot;: 1504.354,
+        &quot;y&quot;: 886.3700000000001
+      }
+    }
+  }
+}</pre>

@@ -1,0 +1,88 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel_recover</h1><p>change language</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;change language&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 1139.2,
+    &quot;y&quot;: 601.92
+  },
+  &quot;strategy&quot;: &quot;panel_recover&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 1139.2,
+        &quot;y&quot;: 601.92
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Settings dialog - General tab\&quot;,\n  \&quot;entity\&quot;: \&quot;Language\&quot;,\n  \&quot;control\&quot;: \&quot;Language dropdown (English (US) (en))\&quot;,\n  \&quot;evidence\&quot;: \&quot;The General tab of the Settings dialog shows a &#x27;Language&#x27; row with a dropdown currently set to &#x27;English (US) (en)&#x27;.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 375,\n    \&quot;top\&quot;: 395,\n    \&quot;right\&quot;: 485,\n    \&quot;bottom\&quot;: 445\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 380,\n    \&quot;top\&quot;: 412,\n    \&quot;right\&quot;: 405,\n    \&quot;bottom\&quot;: 425\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 445,\n    \&quot;y\&quot;: 418\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 7.18243241700111,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 912,
+        &quot;prompt_tokens&quot;: 3920,
+        &quot;total_tokens&quot;: 4832,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 702,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 3919
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 702
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: change language\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;48cddbf98a3de057b9b3b3325164a9bb92065fe3844a38cbc86e76b78d33b401&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 7.518356333981501,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Settings dialog - General tab&quot;,
+      &quot;entity&quot;: &quot;Language&quot;,
+      &quot;control&quot;: &quot;Language dropdown (English (US) (en))&quot;,
+      &quot;evidence&quot;: &quot;The General tab of the Settings dialog shows a &#x27;Language&#x27; row with a dropdown currently set to &#x27;English (US) (en)&#x27;.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 375.0,
+        &quot;top&quot;: 395.0,
+        &quot;right&quot;: 485.0,
+        &quot;bottom&quot;: 445.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 380.0,
+        &quot;top&quot;: 412.0,
+        &quot;right&quot;: 405.0,
+        &quot;bottom&quot;: 425.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 445.0,
+        &quot;y&quot;: 418.0
+      }
+    },
+    &quot;localization&quot;: &quot;single_pass_panel_plan&quot;
+  }
+}</pre>

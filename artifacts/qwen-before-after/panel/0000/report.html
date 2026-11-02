@@ -1,0 +1,150 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>turn off AMP</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;turn off AMP&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 1038.4,
+    &quot;y&quot;: 28.12
+  },
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 1018.88,
+        &quot;y&quot;: 17.28
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;toolbar\&quot;,\n  \&quot;entity\&quot;: \&quot;AMP-Enabled\&quot;,\n  \&quot;control\&quot;: \&quot;AMP-Enabled: On toggle\&quot;,\n  \&quot;evidence\&quot;: \&quot;Top toolbar displays the text &#x27;AMP-Enabled: On&#x27;, indicating the AMP feature is currently active and can be toggled off by clicking this label.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 380,\n    \&quot;top\&quot;: 5,\n    \&quot;right\&quot;: 420,\n    \&quot;bottom\&quot;: 20\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 387,\n    \&quot;top\&quot;: 8,\n    \&quot;right\&quot;: 414,\n    \&quot;bottom\&quot;: 16\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 398,\n    \&quot;y\&quot;: 12\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 5.834497333999025,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 1119,
+        &quot;prompt_tokens&quot;: 3894,
+        &quot;total_tokens&quot;: 5013,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 921,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 921
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: turn off AMP\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;daa4bf61c4e29d517c2043222d0ba933f2f03f86f58de13514920a6725b9bfe0&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 148.8,
+        &quot;y&quot;: 56.24
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;:620,\&quot;y\&quot;:760}&quot;,
+      &quot;latency_seconds&quot;: 2.3140383340069093,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 531,
+        &quot;prompt_tokens&quot;: 296,
+        &quot;total_tokens&quot;: 827,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 515,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 515
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 240x74 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: turn off AMP\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=toolbar; entity=AMP-Enabled; control=AMP-Enabled: On toggle. Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          240,
+          74
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;54a45438a35d8aedcd873b1b5e47bd691c0772d64dff38fd772c6d51dce66b94&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 8.246341624995694,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;toolbar&quot;,
+      &quot;entity&quot;: &quot;AMP-Enabled&quot;,
+      &quot;control&quot;: &quot;AMP-Enabled: On toggle&quot;,
+      &quot;evidence&quot;: &quot;Top toolbar displays the text &#x27;AMP-Enabled: On&#x27;, indicating the AMP feature is currently active and can be toggled off by clicking this label.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 380.0,
+        &quot;top&quot;: 5.0,
+        &quot;right&quot;: 420.0,
+        &quot;bottom&quot;: 20.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 387.0,
+        &quot;top&quot;: 8.0,
+        &quot;right&quot;: 414.0,
+        &quot;bottom&quot;: 16.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 398.0,
+        &quot;y&quot;: 12.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        964,
+        0,
+        1084,
+        37
+      ],
+      &quot;output_size&quot;: [
+        240,
+        74
+      ],
+      &quot;scale&quot;: 2.0
+    },
+    &quot;candidates&quot;: {
+      &quot;initial&quot;: {
+        &quot;x&quot;: 1018.88,
+        &quot;y&quot;: 17.28
+      },
+      &quot;refined&quot;: {
+        &quot;x&quot;: 1038.4,
+        &quot;y&quot;: 28.12
+      }
+    }
+  }
+}</pre>

@@ -1,0 +1,56 @@
+{
+  "instruction": "add new folder",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 166.4,
+    "y": 116.64
+  },
+  "strategy": "baseline",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 166.4,
+        "y": 116.64
+      },
+      "raw_response": "{\n  \"x\": 65,\n  \"y\": 81\n}",
+      "latency_seconds": 3.7244929159933235,
+      "usage": {
+        "completion_tokens": 648,
+        "prompt_tokens": 3714,
+        "total_tokens": 4362,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 625,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 625
+        }
+      },
+      "stage": "predict",
+      "prompt": "Locate the UI control in this 2560x1440 screenshot. Return only a JSON object with numeric x and y. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Instruction: add new folder",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "f6d8d7ce38248433eda28fff4795fc97d496d50c54b3ceab8704dcc59073b005"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 3.804137750004884,
+  "status": "ok",
+  "metadata": {}
+}

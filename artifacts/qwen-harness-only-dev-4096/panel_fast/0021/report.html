@@ -1,0 +1,88 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel_fast</h1><p>detect tempo</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;detect tempo&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 1139.2,
+    &quot;y&quot;: 1154.88
+  },
+  &quot;strategy&quot;: &quot;panel_fast&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 1139.2,
+        &quot;y&quot;: 1154.88
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Context menu (clip right-click menu in Playlist)\&quot;,\n  \&quot;entity\&quot;: \&quot;Clip context menu\&quot;,\n  \&quot;control\&quot;: \&quot;Detect tempo\&quot;,\n  \&quot;evidence\&quot;: \&quot;The right-click context menu shows a highlighted &#x27;Detect tempo&#x27; entry above &#x27;Get properties&#x27;.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 426,\n    \&quot;top\&quot;: 635,\n    \&quot;right\&quot;: 513,\n    \&quot;bottom\&quot;: 855\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 426,\n    \&quot;top\&quot;: 795,\n    \&quot;right\&quot;: 513,\n    \&quot;bottom\&quot;: 810\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 445,\n    \&quot;y\&quot;: 802\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 4.39716083399253,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 446,
+        &quot;prompt_tokens&quot;: 3920,
+        &quot;total_tokens&quot;: 4366,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 248,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 248
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: detect tempo\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;f231808169be9679b7627763270af264bdcd5e8cf172a5e4022706ba7ec852f8&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 4.477643833990442,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Context menu (clip right-click menu in Playlist)&quot;,
+      &quot;entity&quot;: &quot;Clip context menu&quot;,
+      &quot;control&quot;: &quot;Detect tempo&quot;,
+      &quot;evidence&quot;: &quot;The right-click context menu shows a highlighted &#x27;Detect tempo&#x27; entry above &#x27;Get properties&#x27;.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 426.0,
+        &quot;top&quot;: 635.0,
+        &quot;right&quot;: 513.0,
+        &quot;bottom&quot;: 855.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 426.0,
+        &quot;top&quot;: 795.0,
+        &quot;right&quot;: 513.0,
+        &quot;bottom&quot;: 810.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 445.0,
+        &quot;y&quot;: 802.0
+      }
+    },
+    &quot;localization&quot;: &quot;single_pass_panel_plan&quot;
+  }
+}</pre>

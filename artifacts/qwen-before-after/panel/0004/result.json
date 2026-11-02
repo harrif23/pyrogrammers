@@ -1,0 +1,150 @@
+{
+  "instruction": "choose chord type for 1",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 874.103,
+    "y": 663.948
+  },
+  "strategy": "panel",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 865.28,
+        "y": 665.28
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Plugin window – AGM L (Ample Guitar Martin)\",\n  \"entity\": \"Chord 1 (chord pad, column 1)\",\n  \"control\": \"Chord type selector for chord 1 (currently 'Maj')\",\n  \"evidence\": \"In the Ample Guitar Martin plugin, the lower-left chord pad grid has a column headed by the orange '1' cell; the chord-type cell in that column reads 'Maj' (root 'C'), i.e. the type assigned to chord 1.\",\n  \"region\": {\n    \"left\": 305,\n    \"top\": 455,\n    \"right\": 426,\n    \"bottom\": 545\n  },\n  \"anchor\": {\n    \"left\": 305,\n    \"top\": 455,\n    \"right\": 315,\n    \"bottom\": 470\n  },\n  \"point\": {\n    \"x\": 338,\n    \"y\": 462\n  }\n}",
+      "latency_seconds": 24.483858332998352,
+      "usage": {
+        "completion_tokens": 5512,
+        "prompt_tokens": 3897,
+        "total_tokens": 9409,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 5256,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 5256
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: choose chord type for 1\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "29033ab12921a9954eb76cf2e0378a77beabdd1fa36e307275e7200ccdaeb4e2"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    },
+    {
+      "point": {
+        "x": 220.206,
+        "y": 49.896
+      },
+      "raw_response": "{\"x\": 321, \"y\": 154}",
+      "latency_seconds": 6.4733702080266085,
+      "usage": {
+        "completion_tokens": 1533,
+        "prompt_tokens": 461,
+        "total_tokens": 1994,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 1514,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 1514
+        }
+      },
+      "stage": "panel_localize",
+      "prompt": "Locate the requested control in this 686x324 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: choose chord type for 1\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Plugin window – AGM L (Ample Guitar Martin); entity=Chord 1 (chord pad, column 1); control=Chord type selector for chord 1 (currently 'Maj'). Return only {\"x\":number,\"y\":number}, or {\"visible\":false} if the exact target is absent.",
+      "image_sizes": [
+        [
+          686,
+          324
+        ]
+      ],
+      "image_hashes": [
+        "36232c53efc4aff8abad7b364f503957ddf1ed87011cd40991e7f07e50d01144"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 31.10751495900331,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Plugin window – AGM L (Ample Guitar Martin)",
+      "entity": "Chord 1 (chord pad, column 1)",
+      "control": "Chord type selector for chord 1 (currently 'Maj')",
+      "evidence": "In the Ample Guitar Martin plugin, the lower-left chord pad grid has a column headed by the orange '1' cell; the chord-type cell in that column reads 'Maj' (root 'C'), i.e. the type assigned to chord 1.",
+      "region": {
+        "left": 305.0,
+        "top": 455.0,
+        "right": 426.0,
+        "bottom": 545.0
+      },
+      "anchor": {
+        "left": 305.0,
+        "top": 455.0,
+        "right": 315.0,
+        "bottom": 470.0
+      },
+      "point": {
+        "x": 338.0,
+        "y": 462.0
+      }
+    },
+    "crop": {
+      "bounds": [
+        764,
+        639,
+        1107,
+        801
+      ],
+      "output_size": [
+        686,
+        324
+      ],
+      "scale": 2.0
+    },
+    "candidates": {
+      "initial": {
+        "x": 865.28,
+        "y": 665.28
+      },
+      "refined": {
+        "x": 874.103,
+        "y": 663.948
+      }
+    }
+  }
+}

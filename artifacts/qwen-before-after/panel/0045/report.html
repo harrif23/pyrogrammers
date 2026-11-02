@@ -1,0 +1,150 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>adjust trmpo</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;adjust trmpo&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 254.3,
+    &quot;y&quot;: 24.99
+  },
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 250.88,
+        &quot;y&quot;: 18.72
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;toolbar\&quot;,\n  \&quot;entity\&quot;: \&quot;tempo\&quot;,\n  \&quot;control\&quot;: \&quot;tempo value/slider\&quot;,\n  \&quot;evidence\&quot;: \&quot;Top-left toolbar shows tempo readout &#x27;120.000&#x27; with an adjacent horizontal slider for adjusting tempo.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 53,\n    \&quot;top\&quot;: 4,\n    \&quot;right\&quot;: 148,\n    \&quot;bottom\&quot;: 26\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 55,\n    \&quot;top\&quot;: 6,\n    \&quot;right\&quot;: 72,\n    \&quot;bottom\&quot;: 22\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 98,\n    \&quot;y\&quot;: 13\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 3.8199332499934826,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 713,
+        &quot;prompt_tokens&quot;: 3895,
+        &quot;total_tokens&quot;: 4608,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 527,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 527
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: adjust trmpo\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;8e3a2c368c48b6404b23e87de3564802b46f9cbe10afe699186c0ca6914948da&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 264.6,
+        &quot;y&quot;: 49.98
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;:490,\&quot;y\&quot;:490}&quot;,
+      &quot;latency_seconds&quot;: 3.341280041000573,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 731,
+        &quot;prompt_tokens&quot;: 294,
+        &quot;total_tokens&quot;: 1025,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 715,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 715
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 540x102 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: adjust trmpo\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=toolbar; entity=tempo; control=tempo value/slider. Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          540,
+          102
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;feb85abc3d44da8aaeaf4d4ec0a8338e1698d21af8e911e03c77c644d20ae0cf&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 7.267446625017328,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;toolbar&quot;,
+      &quot;entity&quot;: &quot;tempo&quot;,
+      &quot;control&quot;: &quot;tempo value/slider&quot;,
+      &quot;evidence&quot;: &quot;Top-left toolbar shows tempo readout &#x27;120.000&#x27; with an adjacent horizontal slider for adjusting tempo.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 53.0,
+        &quot;top&quot;: 4.0,
+        &quot;right&quot;: 148.0,
+        &quot;bottom&quot;: 26.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 55.0,
+        &quot;top&quot;: 6.0,
+        &quot;right&quot;: 72.0,
+        &quot;bottom&quot;: 22.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 98.0,
+        &quot;y&quot;: 13.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        122,
+        0,
+        392,
+        51
+      ],
+      &quot;output_size&quot;: [
+        540,
+        102
+      ],
+      &quot;scale&quot;: 2.0
+    },
+    &quot;candidates&quot;: {
+      &quot;initial&quot;: {
+        &quot;x&quot;: 250.88,
+        &quot;y&quot;: 18.72
+      },
+      &quot;refined&quot;: {
+        &quot;x&quot;: 254.3,
+        &quot;y&quot;: 24.99
+      }
+    }
+  }
+}</pre>

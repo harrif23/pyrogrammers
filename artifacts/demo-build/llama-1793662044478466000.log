@@ -1,0 +1,63 @@
+0.00.000.127 I srv  llama_server: initializing ...
+0.00.159.627 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.160.323 W srv  llama_server: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+0.00.162.055 I srv    load_model: loading model '/Users/harrif/.cache/huggingface/hub/models--ggml-org--gemma-4-E2B-it-GGUF/snapshots/a1dac71d3ab220618f5a7573a52acdc4baf3ae3b/gemma-4-E2B-it-Q8_0.gguf'
+0.01.101.203 W load: control-looking token:     50 '<|tool_response>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.103.623 W load: control-looking token:    212 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.112.148 W load: special_eog_ids contains '<|tool_response>', removing '</s>' token from EOG list
+0.02.102.116 I cmn          init: llama threadpool init, n_threads = 6
+0.03.349.427 W init_audio: audio input is in experimental stage and may have reduced quality:
+    https://github.com/ggml-org/llama.cpp/discussions/13759
+0.03.349.507 I srv    load_model: loaded multimodal model, '/Users/harrif/.cache/huggingface/hub/models--ggml-org--gemma-4-E2B-it-GGUF/snapshots/a1dac71d3ab220618f5a7573a52acdc4baf3ae3b/mmproj-gemma-4-E2B-it-Q8_0.gguf'
+0.03.385.123 I srv    load_model: initializing, n_slots = 4, n_ctx_slot = 65536, kv_unified = 'true'
+0.03.392.238 I srv  llama_server: model loaded
+0.03.392.242 I srv  llama_server: listening on http://127.0.0.1:8080
+0.03.392.242 W srv  llama_server: notice: server default port will be changed to :9931 in a future release (ref: https://github.com/ggml-org/llama.cpp/pull/26508)
+0.38.066.033 I slot get_availabl: id  3 | task -1 | selected slot by LRU, t_last = -1
+0.38.067.298 I slot launch_slot_: id  3 | task 0 | processing task, is_child = 0
+0.43.955.226 I slot print_timing: id  3 | task 0 | n_gen =    136, tg =  44.89 t/s, tg_3s =  45.22 t/s
+0.46.958.654 I slot print_timing: id  3 | task 0 | n_gen =    266, tg =  44.09 t/s, tg_3s =  43.28 t/s
+0.49.977.591 I slot print_timing: id  3 | task 0 | n_gen =    393, tg =  43.41 t/s, tg_3s =  42.07 t/s
+0.52.986.661 I slot print_timing: id  3 | task 0 | n_gen =    525, tg =  43.53 t/s, tg_3s =  43.87 t/s
+0.53.121.744 I slot print_timing: id  3 | task 0 | prompt eval time =    2880.23 ms /   906 tokens (    3.18 ms per token,   314.56 tokens per second)
+0.53.121.749 I slot print_timing: id  3 | task 0 |        eval time =   12173.76 ms /   531 tokens (   22.97 ms per token,    43.54 tokens per second)
+0.53.121.749 I slot print_timing: id  3 | task 0 |       total time =   15053.99 ms /  1437 tokens
+0.53.121.750 I slot print_timing: id  3 | task 0 |    graphs reused =        528
+0.53.122.500 I slot      release: id  3 | task 0 | stop processing: n_tokens = 1436, truncated = 0
+0.53.163.138 I slot get_availabl: id  2 | task -1 | selected slot by LRU, t_last = -1
+0.53.163.165 I slot launch_slot_: id  2 | task 535 | processing task, is_child = 0
+0.56.744.650 I slot print_timing: id  2 | task 535 | n_gen =    129, tg =  42.56 t/s, tg_3s =  42.89 t/s
+0.59.751.832 I slot print_timing: id  2 | task 535 | n_gen =    263, tg =  43.56 t/s, tg_3s =  44.56 t/s
+1.02.753.183 I slot print_timing: id  2 | task 535 | n_gen =    398, tg =  44.03 t/s, tg_3s =  44.98 t/s
+1.05.774.384 I slot print_timing: id  2 | task 535 | n_gen =    534, tg =  44.28 t/s, tg_3s =  45.02 t/s
+1.06.684.693 I slot print_timing: id  2 | task 535 | prompt eval time =     565.21 ms /   261 tokens (    2.17 ms per token,   461.77 tokens per second)
+1.06.684.697 I slot print_timing: id  2 | task 535 |        eval time =   12947.95 ms /   575 tokens (   22.56 ms per token,    44.33 tokens per second)
+1.06.684.697 I slot print_timing: id  2 | task 535 |       total time =   13513.17 ms /   836 tokens
+1.06.684.698 I slot print_timing: id  2 | task 535 |    graphs reused =       1099
+1.06.684.934 I slot      release: id  2 | task 535 | stop processing: n_tokens = 835, truncated = 0
+1.43.644.755 I srv    operator(): operator(): cleaning up before exit...
+Received second interrupt, terminating immediately.
+llamacpp/ggml/src/ggml-metal/ggml-metal-device.m:1039: GGML_ASSERT([rsets->data count] == 0) failed
+WARNING: Using native backtrace. Set GGML_BACKTRACE_LLDB for more info.
+WARNING: GGML_BACKTRACE_LLDB may cause native MacOS Terminal.app to crash.
+See: https://github.com/ggml-org/llama.cpp/pull/17869
+0   llama                               0x0000000103805ad4 ggml_print_backtrace + 276
+1   llama                               0x000000010386254c ggml_abort + 144
+2   llama                               0x00000001037e1708 ggml_metal_device_init + 0
+3   llama                               0x00000001037e2508 ggml_metal_device_free + 144
+4   llama                               0x00000001037e4a04 _ZNSt3__16vectorINS_10unique_ptrI17ggml_metal_device25ggml_metal_device_deleterEENS_9allocatorIS4_EEED1B9nqe210106Ev + 72
+5   libsystem_c.dylib                   0x0000000188165bb0 __cxa_finalize_ranges + 436
+6   libsystem_c.dylib                   0x000000018816599c exit + 44
+7   llama                               0x0000000102f48a40 _ZL14signal_handleri + 116
+8   libsystem_platform.dylib            0x00000001882c0144 _sigtramp + 56
+9   libsystem_malloc.dylib              0x00000001880bb2f0 mvm_madvise_plat + 16
+10  libsystem_malloc.dylib              0x00000001880b1688 xzm_segment_group_free_chunk + 560
+11  llama                               0x0000000103817fd0 ggml_backend_sched_free + 316
+12  llama                               0x000000010365ad34 _ZN13llama_contextD2Ev + 588
+13  llama                               0x00000001032b2e20 _ZN18common_init_result4implD2Ev + 272
+14  llama                               0x000000010307de2c _ZN19server_context_impl7destroyEv + 160
+15  llama                               0x000000010307e060 _ZN19server_context_implD2Ev + 44
+16  llama                               0x0000000102f46a4c _Z12llama_serverR13common_paramsiPPc + 25880
+17  llama                               0x0000000102f4042c _Z12llama_serveriPPc + 364
+18  llama                               0x0000000102f3bf80 main + 832
+19  dyld                                0x0000000187edfe80 start + 6688

@@ -1,0 +1,88 @@
+{
+  "instruction": "adapt sample rate",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1543.68,
+    "y": 429.12
+  },
+  "strategy": "panel_fast",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1543.68,
+        "y": 429.12
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Settings - Audio devices / mixer dialog (Audio tab)\",\n  \"entity\": \"Sample rate (Hz)\",\n  \"control\": \"Sample rate value field/dropdown\",\n  \"evidence\": \"The Audio tab of the Settings dialog shows a 'Sample rate (Hz)' label with the value 44100 next to it.\",\n  \"region\": {\n    \"left\": 555,\n    \"top\": 288,\n    \"right\": 615,\n    \"bottom\": 310\n  },\n  \"anchor\": {\n    \"left\": 555,\n    \"top\": 292,\n    \"right\": 588,\n    \"bottom\": 305\n  },\n  \"point\": {\n    \"x\": 603,\n    \"y\": 298\n  }\n}",
+      "latency_seconds": 9.653067167004338,
+      "usage": {
+        "completion_tokens": 743,
+        "prompt_tokens": 3921,
+        "total_tokens": 4664,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 529,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 529
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: adapt sample rate\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "8167ad447bce81562d9e9067275b4ea4a56ce1c0948b94c3468cd217e35eb8a6"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 9.920652375003556,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Settings - Audio devices / mixer dialog (Audio tab)",
+      "entity": "Sample rate (Hz)",
+      "control": "Sample rate value field/dropdown",
+      "evidence": "The Audio tab of the Settings dialog shows a 'Sample rate (Hz)' label with the value 44100 next to it.",
+      "region": {
+        "left": 555.0,
+        "top": 288.0,
+        "right": 615.0,
+        "bottom": 310.0
+      },
+      "anchor": {
+        "left": 555.0,
+        "top": 292.0,
+        "right": 588.0,
+        "bottom": 305.0
+      },
+      "point": {
+        "x": 603.0,
+        "y": 298.0
+      }
+    },
+    "localization": "single_pass_panel_plan"
+  }
+}

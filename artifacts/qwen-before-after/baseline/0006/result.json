@@ -1,0 +1,56 @@
+{
+  "instruction": "split pattern by channel",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 483.84,
+    "y": 486.72
+  },
+  "strategy": "baseline",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 483.84,
+        "y": 486.72
+      },
+      "raw_response": "{\"x\": 189, \"y\": 338}",
+      "latency_seconds": 1.3510004999989178,
+      "usage": {
+        "completion_tokens": 154,
+        "prompt_tokens": 3715,
+        "total_tokens": 3869,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 135,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 135
+        }
+      },
+      "stage": "predict",
+      "prompt": "Locate the UI control in this 2560x1440 screenshot. Return only a JSON object with numeric x and y. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Instruction: split pattern by channel",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "0f550d998aa7c597a30498a5f54fa1964314a88c511531c69fb17c7425b4cdba"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 1.419992082985118,
+  "status": "ok",
+  "metadata": {}
+}

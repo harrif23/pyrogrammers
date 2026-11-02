@@ -1,0 +1,88 @@
+{
+  "instruction": "add new folder",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 38.4,
+    "y": 115.2
+  },
+  "strategy": "panel_recover",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 38.4,
+        "y": 115.2
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Browser\",\n  \"entity\": \"Browser toolbar\",\n  \"control\": \"add new folder\",\n  \"evidence\": \"The Browser panel's top action toolbar (below the 'Browser - All' header) shows a folder-with-plus 'add new folder' icon among the small toolbar buttons.\",\n  \"region\": {\n    \"left\": 0,\n    \"top\": 55,\n    \"right\": 50,\n    \"bottom\": 88\n  },\n  \"anchor\": {\n    \"left\": 27,\n    \"top\": 59,\n    \"right\": 53,\n    \"bottom\": 68\n  },\n  \"point\": {\n    \"x\": 15,\n    \"y\": 80\n  }\n}",
+      "latency_seconds": 25.58517262499663,
+      "usage": {
+        "completion_tokens": 3617,
+        "prompt_tokens": 3921,
+        "total_tokens": 7538,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 3423,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 3920
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 3423
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: add new folder\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "f6d8d7ce38248433eda28fff4795fc97d496d50c54b3ceab8704dcc59073b005"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 25.665770624997094,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Browser",
+      "entity": "Browser toolbar",
+      "control": "add new folder",
+      "evidence": "The Browser panel's top action toolbar (below the 'Browser - All' header) shows a folder-with-plus 'add new folder' icon among the small toolbar buttons.",
+      "region": {
+        "left": 0.0,
+        "top": 55.0,
+        "right": 50.0,
+        "bottom": 88.0
+      },
+      "anchor": {
+        "left": 27.0,
+        "top": 59.0,
+        "right": 53.0,
+        "bottom": 68.0
+      },
+      "point": {
+        "x": 15.0,
+        "y": 80.0
+      }
+    },
+    "localization": "single_pass_panel_plan"
+  }
+}

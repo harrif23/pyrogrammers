@@ -1,0 +1,88 @@
+{
+  "instruction": "DW Funk audition",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 803.84,
+    "y": 427.68
+  },
+  "strategy": "panel_fast",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 803.84,
+        "y": 427.68
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Addictive Drums 2 plugin window (kit list, left column)\",\n  \"entity\": \"DW Funk\",\n  \"control\": \"Audition (play) button\",\n  \"evidence\": \"In the AD2 kit list, the row labeled 'DW Funk' has a small play triangle to its left.\",\n  \"region\": {\n    \"left\": 301,\n    \"top\": 257,\n    \"right\": 375,\n    \"bottom\": 424\n  },\n  \"anchor\": {\n    \"left\": 320,\n    \"top\": 292,\n    \"right\": 352,\n    \"bottom\": 302\n  },\n  \"point\": {\n    \"x\": 314,\n    \"y\": 297\n  }\n}",
+      "latency_seconds": 7.4376060829963535,
+      "usage": {
+        "completion_tokens": 911,
+        "prompt_tokens": 3921,
+        "total_tokens": 4832,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 700,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 700
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: DW Funk audition\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "a5a45da2fb45af611187f89e719bf9d1b1fe4af14f71d6f8067c59db395aa638"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 7.574641417013481,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Addictive Drums 2 plugin window (kit list, left column)",
+      "entity": "DW Funk",
+      "control": "Audition (play) button",
+      "evidence": "In the AD2 kit list, the row labeled 'DW Funk' has a small play triangle to its left.",
+      "region": {
+        "left": 301.0,
+        "top": 257.0,
+        "right": 375.0,
+        "bottom": 424.0
+      },
+      "anchor": {
+        "left": 320.0,
+        "top": 292.0,
+        "right": 352.0,
+        "bottom": 302.0
+      },
+      "point": {
+        "x": 314.0,
+        "y": 297.0
+      }
+    },
+    "localization": "single_pass_panel_plan"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "instruction": "reverse the audio",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1003.52,
+    "y": 1065.6
+  },
+  "strategy": "baseline",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1003.52,
+        "y": 1065.6
+      },
+      "raw_response": "{\n  \"x\": 392,\n  \"y\": 740\n}",
+      "latency_seconds": 3.3477537910221145,
+      "usage": {
+        "completion_tokens": 508,
+        "prompt_tokens": 3714,
+        "total_tokens": 4222,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 483,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 483
+        }
+      },
+      "stage": "predict",
+      "prompt": "Locate the UI control in this 2560x1440 screenshot. Return only a JSON object with numeric x and y. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Instruction: reverse the audio",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "0caa0e664c96ae18308ea848be6b525404be994e1c35d01e05649fe04914baec"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 3.41742758298642,
+  "status": "ok",
+  "metadata": {}
+}

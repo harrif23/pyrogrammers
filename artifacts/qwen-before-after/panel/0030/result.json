@@ -1,0 +1,150 @@
+{
+  "instruction": "stop proceesing",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1553.346,
+    "y": 817.496
+  },
+  "strategy": "panel",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1548.8,
+        "y": 817.92
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Ultimate Vocal Remover plugin window\",\n  \"entity\": \"Stop processing button\",\n  \"control\": \"button\",\n  \"evidence\": \"Small square stop button at the right end of the 'Start Processing' row; status text below reads 'Process stopped by user.'\",\n  \"region\": {\n    \"left\": 148,\n    \"top\": 553,\n    \"right\": 615,\n    \"bottom\": 585\n  },\n  \"anchor\": {\n    \"left\": 153,\n    \"top\": 558,\n    \"right\": 594,\n    \"bottom\": 581\n  },\n  \"point\": {\n    \"x\": 605,\n    \"y\": 568\n  }\n}",
+      "latency_seconds": 4.8427094999933615,
+      "usage": {
+        "completion_tokens": 995,
+        "prompt_tokens": 3896,
+        "total_tokens": 4891,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 792,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 792
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: stop proceesing\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "1036c0184415d08fae469a6b701c859781bf3fb31ef4427f8e80b00f3e501fe9"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    },
+    {
+      "point": {
+        "x": 1921.024,
+        "y": 126.88
+      },
+      "raw_response": "{\"x\": 938, \"y\": 488}",
+      "latency_seconds": 1.9274996670137625,
+      "usage": {
+        "completion_tokens": 403,
+        "prompt_tokens": 738,
+        "total_tokens": 1141,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 384,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 384
+        }
+      },
+      "stage": "panel_localize",
+      "prompt": "Locate the requested control in this 2048x260 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: stop proceesing\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Ultimate Vocal Remover plugin window; entity=Stop processing button; control=button. Return only {\"x\":number,\"y\":number}, or {\"visible\":false} if the exact target is absent.",
+      "image_sizes": [
+        [
+          2048,
+          260
+        ]
+      ],
+      "image_hashes": [
+        "233fd5b1f43ece227e18cc5b656f45f9541a0fc89f17367fc463cb8c946bd24a"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 6.918276167009026,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Ultimate Vocal Remover plugin window",
+      "entity": "Stop processing button",
+      "control": "button",
+      "evidence": "Small square stop button at the right end of the 'Start Processing' row; status text below reads 'Process stopped by user.'",
+      "region": {
+        "left": 148.0,
+        "top": 553.0,
+        "right": 615.0,
+        "bottom": 585.0
+      },
+      "anchor": {
+        "left": 153.0,
+        "top": 558.0,
+        "right": 594.0,
+        "bottom": 581.0
+      },
+      "point": {
+        "x": 605.0,
+        "y": 568.0
+      }
+    },
+    "crop": {
+      "bounds": [
+        318,
+        736,
+        1635,
+        903
+      ],
+      "output_size": [
+        2048,
+        260
+      ],
+      "scale": 1.5550493545937738
+    },
+    "candidates": {
+      "initial": {
+        "x": 1548.8,
+        "y": 817.92
+      },
+      "refined": {
+        "x": 1553.346,
+        "y": 817.496
+      }
+    }
+  }
+}

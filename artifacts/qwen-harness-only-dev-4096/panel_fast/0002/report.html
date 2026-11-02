@@ -1,0 +1,68 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel_fast</h1><p>legeto slide</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;legeto slide&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: null,
+  &quot;strategy&quot;: &quot;panel_fast&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: null,
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: false,\n  \&quot;panel\&quot;: \&quot;Piano roll\&quot;,\n  \&quot;entity\&quot;: \&quot;Legato slide\&quot;,\n  \&quot;control\&quot;: \&quot;Legato slide button\&quot;,\n  \&quot;evidence\&quot;: \&quot;No Piano Roll window is open; the center window is the Ample Bass P plugin, so the legato slide control is not visible.\&quot;,\n  \&quot;region\&quot;: null,\n  \&quot;anchor\&quot;: null,\n  \&quot;point\&quot;: null\n}&quot;,
+      &quot;latency_seconds&quot;: 5.981297041988,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 354,
+        &quot;prompt_tokens&quot;: 3922,
+        &quot;total_tokens&quot;: 4276,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 256,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 256
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: legeto slide\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;70ab2aa1ca9be0932176da1062e95d51f5ac2f33e17cef5c842cdfb3415788b0&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 6.365949500002898,
+  &quot;status&quot;: &quot;not_found&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: false,
+      &quot;panel&quot;: &quot;Piano roll&quot;,
+      &quot;entity&quot;: &quot;Legato slide&quot;,
+      &quot;control&quot;: &quot;Legato slide button&quot;,
+      &quot;evidence&quot;: &quot;No Piano Roll window is open; the center window is the Ample Bass P plugin, so the legato slide control is not visible.&quot;,
+      &quot;region&quot;: null,
+      &quot;anchor&quot;: null,
+      &quot;point&quot;: null
+    }
+  }
+}</pre>

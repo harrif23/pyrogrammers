@@ -1,0 +1,56 @@
+{
+  "instruction": "change capo logic mode",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1497.6,
+    "y": 858.24
+  },
+  "strategy": "baseline",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1497.6,
+        "y": 858.24
+      },
+      "raw_response": "{\n  \"x\": 585,\n  \"y\": 596\n}",
+      "latency_seconds": 2.704330708977068,
+      "usage": {
+        "completion_tokens": 401,
+        "prompt_tokens": 3715,
+        "total_tokens": 4116,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 376,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 376
+        }
+      },
+      "stage": "predict",
+      "prompt": "Locate the UI control in this 2560x1440 screenshot. Return only a JSON object with numeric x and y. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Instruction: change capo logic mode",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "ab35b886fc8f9d76187e04587779e3b3c6b9f101c3d2b3e336d2a349ed1858fe"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 2.8943429170176387,
+  "status": "ok",
+  "metadata": {}
+}

@@ -1,0 +1,88 @@
+{
+  "instruction": "make unique",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1269.76,
+    "y": 1087.2
+  },
+  "strategy": "panel_fast",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1269.76,
+        "y": 1087.2
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Playlist context menu\",\n  \"entity\": \"双滚擦 clip\",\n  \"control\": \"Make unique\",\n  \"evidence\": \"The open clip context menu shows a highlighted 'Make unique' item with its submenu 'Make unique as sample'.\",\n  \"region\": {\n    \"left\": 477,\n    \"top\": 644,\n    \"right\": 590,\n    \"bottom\": 826\n  },\n  \"anchor\": {\n    \"left\": 477,\n    \"top\": 644,\n    \"right\": 551,\n    \"bottom\": 655\n  },\n  \"point\": {\n    \"x\": 496,\n    \"y\": 755\n  }\n}",
+      "latency_seconds": 17.301930833025835,
+      "usage": {
+        "completion_tokens": 1742,
+        "prompt_tokens": 3920,
+        "total_tokens": 5662,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 1545,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 1545
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: make unique\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "bd9859a63572b16c2e2e1e83a56dc53e5f60bec6c5039df08ce251742d5f62ea"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 17.636101457988843,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Playlist context menu",
+      "entity": "双滚擦 clip",
+      "control": "Make unique",
+      "evidence": "The open clip context menu shows a highlighted 'Make unique' item with its submenu 'Make unique as sample'.",
+      "region": {
+        "left": 477.0,
+        "top": 644.0,
+        "right": 590.0,
+        "bottom": 826.0
+      },
+      "anchor": {
+        "left": 477.0,
+        "top": 644.0,
+        "right": 551.0,
+        "bottom": 655.0
+      },
+      "point": {
+        "x": 496.0,
+        "y": 755.0
+      }
+    },
+    "localization": "single_pass_panel_plan"
+  }
+}

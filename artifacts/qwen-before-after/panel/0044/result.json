@@ -1,0 +1,150 @@
+{
+  "instruction": "DW Funk audition",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 805.918,
+    "y": 620.366
+  },
+  "strategy": "panel",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 808.96,
+        "y": 616.32
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Addictive Drums 2 plugin window (kit list, left column)\",\n  \"entity\": \"DW Funk\",\n  \"control\": \"Audition (play) button next to the DW Funk kit entry\",\n  \"evidence\": \"In the AD2 left kit list, the row labeled 'DW Funk' has a circular play/audition icon immediately to the left of its text, between 'Crisp Kit' and '70s Kit'.\",\n  \"region\": {\n    \"left\": 300,\n    \"top\": 372,\n    \"right\": 375,\n    \"bottom\": 600\n  },\n  \"anchor\": {\n    \"left\": 322,\n    \"top\": 422,\n    \"right\": 346,\n    \"bottom\": 436\n  },\n  \"point\": {\n    \"x\": 316,\n    \"y\": 428\n  }\n}",
+      "latency_seconds": 4.2909534579957835,
+      "usage": {
+        "completion_tokens": 804,
+        "prompt_tokens": 3894,
+        "total_tokens": 4698,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 563,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 563
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: DW Funk audition\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "a5a45da2fb45af611187f89e719bf9d1b1fe4af14f71d6f8067c59db395aa638"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    },
+    {
+      "point": {
+        "x": 109.836,
+        "y": 204.732
+      },
+      "raw_response": "{\"x\":243,\"y\":282}",
+      "latency_seconds": 3.7426190419937484,
+      "usage": {
+        "completion_tokens": 827,
+        "prompt_tokens": 564,
+        "total_tokens": 1391,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 811,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 811
+        }
+      },
+      "stage": "panel_localize",
+      "prompt": "Locate the requested control in this 452x726 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: DW Funk audition\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Addictive Drums 2 plugin window (kit list, left column); entity=DW Funk; control=Audition (play) button next to the DW Funk kit entry. Return only {\"x\":number,\"y\":number}, or {\"visible\":false} if the exact target is absent.",
+      "image_sizes": [
+        [
+          452,
+          726
+        ]
+      ],
+      "image_hashes": [
+        "350c9876188ee564d57cefc5d6b19acbd3d38c8dcd03a48580b7619eed05d9f0"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 8.22619700001087,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Addictive Drums 2 plugin window (kit list, left column)",
+      "entity": "DW Funk",
+      "control": "Audition (play) button next to the DW Funk kit entry",
+      "evidence": "In the AD2 left kit list, the row labeled 'DW Funk' has a circular play/audition icon immediately to the left of its text, between 'Crisp Kit' and '70s Kit'.",
+      "region": {
+        "left": 300.0,
+        "top": 372.0,
+        "right": 375.0,
+        "bottom": 600.0
+      },
+      "anchor": {
+        "left": 322.0,
+        "top": 422.0,
+        "right": 346.0,
+        "bottom": 436.0
+      },
+      "point": {
+        "x": 316.0,
+        "y": 428.0
+      }
+    },
+    "crop": {
+      "bounds": [
+        751,
+        518,
+        977,
+        881
+      ],
+      "output_size": [
+        452,
+        726
+      ],
+      "scale": 2.0
+    },
+    "candidates": {
+      "initial": {
+        "x": 808.96,
+        "y": 616.32
+      },
+      "refined": {
+        "x": 805.918,
+        "y": 620.366
+      }
+    }
+  }
+}

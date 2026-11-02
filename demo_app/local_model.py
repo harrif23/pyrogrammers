@@ -25,3 +25,10 @@ class LocalModel(FireworksModel):
         data=super().manifest()
         data.update(provider='local llama-server',timeout_seconds=90)
         return data
+
+    def request_options(self, stage):
+        if stage == 'panel_plan':
+            from flground.panel import PanelPlan
+            return {'response_format': {'type': 'json_schema', 'json_schema': {
+                'name': 'panel_plan', 'strict': True, 'schema': PanelPlan.model_json_schema()}}}
+        return {}

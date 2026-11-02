@@ -1,0 +1,56 @@
+{
+  "instruction": "set target mixer track for violins spiccato",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1164.8,
+    "y": 950.4
+  },
+  "strategy": "baseline",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1164.8,
+        "y": 950.4
+      },
+      "raw_response": "{\n  \"x\": 455,\n  \"y\": 660\n}",
+      "latency_seconds": 4.494368249987019,
+      "usage": {
+        "completion_tokens": 868,
+        "prompt_tokens": 3721,
+        "total_tokens": 4589,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 843,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 843
+        }
+      },
+      "stage": "predict",
+      "prompt": "Locate the UI control in this 2560x1440 screenshot. Return only a JSON object with numeric x and y. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Instruction: set target mixer track for violins spiccato",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "7afe1346e451e923b7bcd7ca647b5aca6d2207a159857ec1e794795b8a4853f3"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 4.583602500002598,
+  "status": "ok",
+  "metadata": {}
+}

@@ -1,0 +1,56 @@
+{
+  "instruction": "adjust attack time",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1021.44,
+    "y": 744.48
+  },
+  "strategy": "knowledge",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1021.44,
+        "y": 744.48
+      },
+      "raw_response": "{\n  \"x\": 399,\n  \"y\": 517\n}",
+      "latency_seconds": 7.140780917019583,
+      "usage": {
+        "completion_tokens": 889,
+        "prompt_tokens": 3782,
+        "total_tokens": 4671,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 864,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 864
+        }
+      },
+      "stage": "predict",
+      "prompt": "Locate the UI control in this 2560x1440 screenshot. Return only a JSON object with numeric x and y. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Instruction: adjust attack time\nFL Studio context:\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "67678836faf1a66db07136da134f582f16b2ca2a5365d597c45be7350a4bfd6f"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 7.228482083010022,
+  "status": "ok",
+  "metadata": {}
+}

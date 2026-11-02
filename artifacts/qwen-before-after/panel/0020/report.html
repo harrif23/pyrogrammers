@@ -1,0 +1,150 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>random color</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;random color&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 1028.952,
+    &quot;y&quot;: 1015.496
+  },
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 865.28,
+        &quot;y&quot;: 717.12
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Color selector dialog\&quot;,\n  \&quot;entity\&quot;: \&quot;Color selector\&quot;,\n  \&quot;control\&quot;: \&quot;random color (dice icon)\&quot;,\n  \&quot;evidence\&quot;: \&quot;A &#x27;Color selector&#x27; dialog is open over the Playlist. In its top-left corner are three small mode icons (color wheel, palette grid, and a dice). The dice icon is the random-color button.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 303,\n    \&quot;top\&quot;: 462,\n    \&quot;right\&quot;: 440,\n    \&quot;bottom\&quot;: 832\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 303,\n    \&quot;top\&quot;: 462,\n    \&quot;right\&quot;: 440,\n    \&quot;bottom\&quot;: 478\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 338,\n    \&quot;y\&quot;: 498\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 8.389509958011331,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 1801,
+        &quot;prompt_tokens&quot;: 3893,
+        &quot;total_tokens&quot;: 5694,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 1584,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 1584
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: random color\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;7c7bdb4cc3f6bff2fc05f3c858ebaa89a2bca37ef6ad0a6a2c81af86c1067d08&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 561.904,
+        &quot;y&quot;: 754.992
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;:692,\&quot;y\&quot;:642}&quot;,
+      &quot;latency_seconds&quot;: 1.24001091599348,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 140,
+        &quot;prompt_tokens&quot;: 1146,
+        &quot;total_tokens&quot;: 1286,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 124,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 124
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 812x1176 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: random color\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Color selector dialog; entity=Color selector; control=random color (dice icon). Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          812,
+          1176
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;cc15407cf5684fea9857e03ea985cb83498c399cb8f3428bb3016965cbf0e224&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 9.874420291977003,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Color selector dialog&quot;,
+      &quot;entity&quot;: &quot;Color selector&quot;,
+      &quot;control&quot;: &quot;random color (dice icon)&quot;,
+      &quot;evidence&quot;: &quot;A &#x27;Color selector&#x27; dialog is open over the Playlist. In its top-left corner are three small mode icons (color wheel, palette grid, and a dice). The dice icon is the random-color button.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 303.0,
+        &quot;top&quot;: 462.0,
+        &quot;right&quot;: 440.0,
+        &quot;bottom&quot;: 832.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 303.0,
+        &quot;top&quot;: 462.0,
+        &quot;right&quot;: 440.0,
+        &quot;bottom&quot;: 478.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 338.0,
+        &quot;y&quot;: 498.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        748,
+        638,
+        1154,
+        1226
+      ],
+      &quot;output_size&quot;: [
+        812,
+        1176
+      ],
+      &quot;scale&quot;: 2.0
+    },
+    &quot;candidates&quot;: {
+      &quot;initial&quot;: {
+        &quot;x&quot;: 865.28,
+        &quot;y&quot;: 717.12
+      },
+      &quot;refined&quot;: {
+        &quot;x&quot;: 1028.952,
+        &quot;y&quot;: 1015.496
+      }
+    }
+  }
+}</pre>

@@ -1,0 +1,68 @@
+{
+  "instruction": "turn off scroll",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1694.72,
+    "y": 609.12
+  },
+  "strategy": "panel_selective",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1694.72,
+        "y": 609.12
+      },
+      "raw_response": "{\"visible\":true,\"panel\":\"Riffstation plugin\",\"entity\":\"Scroll toggle\",\"point\":{\"x\":662,\"y\":423},\"ambiguous\":false}",
+      "latency_seconds": 3.3019643340085167,
+      "usage": {
+        "completion_tokens": 376,
+        "prompt_tokens": 3824,
+        "total_tokens": 4200,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 338,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 3823
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 338
+        }
+      },
+      "stage": "compact_plan",
+      "prompt": "Locate this FL Studio control: turn off scroll\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nUse coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Identify the panel and exact named entity; distinguish neighboring controls by function. Return only {\"visible\":boolean,\"panel\":\"short name\",\"entity\":\"short name\",\"point\":{\"x\":number,\"y\":number},\"ambiguous\":boolean}. Set point=null if absent. Set ambiguous=true if multiple visible controls plausibly match the request. No explanation or bounding boxes.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "015dd7b09abfb91f4603ba13b5ea872fd968405b016401a96a705e5ba2994761"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 3.408169624977745,
+  "status": "ok",
+  "metadata": {
+    "plan": {
+      "visible": true,
+      "panel": "Riffstation plugin",
+      "entity": "Scroll toggle",
+      "point": {
+        "x": 662.0,
+        "y": 423.0
+      },
+      "ambiguous": false
+    },
+    "verification": "not_requested"
+  }
+}

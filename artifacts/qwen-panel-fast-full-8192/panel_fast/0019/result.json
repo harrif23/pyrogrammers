@@ -1,0 +1,83 @@
+{
+  "instruction": "insert a channel",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 614.4,
+    "y": 1069.92
+  },
+  "strategy": "panel_fast",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 614.4,
+        "y": 1069.92
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Playlist\",\n  \"entity\": \"Track context menu\",\n  \"control\": \"Insert one\",\n  \"evidence\": \"A right-click context menu is open over the Playlist track list with the 'Insert one' entry highlighted.\",\n  \"region\": {\n    \"left\": 217,\n    \"top\": 486,\n    \"right\": 281,\n    \"bottom\": 792\n  },\n  \"anchor\": null,\n  \"point\": {\n    \"x\": 240,\n    \"y\": 743\n  }\n}",
+      "latency_seconds": 28.138872040988645,
+      "usage": {
+        "completion_tokens": 3309,
+        "prompt_tokens": 3963,
+        "total_tokens": 7272,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 3158,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 3962
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 3158
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: insert a channel\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "32d790a88fc21fc3cee60ce917c78a14321336f03c4d11c63185ee41e39f2b00"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 28.383251124992967,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.",
+    "plan": {
+      "visible": true,
+      "panel": "Playlist",
+      "entity": "Track context menu",
+      "control": "Insert one",
+      "evidence": "A right-click context menu is open over the Playlist track list with the 'Insert one' entry highlighted.",
+      "region": {
+        "left": 217.0,
+        "top": 486.0,
+        "right": 281.0,
+        "bottom": 792.0
+      },
+      "anchor": null,
+      "point": {
+        "x": 240.0,
+        "y": 743.0
+      }
+    },
+    "localization": "single_pass_panel_plan"
+  }
+}

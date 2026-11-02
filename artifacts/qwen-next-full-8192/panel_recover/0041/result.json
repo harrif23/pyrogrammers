@@ -1,0 +1,88 @@
+{
+  "instruction": "add more plugins to slot 2",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 2521.6,
+    "y": 194.4
+  },
+  "strategy": "panel_recover",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 2521.6,
+        "y": 194.4
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Mixer\",\n  \"entity\": \"Slot 2\",\n  \"control\": \"Slot 2 plugin selector dropdown\",\n  \"evidence\": \"The Mixer panel on the right lists 'Slot 2' with a circular plugin-selector dropdown button at the right end of its row.\",\n  \"region\": {\n    \"left\": 915,\n    \"top\": 128,\n    \"right\": 1000,\n    \"bottom\": 145\n  },\n  \"anchor\": {\n    \"left\": 918,\n    \"top\": 128,\n    \"right\": 975,\n    \"bottom\": 142\n  },\n  \"point\": {\n    \"x\": 985,\n    \"y\": 135\n  }\n}",
+      "latency_seconds": 6.701175000023795,
+      "usage": {
+        "completion_tokens": 997,
+        "prompt_tokens": 3925,
+        "total_tokens": 4922,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 793,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 3924
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 793
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: add more plugins to slot 2\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "9fdc1c12316310f8d5a446185b8a1c85740229909ea2d360301cd2052b2097ad"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 6.780058250005823,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Mixer",
+      "entity": "Slot 2",
+      "control": "Slot 2 plugin selector dropdown",
+      "evidence": "The Mixer panel on the right lists 'Slot 2' with a circular plugin-selector dropdown button at the right end of its row.",
+      "region": {
+        "left": 915.0,
+        "top": 128.0,
+        "right": 1000.0,
+        "bottom": 145.0
+      },
+      "anchor": {
+        "left": 918.0,
+        "top": 128.0,
+        "right": 975.0,
+        "bottom": 142.0
+      },
+      "point": {
+        "x": 985.0,
+        "y": 135.0
+      }
+    },
+    "localization": "single_pass_panel_plan"
+  }
+}

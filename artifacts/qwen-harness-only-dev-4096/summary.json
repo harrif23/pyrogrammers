@@ -1,0 +1,115 @@
+{
+  "baseline_reused": {
+    "correct": 14,
+    "total": 34,
+    "accuracy": 0.4117647058823529,
+    "errors": 0,
+    "abstentions": 0,
+    "mean_latency_seconds": 6.338241437529659,
+    "p95_latency_seconds": 26.61194445900037,
+    "model_calls": 34,
+    "usage": {
+      "completion_tokens": 40257,
+      "prompt_tokens": 126331,
+      "total_tokens": 166588
+    },
+    "slices": {
+      "icon": {
+        "correct": 6,
+        "total": 19
+      },
+      "text": {
+        "correct": 8,
+        "total": 15
+      }
+    },
+    "estimated_cost": null
+  },
+  "knowledge": {
+    "correct": 14,
+    "total": 34,
+    "accuracy": 0.4117647058823529,
+    "errors": 7,
+    "abstentions": 0,
+    "mean_latency_seconds": 12.806486144614823,
+    "p95_latency_seconds": 31.226709458016558,
+    "model_calls": 34,
+    "usage": {
+      "completion_tokens": 52534,
+      "prompt_tokens": 129015,
+      "total_tokens": 181549
+    },
+    "slices": {
+      "icon": {
+        "correct": 4,
+        "total": 19
+      },
+      "text": {
+        "correct": 10,
+        "total": 15
+      }
+    },
+    "estimated_cost": null,
+    "comparison": {
+      "compatibility": "UNMATCHED token budgets: baseline=32768, candidate=4096; comparison includes budget and harness changes",
+      "baseline_correct": 14,
+      "fixes": [
+        "fruitloops_windows_10",
+        "fruitloops_windows_34",
+        "fruitloops_windows_48"
+      ],
+      "regressions": [
+        "fruitloops_windows_20",
+        "fruitloops_windows_41",
+        "fruitloops_windows_52"
+      ],
+      "net_fixes": 0,
+      "delta_percentage_points": 0.0
+    }
+  },
+  "panel_fast": {
+    "correct": 17,
+    "total": 34,
+    "accuracy": 0.5,
+    "errors": 3,
+    "abstentions": 2,
+    "mean_latency_seconds": 12.647259084679021,
+    "p95_latency_seconds": 30.639572833984857,
+    "model_calls": 34,
+    "usage": {
+      "completion_tokens": 53535,
+      "prompt_tokens": 133741,
+      "total_tokens": 187276
+    },
+    "slices": {
+      "icon": {
+        "correct": 5,
+        "total": 19
+      },
+      "text": {
+        "correct": 12,
+        "total": 15
+      }
+    },
+    "estimated_cost": null,
+    "comparison": {
+      "compatibility": "UNMATCHED token budgets: baseline=32768, candidate=4096; comparison includes budget and harness changes",
+      "baseline_correct": 14,
+      "fixes": [
+        "fruitloops_windows_10",
+        "fruitloops_windows_19",
+        "fruitloops_windows_15",
+        "fruitloops_windows_17",
+        "fruitloops_windows_34",
+        "fruitloops_windows_48"
+      ],
+      "regressions": [
+        "fruitloops_windows_41",
+        "fruitloops_windows_20",
+        "fruitloops_windows_52"
+      ],
+      "net_fixes": 3,
+      "delta_percentage_points": 8.823529411764707
+    }
+  }
+}

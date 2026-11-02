@@ -1,0 +1,150 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>view all exploremaps</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;view all exploremaps&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 1125.1109999999999,
+    &quot;y&quot;: 848.386
+  },
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 1126.4,
+        &quot;y&quot;: 849.6
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Addictive Drums 2 (plugin window)\&quot;,\n  \&quot;entity\&quot;: \&quot;ExploreMaps\&quot;,\n  \&quot;control\&quot;: \&quot;ExploreMaps header (view all)\&quot;,\n  \&quot;evidence\&quot;: \&quot;Inside the Addictive Drums 2 window, the label &#x27;ExploreMaps&#x27; sits above two map thumbnails (&#x27;Fairfax Vol 1 - Kit&#x27; and &#x27;Fairfax Vol 1 - Selections&#x27;); this header is the control that opens/views all explore maps.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 358,\n    \&quot;top\&quot;: 578,\n    \&quot;right\&quot;: 522,\n    \&quot;bottom\&quot;: 688\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 424,\n    \&quot;top\&quot;: 584,\n    \&quot;right\&quot;: 456,\n    \&quot;bottom\&quot;: 596\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 440,\n    \&quot;y\&quot;: 590\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 18.61865074999514,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 4081,
+        &quot;prompt_tokens&quot;: 3896,
+        &quot;total_tokens&quot;: 7977,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 3844,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 3844
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: view all exploremaps\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;e3aace3749c2e1d96f7d278040fc3906c17b7cdd254172858c16b2b8d420f4de&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 460.222,
+        &quot;y&quot;: 74.772
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;:497,\&quot;y\&quot;:186}&quot;,
+      &quot;latency_seconds&quot;: 2.577968083001906,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 548,
+        &quot;prompt_tokens&quot;: 609,
+        &quot;total_tokens&quot;: 1157,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 532,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 532
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 926x402 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: view all exploremaps\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Addictive Drums 2 (plugin window); entity=ExploreMaps; control=ExploreMaps header (view all). Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          926,
+          402
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;354850aa43b117254ed70dcd1df716ceeebcc07c2336f08147ff1ef9c8774316&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 21.43154229200445,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Addictive Drums 2 (plugin window)&quot;,
+      &quot;entity&quot;: &quot;ExploreMaps&quot;,
+      &quot;control&quot;: &quot;ExploreMaps header (view all)&quot;,
+      &quot;evidence&quot;: &quot;Inside the Addictive Drums 2 window, the label &#x27;ExploreMaps&#x27; sits above two map thumbnails (&#x27;Fairfax Vol 1 - Kit&#x27; and &#x27;Fairfax Vol 1 - Selections&#x27;); this header is the control that opens/views all explore maps.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 358.0,
+        &quot;top&quot;: 578.0,
+        &quot;right&quot;: 522.0,
+        &quot;bottom&quot;: 688.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 424.0,
+        &quot;top&quot;: 584.0,
+        &quot;right&quot;: 456.0,
+        &quot;bottom&quot;: 596.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 440.0,
+        &quot;y&quot;: 590.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        895,
+        811,
+        1358,
+        1012
+      ],
+      &quot;output_size&quot;: [
+        926,
+        402
+      ],
+      &quot;scale&quot;: 2.0
+    },
+    &quot;candidates&quot;: {
+      &quot;initial&quot;: {
+        &quot;x&quot;: 1126.4,
+        &quot;y&quot;: 849.6
+      },
+      &quot;refined&quot;: {
+        &quot;x&quot;: 1125.1109999999999,
+        &quot;y&quot;: 848.386
+      }
+    }
+  }
+}</pre>

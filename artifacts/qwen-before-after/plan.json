@@ -1,0 +1,16 @@
+{
+  "split": "full",
+  "examples": 57,
+  "strategies": [
+    "baseline",
+    "panel"
+  ],
+  "maximum_calls": 171,
+  "coordinate_space": "normalized_1000",
+  "temperature": 0,
+  "primary_candidate": "panel",
+  "output": "artifacts/qwen-before-after",
+  "estimated_cost": null,
+  "evaluation_note": "Full-set result is exploratory if any official examples influenced tuning.",
+  "started_utc": "2026-11-02T22:23:46.218155+00:00"
+}

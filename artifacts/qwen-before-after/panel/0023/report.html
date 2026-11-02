@@ -1,0 +1,150 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>adjust volume level of a certain hz corresponding to point 2</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;adjust volume level of a certain hz corresponding to point 2&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 962.978,
+    &quot;y&quot;: 552.99
+  },
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 944.64,
+        &quot;y&quot;: 544.32
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Fruity parametric EQ 2 plugin window (floating, titled &#x27;Fruity parametric EQ 2 (Alice keys)&#x27;)\&quot;,\n  \&quot;entity\&quot;: \&quot;Point 2 (band 2) on the EQ frequency-response curve\&quot;,\n  \&quot;control\&quot;: \&quot;Gain / volume level of point 2 (vertical position of the numbered node 2 marker on the curve)\&quot;,\n  \&quot;evidence\&quot;: \&quot;The floating &#x27;Fruity parametric EQ 2 (Alice keys)&#x27; window shows a response graph with numbered nodes 1-9. Node 2 is the magenta circle labeled &#x27;2&#x27; at the first peak of the curve; its vertical position sets the volume/gain of that Hz. The matching pink gain fader and pink freq/Q knobs sit in the right-hand column.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 352,\n    \&quot;top\&quot;: 352,\n    \&quot;right\&quot;: 388,\n    \&quot;bottom\&quot;: 405\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 364,\n    \&quot;top\&quot;: 370,\n    \&quot;right\&quot;: 375,\n    \&quot;bottom\&quot;: 388\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 369,\n    \&quot;y\&quot;: 378\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 48.858777374989586,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 11111,
+        &quot;prompt_tokens&quot;: 3986,
+        &quot;total_tokens&quot;: 15097,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 10805,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 10805
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: adjust volume level of a certain hz corresponding to point 2\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.\nMixer level faders control mixer tracks; match the visible track header. Channel Rack volume, Mixer track level, and main monitor volume are different controls. Playlist tracks do not establish Mixer routing.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;10b7cd4c89389fbea3e5c4e55acb413e61f25a190c39cf6cead883e6d4019052&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 139.956,
+        &quot;y&quot;: 109.98
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;:642,\&quot;y\&quot;:585}&quot;,
+      &quot;latency_seconds&quot;: 1.9747889999998733,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 426,
+        &quot;prompt_tokens&quot;: 437,
+        &quot;total_tokens&quot;: 863,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 410,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 410
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 218x188 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: adjust volume level of a certain hz corresponding to point 2\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.\nMixer level faders control mixer tracks; match the visible track header. Channel Rack volume, Mixer track level, and main monitor volume are different controls. Playlist tracks do not establish Mixer routing.\nProposed context (verify visually): panel=Fruity parametric EQ 2 plugin window (floating, titled &#x27;Fruity parametric EQ 2 (Alice keys)&#x27;); entity=Point 2 (band 2) on the EQ frequency-response curve; control=Gain / volume level of point 2 (vertical position of the numbered node 2 marker on the curve). Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          218,
+          188
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;0f7067769d4527052568529fb38ca745f8146b91b6649abeec76fd40f00a0115&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 50.94495245901635,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nChannel Rack rows have separate enable, pan, volume, routing and channel-name controls. The channel-name button opens its settings/plugin. Channel volume is not the enable indicator, pan knob, or routing number.\nMixer level faders control mixer tracks; match the visible track header. Channel Rack volume, Mixer track level, and main monitor volume are different controls. Playlist tracks do not establish Mixer routing.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Fruity parametric EQ 2 plugin window (floating, titled &#x27;Fruity parametric EQ 2 (Alice keys)&#x27;)&quot;,
+      &quot;entity&quot;: &quot;Point 2 (band 2) on the EQ frequency-response curve&quot;,
+      &quot;control&quot;: &quot;Gain / volume level of point 2 (vertical position of the numbered node 2 marker on the curve)&quot;,
+      &quot;evidence&quot;: &quot;The floating &#x27;Fruity parametric EQ 2 (Alice keys)&#x27; window shows a response graph with numbered nodes 1-9. Node 2 is the magenta circle labeled &#x27;2&#x27; at the first peak of the curve; its vertical position sets the volume/gain of that Hz. The matching pink gain fader and pink freq/Q knobs sit in the right-hand column.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 352.0,
+        &quot;top&quot;: 352.0,
+        &quot;right&quot;: 388.0,
+        &quot;bottom&quot;: 405.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 364.0,
+        &quot;top&quot;: 370.0,
+        &quot;right&quot;: 375.0,
+        &quot;bottom&quot;: 388.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 369.0,
+        &quot;y&quot;: 378.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        893,
+        498,
+        1002,
+        592
+      ],
+      &quot;output_size&quot;: [
+        218,
+        188
+      ],
+      &quot;scale&quot;: 2.0
+    },
+    &quot;candidates&quot;: {
+      &quot;initial&quot;: {
+        &quot;x&quot;: 944.64,
+        &quot;y&quot;: 544.32
+      },
+      &quot;refined&quot;: {
+        &quot;x&quot;: 962.978,
+        &quot;y&quot;: 552.99
+      }
+    }
+  }
+}</pre>

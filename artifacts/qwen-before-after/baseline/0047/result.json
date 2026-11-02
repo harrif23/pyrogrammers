@@ -1,0 +1,56 @@
+{
+  "instruction": "select next instrument",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1139.2,
+    "y": 334.08
+  },
+  "strategy": "baseline",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1139.2,
+        "y": 334.08
+      },
+      "raw_response": "{\n  \"x\": 445,\n  \"y\": 232\n}",
+      "latency_seconds": 2.607882000011159,
+      "usage": {
+        "completion_tokens": 346,
+        "prompt_tokens": 3714,
+        "total_tokens": 4060,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 321,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 321
+        }
+      },
+      "stage": "predict",
+      "prompt": "Locate the UI control in this 2560x1440 screenshot. Return only a JSON object with numeric x and y. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Instruction: select next instrument",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "99c3e334ca7002c3bb76a45edaad888a843620cc97c36135e538f5a4ab7abc6a"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 2.6976755000068806,
+  "status": "ok",
+  "metadata": {}
+}

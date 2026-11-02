@@ -1,0 +1,88 @@
+{
+  "instruction": "select tempo range 100-200",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1280.0,
+    "y": 858.24
+  },
+  "strategy": "panel_recover",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1280.0,
+        "y": 858.24
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Tempo detection dialog\",\n  \"entity\": \"Tempo range button\",\n  \"control\": \"100 to 200\",\n  \"evidence\": \"The Tempo detection dialog shows a vertical list of range buttons including '100 to 200'.\",\n  \"region\": {\n    \"left\": 472,\n    \"top\": 507,\n    \"right\": 528,\n    \"bottom\": 736\n  },\n  \"anchor\": {\n    \"left\": 481,\n    \"top\": 588,\n    \"right\": 519,\n    \"bottom\": 604\n  },\n  \"point\": {\n    \"x\": 500,\n    \"y\": 596\n  }\n}",
+      "latency_seconds": 5.459130665985867,
+      "usage": {
+        "completion_tokens": 830,
+        "prompt_tokens": 3929,
+        "total_tokens": 4759,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 626,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 3928
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 626
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: select tempo range 100-200\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null. Keep evidence to one short sentence. All point AND box coordinates must use the coordinate units specified above, never mix pixels and normalized units.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "693666a29fe3d7246ca269147fdde0513163561ffadbd121f18bd7bab2501ac5"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 5.5373449999897275,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Tempo detection dialog",
+      "entity": "Tempo range button",
+      "control": "100 to 200",
+      "evidence": "The Tempo detection dialog shows a vertical list of range buttons including '100 to 200'.",
+      "region": {
+        "left": 472.0,
+        "top": 507.0,
+        "right": 528.0,
+        "bottom": 736.0
+      },
+      "anchor": {
+        "left": 481.0,
+        "top": 588.0,
+        "right": 519.0,
+        "bottom": 604.0
+      },
+      "point": {
+        "x": 500.0,
+        "y": 596.0
+      }
+    },
+    "localization": "single_pass_panel_plan"
+  }
+}

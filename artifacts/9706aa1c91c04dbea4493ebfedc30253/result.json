@@ -1,0 +1,41 @@
+{
+  "instruction": "Find the snare channel volume control",
+  "image_width": 2734,
+  "image_height": 1538,
+  "point": {
+    "x": 1925.0,
+    "y": 1370.0
+  },
+  "strategy": "baseline",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1925.0,
+        "y": 1370.0
+      },
+      "raw_response": "```json\n{\"x\": 1925, \"y\": 1370}\n```",
+      "latency_seconds": 3.280355334019987,
+      "usage": {
+        "completion_tokens": 394,
+        "prompt_tokens": 4193,
+        "total_tokens": 4587,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 368,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 4192
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 368
+        }
+      }
+    }
+  ],
+  "latency_seconds": 3.4117707909899764
+}

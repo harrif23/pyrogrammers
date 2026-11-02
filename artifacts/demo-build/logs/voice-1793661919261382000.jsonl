@@ -1,0 +1,41 @@
+{"message":"Requesting speech authorization","bundle":"local.flground.voice","event":"diagnostic"}
+{"message":"Speech authorization returned","event":"diagnostic","status":3}
+{"event":"listening"}
+{"event":"level","value":0.81463658809661865}
+{"event":"level","value":0.85340672731399536}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":0.91455107927322388}
+{"event":"level","value":0.83690977096557617}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"text":"Hey","event":"partial"}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"text":"Hey where","event":"partial"}
+{"text":"Hey where is","event":"partial"}
+{"event":"level","value":1}
+{"event":"level","value":1}
+{"text":"Hey where is the","event":"partial"}
+{"event":"level","value":1}
+{"event":"level","value":0.63444781303405762}
+{"text":"Hey where is the drum","event":"partial"}
+{"event":"level","value":0.82083010673522949}
+{"text":"Hey where is the Drums","event":"partial"}
+{"text":"Hey where is the Drums button","event":"partial"}
+{"text":"Hey where is the Drums button","event":"partial"}
+{"text":"Hey where is the Drums button","event":"transcript"}

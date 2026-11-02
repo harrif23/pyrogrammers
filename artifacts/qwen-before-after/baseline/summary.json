@@ -1,0 +1,26 @@
+{
+  "correct": 26,
+  "total": 57,
+  "accuracy": 0.45614035087719296,
+  "errors": 0,
+  "abstentions": 0,
+  "mean_latency_seconds": 6.0323839795968714,
+  "p95_latency_seconds": 26.61194445900037,
+  "model_calls": 57,
+  "usage": {
+    "completion_tokens": 63619,
+    "prompt_tokens": 211782,
+    "total_tokens": 275401
+  },
+  "slices": {
+    "icon": {
+      "correct": 10,
+      "total": 31
+    },
+    "text": {
+      "correct": 16,
+      "total": 26
+    }
+  },
+  "estimated_cost": null
+}

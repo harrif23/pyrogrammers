@@ -1,0 +1,150 @@
+{
+  "instruction": "turn off AMP",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1038.4,
+    "y": 28.12
+  },
+  "strategy": "panel",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1018.88,
+        "y": 17.28
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"toolbar\",\n  \"entity\": \"AMP-Enabled\",\n  \"control\": \"AMP-Enabled: On toggle\",\n  \"evidence\": \"Top toolbar displays the text 'AMP-Enabled: On', indicating the AMP feature is currently active and can be toggled off by clicking this label.\",\n  \"region\": {\n    \"left\": 380,\n    \"top\": 5,\n    \"right\": 420,\n    \"bottom\": 20\n  },\n  \"anchor\": {\n    \"left\": 387,\n    \"top\": 8,\n    \"right\": 414,\n    \"bottom\": 16\n  },\n  \"point\": {\n    \"x\": 398,\n    \"y\": 12\n  }\n}",
+      "latency_seconds": 5.834497333999025,
+      "usage": {
+        "completion_tokens": 1119,
+        "prompt_tokens": 3894,
+        "total_tokens": 5013,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 921,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 921
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: turn off AMP\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "daa4bf61c4e29d517c2043222d0ba933f2f03f86f58de13514920a6725b9bfe0"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    },
+    {
+      "point": {
+        "x": 148.8,
+        "y": 56.24
+      },
+      "raw_response": "{\"x\":620,\"y\":760}",
+      "latency_seconds": 2.3140383340069093,
+      "usage": {
+        "completion_tokens": 531,
+        "prompt_tokens": 296,
+        "total_tokens": 827,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 515,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 515
+        }
+      },
+      "stage": "panel_localize",
+      "prompt": "Locate the requested control in this 240x74 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: turn off AMP\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=toolbar; entity=AMP-Enabled; control=AMP-Enabled: On toggle. Return only {\"x\":number,\"y\":number}, or {\"visible\":false} if the exact target is absent.",
+      "image_sizes": [
+        [
+          240,
+          74
+        ]
+      ],
+      "image_hashes": [
+        "54a45438a35d8aedcd873b1b5e47bd691c0772d64dff38fd772c6d51dce66b94"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 8.246341624995694,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "toolbar",
+      "entity": "AMP-Enabled",
+      "control": "AMP-Enabled: On toggle",
+      "evidence": "Top toolbar displays the text 'AMP-Enabled: On', indicating the AMP feature is currently active and can be toggled off by clicking this label.",
+      "region": {
+        "left": 380.0,
+        "top": 5.0,
+        "right": 420.0,
+        "bottom": 20.0
+      },
+      "anchor": {
+        "left": 387.0,
+        "top": 8.0,
+        "right": 414.0,
+        "bottom": 16.0
+      },
+      "point": {
+        "x": 398.0,
+        "y": 12.0
+      }
+    },
+    "crop": {
+      "bounds": [
+        964,
+        0,
+        1084,
+        37
+      ],
+      "output_size": [
+        240,
+        74
+      ],
+      "scale": 2.0
+    },
+    "candidates": {
+      "initial": {
+        "x": 1018.88,
+        "y": 17.28
+      },
+      "refined": {
+        "x": 1038.4,
+        "y": 28.12
+      }
+    }
+  }
+}

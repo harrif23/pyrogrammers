@@ -1,0 +1,150 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>adjust attack time</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;adjust attack time&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 1027.68,
+    &quot;y&quot;: 739.33
+  },
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 1018.88,
+        &quot;y&quot;: 740.16
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Plugin window (synthesizer) for VAD1 Claps 011\&quot;,\n  \&quot;entity\&quot;: \&quot;VAD1 Claps 011\&quot;,\n  \&quot;control\&quot;: \&quot;Envelope ATT knob\&quot;,\n  \&quot;evidence\&quot;: \&quot;The open plugin window titled &#x27;VAD1 Claps 011 (VAD1 Claps 011)&#x27; shows an Envelope section whose bottom row of knobs is labeled DELAY, ATT, HOLD, DEC, SUS, REL; the ATT knob is the attack-time control.\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 375,\n    \&quot;top\&quot;: 425,\n    \&quot;right\&quot;: 485,\n    \&quot;bottom\&quot;: 555\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 375,\n    \&quot;top\&quot;: 348,\n    \&quot;right\&quot;: 460,\n    \&quot;bottom\&quot;: 362\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 398,\n    \&quot;y\&quot;: 514\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 13.430099791003158,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 2971,
+        &quot;prompt_tokens&quot;: 3894,
+        &quot;total_tokens&quot;: 6865,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 2717,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 2717
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: adjust attack time\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;67678836faf1a66db07136da134f582f16b2ca2a5365d597c45be7350a4bfd6f&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 165.36,
+        &quot;y&quot;: 506.66
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;:265,\&quot;y\&quot;:770}&quot;,
+      &quot;latency_seconds&quot;: 7.974663250002777,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 1795,
+        &quot;prompt_tokens&quot;: 661,
+        &quot;total_tokens&quot;: 2456,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 1779,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 1779
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 624x658 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: adjust attack time\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Plugin window (synthesizer) for VAD1 Claps 011; entity=VAD1 Claps 011; control=Envelope ATT knob. Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          624,
+          658
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;f0c0df9a812041f5f7413999480a78f56bf5fc1dbdad781d5abe5d7e0c893008&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 21.52085033399635,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Plugin window (synthesizer) for VAD1 Claps 011&quot;,
+      &quot;entity&quot;: &quot;VAD1 Claps 011&quot;,
+      &quot;control&quot;: &quot;Envelope ATT knob&quot;,
+      &quot;evidence&quot;: &quot;The open plugin window titled &#x27;VAD1 Claps 011 (VAD1 Claps 011)&#x27; shows an Envelope section whose bottom row of knobs is labeled DELAY, ATT, HOLD, DEC, SUS, REL; the ATT knob is the attack-time control.&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 375.0,
+        &quot;top&quot;: 425.0,
+        &quot;right&quot;: 485.0,
+        &quot;bottom&quot;: 555.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 375.0,
+        &quot;top&quot;: 348.0,
+        &quot;right&quot;: 460.0,
+        &quot;bottom&quot;: 362.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 398.0,
+        &quot;y&quot;: 514.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        945,
+        486,
+        1257,
+        815
+      ],
+      &quot;output_size&quot;: [
+        624,
+        658
+      ],
+      &quot;scale&quot;: 2.0
+    },
+    &quot;candidates&quot;: {
+      &quot;initial&quot;: {
+        &quot;x&quot;: 1018.88,
+        &quot;y&quot;: 740.16
+      },
+      &quot;refined&quot;: {
+        &quot;x&quot;: 1027.68,
+        &quot;y&quot;: 739.33
+      }
+    }
+  }
+}</pre>

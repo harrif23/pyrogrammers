@@ -1,0 +1,56 @@
+{
+  "instruction": "adjust room size",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1103.36,
+    "y": 614.88
+  },
+  "strategy": "baseline",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1103.36,
+        "y": 614.88
+      },
+      "raw_response": "{\n  \"x\": 431,\n  \"y\": 427\n}",
+      "latency_seconds": 3.2515604580112267,
+      "usage": {
+        "completion_tokens": 556,
+        "prompt_tokens": 3714,
+        "total_tokens": 4270,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 531,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 531
+        }
+      },
+      "stage": "predict",
+      "prompt": "Locate the UI control in this 2560x1440 screenshot. Return only a JSON object with numeric x and y. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Instruction: adjust room size",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "062786e8a791d90eb26b475c0b8d1f980d1acd818a5f4388e45214280c4fb9d7"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 3.331024665996665,
+  "status": "ok",
+  "metadata": {}
+}

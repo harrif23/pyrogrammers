@@ -1,0 +1,78 @@
+{
+  "baseline_reused": {
+    "correct": 26,
+    "total": 57,
+    "accuracy": 0.45614035087719296,
+    "errors": 0,
+    "abstentions": 0,
+    "mean_latency_seconds": 6.0323839795968714,
+    "p95_latency_seconds": 26.61194445900037,
+    "model_calls": 57,
+    "usage": {
+      "completion_tokens": 63619,
+      "prompt_tokens": 211782,
+      "total_tokens": 275401
+    },
+    "slices": {
+      "icon": {
+        "correct": 10,
+        "total": 31
+      },
+      "text": {
+        "correct": 16,
+        "total": 26
+      }
+    },
+    "estimated_cost": null
+  },
+  "panel_fast": {
+    "correct": 30,
+    "total": 57,
+    "accuracy": 0.5263157894736842,
+    "errors": 3,
+    "abstentions": 1,
+    "mean_latency_seconds": 17.585678751525784,
+    "p95_latency_seconds": 51.11519920799765,
+    "model_calls": 57,
+    "usage": {
+      "completion_tokens": 130983,
+      "prompt_tokens": 224199,
+      "total_tokens": 355182
+    },
+    "slices": {
+      "icon": {
+        "correct": 8,
+        "total": 31
+      },
+      "text": {
+        "correct": 22,
+        "total": 26
+      }
+    },
+    "estimated_cost": null,
+    "comparison": {
+      "compatibility": "UNMATCHED token budgets: baseline=32768, candidate=8192; comparison includes budget and harness changes",
+      "baseline_correct": 26,
+      "fixes": [
+        "fruitloops_windows_11",
+        "fruitloops_windows_10",
+        "fruitloops_windows_17",
+        "fruitloops_windows_18",
+        "fruitloops_windows_9",
+        "fruitloops_windows_34",
+        "fruitloops_windows_31",
+        "fruitloops_windows_19",
+        "fruitloops_windows_48"
+      ],
+      "regressions": [
+        "fruitloops_windows_20",
+        "fruitloops_windows_41",
+        "fruitloops_windows_44",
+        "fruitloops_windows_54",
+        "fruitloops_windows_52"
+      ],
+      "net_fixes": 4,
+      "delta_percentage_points": 7.017543859649122
+    }
+  }
+}

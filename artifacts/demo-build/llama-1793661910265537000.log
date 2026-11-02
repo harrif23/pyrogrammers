@@ -1,0 +1,66 @@
+0.00.000.690 I srv  llama_server: initializing ...
+0.00.150.345 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.152.808 W srv  llama_server: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+0.00.155.305 I srv    load_model: loading model '/Users/harrif/.cache/huggingface/hub/models--ggml-org--gemma-4-E2B-it-GGUF/snapshots/a1dac71d3ab220618f5a7573a52acdc4baf3ae3b/gemma-4-E2B-it-Q8_0.gguf'
+0.01.154.681 W load: control-looking token:     50 '<|tool_response>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.156.800 W load: control-looking token:    212 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.163.381 W load: special_eog_ids contains '<|tool_response>', removing '</s>' token from EOG list
+0.04.319.942 I cmn          init: llama threadpool init, n_threads = 6
+0.05.407.656 W init_audio: audio input is in experimental stage and may have reduced quality:
+    https://github.com/ggml-org/llama.cpp/discussions/13759
+0.05.408.317 I srv    load_model: loaded multimodal model, '/Users/harrif/.cache/huggingface/hub/models--ggml-org--gemma-4-E2B-it-GGUF/snapshots/a1dac71d3ab220618f5a7573a52acdc4baf3ae3b/mmproj-gemma-4-E2B-it-Q8_0.gguf'
+0.05.440.690 I srv    load_model: initializing, n_slots = 4, n_ctx_slot = 65536, kv_unified = 'true'
+0.05.454.192 I srv  llama_server: model loaded
+0.05.454.198 I srv  llama_server: listening on http://127.0.0.1:8080
+0.05.454.199 W srv  llama_server: notice: server default port will be changed to :9931 in a future release (ref: https://github.com/ggml-org/llama.cpp/pull/26508)
+0.14.488.612 I slot get_availabl: id  3 | task -1 | selected slot by LRU, t_last = -1
+0.14.489.535 I slot launch_slot_: id  3 | task 0 | processing task, is_child = 0
+0.17.777.883 I slot print_timing: id  3 | task 0 | prompt processing, n_tokens =    948, progress = 1.00, t =   3.29 s / 288.35 tokens per second
+0.20.844.575 I slot print_timing: id  3 | task 0 | n_gen =    137, tg =  45.10 t/s, tg_3s =  45.43 t/s
+0.23.856.937 I slot print_timing: id  3 | task 0 | n_gen =    273, tg =  45.12 t/s, tg_3s =  45.15 t/s
+0.26.859.597 I slot print_timing: id  3 | task 0 | n_gen =    407, tg =  44.96 t/s, tg_3s =  44.63 t/s
+0.29.874.041 I slot print_timing: id  3 | task 0 | n_gen =    541, tg =  44.83 t/s, tg_3s =  44.45 t/s
+0.30.743.116 I slot print_timing: id  3 | task 0 | prompt eval time =    3338.67 ms /   952 tokens (    3.51 ms per token,   285.14 tokens per second)
+0.30.743.121 I slot print_timing: id  3 | task 0 |        eval time =   12914.23 ms /   580 tokens (   22.30 ms per token,    44.83 tokens per second)
+0.30.743.123 I slot print_timing: id  3 | task 0 |       total time =   16252.90 ms /  1532 tokens
+0.30.743.145 I slot print_timing: id  3 | task 0 |    graphs reused =        577
+0.30.744.308 I slot      release: id  3 | task 0 | stop processing: n_tokens = 1531, truncated = 0
+1.39.179.546 I slot get_availabl: id  2 | task -1 | selected slot by LRU, t_last = -1
+1.39.180.940 I slot launch_slot_: id  2 | task 584 | processing task, is_child = 0
+1.45.087.181 I slot print_timing: id  2 | task 584 | n_gen =    131, tg =  43.24 t/s, tg_3s =  43.57 t/s
+1.48.087.232 I slot print_timing: id  2 | task 584 | n_gen =    266, tg =  44.12 t/s, tg_3s =  45.00 t/s
+1.51.107.775 I slot print_timing: id  2 | task 584 | n_gen =    400, tg =  44.20 t/s, tg_3s =  44.36 t/s
+1.51.434.478 I slot print_timing: id  2 | task 584 | prompt eval time =    2892.34 ms /   952 tokens (    3.04 ms per token,   329.15 tokens per second)
+1.51.434.484 I slot print_timing: id  2 | task 584 |        eval time =    9353.90 ms /   415 tokens (   22.59 ms per token,    44.26 tokens per second)
+1.51.434.484 I slot print_timing: id  2 | task 584 |       total time =   12246.24 ms /  1367 tokens
+1.51.434.485 I slot print_timing: id  2 | task 584 |    graphs reused =        988
+1.51.435.116 I slot      release: id  2 | task 584 | stop processing: n_tokens = 1366, truncated = 0
+1.51.476.464 I slot get_availabl: id  1 | task -1 | selected slot by LRU, t_last = -1
+1.51.476.486 I slot launch_slot_: id  1 | task 1003 | processing task, is_child = 0
+1.55.130.741 I slot print_timing: id  1 | task 1003 | n_gen =    128, tg =  42.28 t/s, tg_3s =  42.61 t/s
+Received second interrupt, terminating immediately.
+llamacpp/ggml/src/ggml-metal/ggml-metal-device.m:1039: GGML_ASSERT([rsets->data count] == 0) failed
+WARNING: Using native backtrace. Set GGML_BACKTRACE_LLDB for more info.
+WARNING: GGML_BACKTRACE_LLDB may cause native MacOS Terminal.app to crash.
+See: https://github.com/ggml-org/llama.cpp/pull/17869
+0   llama                               0x0000000102f55ad4 ggml_print_backtrace + 276
+1   llama                               0x0000000102fb254c ggml_abort + 144
+2   llama                               0x0000000102f31708 ggml_metal_device_init + 0
+3   llama                               0x0000000102f32508 ggml_metal_device_free + 144
+4   llama                               0x0000000102f34a04 _ZNSt3__16vectorINS_10unique_ptrI17ggml_metal_device25ggml_metal_device_deleterEENS_9allocatorIS4_EEED1B9nqe210106Ev + 72
+5   libsystem_c.dylib                   0x0000000188165bb0 __cxa_finalize_ranges + 436
+6   libsystem_c.dylib                   0x000000018816599c exit + 44
+7   llama                               0x0000000102698a40 _ZL14signal_handleri + 116
+8   libsystem_platform.dylib            0x00000001882c0144 _sigtramp + 56
+9   libsystem_pthread.dylib             0x00000001882b61d0 _pthread_cond_wait + 980
+10  Metal                               0x0000000194f8dc4c -[_MTLCommandBuffer waitUntilCompleted] + 80
+11  llama                               0x0000000102f3f490 ggml_metal_synchronize + 40
+12  llama                               0x0000000102daafa4 _ZN13llama_context11synchronizeEv + 88
+13  llama                               0x00000001027c9164 _ZNSt3__110__function6__funcIZN19server_context_impl6decodeERiiR11llama_batchEUlvE_FvvEEclEv + 112
+14  llama                               0x00000001027828ac _ZN12server_queue14yield_to_queueEONSt3__18functionIFvvEEE + 248
+15  llama                               0x00000001027be1c0 _ZNSt3__110__function6__funcIZN19server_context_impl4initEvEUlvE_FvvEEclEv + 3200
+16  llama                               0x0000000102782e68 _ZN12server_queue10start_loopEx + 588
+17  llama                               0x0000000102696ba8 _Z12llama_serverR13common_paramsiPPc + 26228
+18  llama                               0x000000010269042c _Z12llama_serveriPPc + 364
+19  llama                               0x000000010268bf80 main + 832
+20  dyld                                0x0000000187edfe80 start + 6688

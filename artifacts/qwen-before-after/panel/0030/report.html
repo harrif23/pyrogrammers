@@ -1,0 +1,150 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel</h1><p>stop proceesing</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;stop proceesing&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 1553.346,
+    &quot;y&quot;: 817.496
+  },
+  &quot;strategy&quot;: &quot;panel&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 1548.8,
+        &quot;y&quot;: 817.92
+      },
+      &quot;raw_response&quot;: &quot;{\n  \&quot;visible\&quot;: true,\n  \&quot;panel\&quot;: \&quot;Ultimate Vocal Remover plugin window\&quot;,\n  \&quot;entity\&quot;: \&quot;Stop processing button\&quot;,\n  \&quot;control\&quot;: \&quot;button\&quot;,\n  \&quot;evidence\&quot;: \&quot;Small square stop button at the right end of the &#x27;Start Processing&#x27; row; status text below reads &#x27;Process stopped by user.&#x27;\&quot;,\n  \&quot;region\&quot;: {\n    \&quot;left\&quot;: 148,\n    \&quot;top\&quot;: 553,\n    \&quot;right\&quot;: 615,\n    \&quot;bottom\&quot;: 585\n  },\n  \&quot;anchor\&quot;: {\n    \&quot;left\&quot;: 153,\n    \&quot;top\&quot;: 558,\n    \&quot;right\&quot;: 594,\n    \&quot;bottom\&quot;: 581\n  },\n  \&quot;point\&quot;: {\n    \&quot;x\&quot;: 605,\n    \&quot;y\&quot;: 568\n  }\n}&quot;,
+      &quot;latency_seconds&quot;: 4.8427094999933615,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 995,
+        &quot;prompt_tokens&quot;: 3896,
+        &quot;total_tokens&quot;: 4891,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 792,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 792
+        }
+      },
+      &quot;stage&quot;: &quot;panel_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: stop proceesing\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;1036c0184415d08fae469a6b701c859781bf3fb31ef4427f8e80b00f3e501fe9&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    },
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 1921.024,
+        &quot;y&quot;: 126.88
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;x\&quot;: 938, \&quot;y\&quot;: 488}&quot;,
+      &quot;latency_seconds&quot;: 1.9274996670137625,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 403,
+        &quot;prompt_tokens&quot;: 738,
+        &quot;total_tokens&quot;: 1141,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 384,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 384
+        }
+      },
+      &quot;stage&quot;: &quot;panel_localize&quot;,
+      &quot;prompt&quot;: &quot;Locate the requested control in this 2048x260 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: stop proceesing\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Ultimate Vocal Remover plugin window; entity=Stop processing button; control=button. Return only {\&quot;x\&quot;:number,\&quot;y\&quot;:number}, or {\&quot;visible\&quot;:false} if the exact target is absent.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2048,
+          260
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;233fd5b1f43ece227e18cc5b656f45f9541a0fc89f17367fc463cb8c946bd24a&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 6.918276167009026,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;coordinate_space&quot;: &quot;normalized_1000&quot;,
+    &quot;knowledge_version&quot;: &quot;fl-manual-v1&quot;,
+    &quot;knowledge_sources&quot;: [
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm&quot;,
+      &quot;https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm&quot;
+    ],
+    &quot;knowledge&quot;: &quot;Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.&quot;,
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;Ultimate Vocal Remover plugin window&quot;,
+      &quot;entity&quot;: &quot;Stop processing button&quot;,
+      &quot;control&quot;: &quot;button&quot;,
+      &quot;evidence&quot;: &quot;Small square stop button at the right end of the &#x27;Start Processing&#x27; row; status text below reads &#x27;Process stopped by user.&#x27;&quot;,
+      &quot;region&quot;: {
+        &quot;left&quot;: 148.0,
+        &quot;top&quot;: 553.0,
+        &quot;right&quot;: 615.0,
+        &quot;bottom&quot;: 585.0
+      },
+      &quot;anchor&quot;: {
+        &quot;left&quot;: 153.0,
+        &quot;top&quot;: 558.0,
+        &quot;right&quot;: 594.0,
+        &quot;bottom&quot;: 581.0
+      },
+      &quot;point&quot;: {
+        &quot;x&quot;: 605.0,
+        &quot;y&quot;: 568.0
+      }
+    },
+    &quot;crop&quot;: {
+      &quot;bounds&quot;: [
+        318,
+        736,
+        1635,
+        903
+      ],
+      &quot;output_size&quot;: [
+        2048,
+        260
+      ],
+      &quot;scale&quot;: 1.5550493545937738
+    },
+    &quot;candidates&quot;: {
+      &quot;initial&quot;: {
+        &quot;x&quot;: 1548.8,
+        &quot;y&quot;: 817.92
+      },
+      &quot;refined&quot;: {
+        &quot;x&quot;: 1553.346,
+        &quot;y&quot;: 817.496
+      }
+    }
+  }
+}</pre>

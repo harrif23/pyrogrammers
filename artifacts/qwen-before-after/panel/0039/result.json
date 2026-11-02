@@ -1,0 +1,150 @@
+{
+  "instruction": "don't show the confirm dialog in the future",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 1062.808,
+    "y": 752.94
+  },
+  "strategy": "panel",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1062.4,
+        "y": 751.68
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"Confirm dialog\",\n  \"entity\": \"Confirm dialog\",\n  \"control\": \"Don't show this in the future checkbox\",\n  \"evidence\": \"A 'Confirm' dialog is open over the Channel Rack with the message 'The selected channel is about to be deleted (no undo).' Below the message is a checkbox labeled 'Don't show this in the future', with Ok and Cancel buttons beneath it.\",\n  \"region\": {\n    \"left\": 410,\n    \"top\": 434,\n    \"right\": 572,\n    \"bottom\": 569\n  },\n  \"anchor\": {\n    \"left\": 410,\n    \"top\": 434,\n    \"right\": 572,\n    \"bottom\": 450\n  },\n  \"point\": {\n    \"x\": 415,\n    \"y\": 522\n  }\n}",
+      "latency_seconds": 3.6698112500016578,
+      "usage": {
+        "completion_tokens": 750,
+        "prompt_tokens": 3900,
+        "total_tokens": 4650,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 522,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 522
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: don't show the confirm dialog in the future\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "647a0430e082b0c88fae9364b3f0d7d3269c96d72eb6c5fb33d6075c8362967c"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    },
+    {
+      "point": {
+        "x": 69.616,
+        "y": 299.88
+      },
+      "raw_response": "{\"x\": 76, \"y\": 630}",
+      "latency_seconds": 2.0471869579923805,
+      "usage": {
+        "completion_tokens": 388,
+        "prompt_tokens": 665,
+        "total_tokens": 1053,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 370,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 370
+        }
+      },
+      "stage": "panel_localize",
+      "prompt": "Locate the requested control in this 916x476 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: don't show the confirm dialog in the future\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=Confirm dialog; entity=Confirm dialog; control=Don't show this in the future checkbox. Return only {\"x\":number,\"y\":number}, or {\"visible\":false} if the exact target is absent.",
+      "image_sizes": [
+        [
+          916,
+          476
+        ]
+      ],
+      "image_hashes": [
+        "ecef99df64f8029a7300ca165985bff53e4e2fa769cb75f81240f9c136ffa745"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 5.837071708985604,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "Confirm dialog",
+      "entity": "Confirm dialog",
+      "control": "Don't show this in the future checkbox",
+      "evidence": "A 'Confirm' dialog is open over the Channel Rack with the message 'The selected channel is about to be deleted (no undo).' Below the message is a checkbox labeled 'Don't show this in the future', with Ok and Cancel buttons beneath it.",
+      "region": {
+        "left": 410.0,
+        "top": 434.0,
+        "right": 572.0,
+        "bottom": 569.0
+      },
+      "anchor": {
+        "left": 410.0,
+        "top": 434.0,
+        "right": 572.0,
+        "bottom": 450.0
+      },
+      "point": {
+        "x": 415.0,
+        "y": 522.0
+      }
+    },
+    "crop": {
+      "bounds": [
+        1028,
+        603,
+        1486,
+        841
+      ],
+      "output_size": [
+        916,
+        476
+      ],
+      "scale": 2.0
+    },
+    "candidates": {
+      "initial": {
+        "x": 1062.4,
+        "y": 751.68
+      },
+      "refined": {
+        "x": 1062.808,
+        "y": 752.94
+      }
+    }
+  }
+}

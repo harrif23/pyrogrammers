@@ -1,0 +1,145 @@
+{
+  "instruction": "use smart fine tool",
+  "image_width": 2560,
+  "image_height": 1440,
+  "point": {
+    "x": 911.34,
+    "y": 57.5
+  },
+  "strategy": "panel",
+  "model": "accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t",
+  "calls": [
+    {
+      "point": {
+        "x": 1006.08,
+        "y": 57.6
+      },
+      "raw_response": "{\n  \"visible\": true,\n  \"panel\": \"toolbar\",\n  \"entity\": \"smart fine tool\",\n  \"control\": \"button\",\n  \"evidence\": \"In the top toolbar, among the tool buttons just left of the 'Line' dropdown, there is a magnifier-style icon corresponding to the smart fine tool.\",\n  \"region\": {\n    \"left\": 345,\n    \"top\": 28,\n    \"right\": 420,\n    \"bottom\": 52\n  },\n  \"anchor\": null,\n  \"point\": {\n    \"x\": 393,\n    \"y\": 40\n  }\n}",
+      "latency_seconds": 49.94902691600146,
+      "usage": {
+        "completion_tokens": 9610,
+        "prompt_tokens": 3895,
+        "total_tokens": 13505,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 9452,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 9452
+        }
+      },
+      "stage": "panel_plan",
+      "prompt": "Locate the requested visible FL Studio control in this 2560x1440 screenshot. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left.\nInstruction: use smart fine tool\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nIdentify the relevant panel and exact named entity before predicting the control. Choose a region that retains its label/header and adjacent controls, not a tight crop of the point. Use visible=false if the requested target cannot be identified; never substitute a different entity. Return only JSON with keys visible (boolean), panel, entity, control, evidence (short visible facts), region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. anchor is the visible entity label/header box, or null if unnecessary. For visible=false, region, anchor and point must all be null.",
+      "image_sizes": [
+        [
+          2560,
+          1440
+        ]
+      ],
+      "image_hashes": [
+        "a5ef8784c4f132cd7224029a990b2e9bf39eaa895f82f6098a518a602c4a095c"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    },
+    {
+      "point": {
+        "x": 76.68,
+        "y": 55.0
+      },
+      "raw_response": "{\"x\": 180, \"y\": 500}",
+      "latency_seconds": 4.97961729200324,
+      "usage": {
+        "completion_tokens": 1120,
+        "prompt_tokens": 298,
+        "total_tokens": 1418,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": null,
+          "audio_tokens": null,
+          "reasoning_tokens": 1101,
+          "rejected_prediction_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 1101
+        }
+      },
+      "stage": "panel_localize",
+      "prompt": "Locate the requested control in this 426x110 crop. Use coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Coordinates refer ONLY to this crop. Instruction: use smart fine tool\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nProposed context (verify visually): panel=toolbar; entity=smart fine tool; control=button. Return only {\"x\":number,\"y\":number}, or {\"visible\":false} if the exact target is absent.",
+      "image_sizes": [
+        [
+          426,
+          110
+        ]
+      ],
+      "image_hashes": [
+        "22a4cf9674e9cb039349aba95f051e925fe3ed3a8de135755efceb563aee40ba"
+      ],
+      "finish_reason": "stop",
+      "error": null
+    }
+  ],
+  "latency_seconds": 55.015745709009934,
+  "status": "ok",
+  "metadata": {
+    "coordinate_space": "normalized_1000",
+    "knowledge_version": "fl-manual-v1",
+    "knowledge_sources": [
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/channelrack.htm",
+      "https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/mixer.htm"
+    ],
+    "knowledge": "Use only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.",
+    "plan": {
+      "visible": true,
+      "panel": "toolbar",
+      "entity": "smart fine tool",
+      "control": "button",
+      "evidence": "In the top toolbar, among the tool buttons just left of the 'Line' dropdown, there is a magnifier-style icon corresponding to the smart fine tool.",
+      "region": {
+        "left": 345.0,
+        "top": 28.0,
+        "right": 420.0,
+        "bottom": 52.0
+      },
+      "anchor": null,
+      "point": {
+        "x": 393.0,
+        "y": 40.0
+      }
+    },
+    "crop": {
+      "bounds": [
+        873,
+        30,
+        1086,
+        85
+      ],
+      "output_size": [
+        426,
+        110
+      ],
+      "scale": 2.0
+    },
+    "candidates": {
+      "initial": {
+        "x": 1006.08,
+        "y": 57.6
+      },
+      "refined": {
+        "x": 911.34,
+        "y": 57.5
+      }
+    }
+  }
+}

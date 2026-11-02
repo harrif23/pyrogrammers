@@ -1,0 +1,68 @@
+<!doctype html><meta charset="utf-8"><title>FLGround prediction</title><h1>FLGround: panel_compact</h1><p>half speed</p><p>Cyan: first prediction. Red: final prediction.</p><img src="prediction.png" style="max-width:100%" alt="Prediction overlay"><pre>{
+  &quot;instruction&quot;: &quot;half speed&quot;,
+  &quot;image_width&quot;: 2560,
+  &quot;image_height&quot;: 1440,
+  &quot;point&quot;: {
+    &quot;x&quot;: 908.8,
+    &quot;y&quot;: 655.2
+  },
+  &quot;strategy&quot;: &quot;panel_compact&quot;,
+  &quot;model&quot;: &quot;accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t&quot;,
+  &quot;calls&quot;: [
+    {
+      &quot;point&quot;: {
+        &quot;x&quot;: 908.8,
+        &quot;y&quot;: 655.2
+      },
+      &quot;raw_response&quot;: &quot;{\&quot;visible\&quot;:true,\&quot;panel\&quot;:\&quot;StylusRMX\&quot;,\&quot;entity\&quot;:\&quot;HALF\&quot;,\&quot;point\&quot;:{\&quot;x\&quot;:355,\&quot;y\&quot;:455},\&quot;ambiguous\&quot;:false}&quot;,
+      &quot;latency_seconds&quot;: 3.0963530000008177,
+      &quot;usage&quot;: {
+        &quot;completion_tokens&quot;: 169,
+        &quot;prompt_tokens&quot;: 3823,
+        &quot;total_tokens&quot;: 3992,
+        &quot;completion_tokens_details&quot;: {
+          &quot;accepted_prediction_tokens&quot;: null,
+          &quot;audio_tokens&quot;: null,
+          &quot;reasoning_tokens&quot;: 130,
+          &quot;rejected_prediction_tokens&quot;: null
+        },
+        &quot;prompt_tokens_details&quot;: {
+          &quot;audio_tokens&quot;: null,
+          &quot;cache_write_tokens&quot;: null,
+          &quot;cached_tokens&quot;: 0
+        },
+        &quot;output_tokens_details&quot;: {
+          &quot;reasoning_tokens&quot;: 130
+        }
+      },
+      &quot;stage&quot;: &quot;compact_plan&quot;,
+      &quot;prompt&quot;: &quot;Locate this FL Studio control: half speed\nUse only visible evidence. Preserve the exact named channel, track or plugin; do not substitute Drums for Snare or assume a hidden target is visible.\nDistinguish Channel Rack, Mixer, Playlist, Piano roll, Browser, toolbar, plugin windows, dialogs and menus. Match the requested function and entity.\nUse coordinates from 0 to 1000 relative to the image width/height, measured from the top-left. Identify the panel and exact named entity; distinguish neighboring controls by function. Return only {\&quot;visible\&quot;:boolean,\&quot;panel\&quot;:\&quot;short name\&quot;,\&quot;entity\&quot;:\&quot;short name\&quot;,\&quot;point\&quot;:{\&quot;x\&quot;:number,\&quot;y\&quot;:number},\&quot;ambiguous\&quot;:boolean}. Set point=null if absent. Set ambiguous=true if multiple visible controls plausibly match the request. No explanation or bounding boxes.&quot;,
+      &quot;image_sizes&quot;: [
+        [
+          2560,
+          1440
+        ]
+      ],
+      &quot;image_hashes&quot;: [
+        &quot;213bf30022da08345ede9b1fff318944adfa05b357ccb0410e1beef9691ddad4&quot;
+      ],
+      &quot;finish_reason&quot;: &quot;stop&quot;,
+      &quot;error&quot;: null
+    }
+  ],
+  &quot;latency_seconds&quot;: 3.1893601669871714,
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;metadata&quot;: {
+    &quot;plan&quot;: {
+      &quot;visible&quot;: true,
+      &quot;panel&quot;: &quot;StylusRMX&quot;,
+      &quot;entity&quot;: &quot;HALF&quot;,
+      &quot;point&quot;: {
+        &quot;x&quot;: 355.0,
+        &quot;y&quot;: 455.0
+      },
+      &quot;ambiguous&quot;: false
+    },
+    &quot;verification&quot;: &quot;not_requested&quot;
+  }
+}</pre>
