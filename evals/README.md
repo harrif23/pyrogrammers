@@ -101,6 +101,82 @@ change a prompt or setting because of `eval` results.
   An existing output is never overwritten. To change anything, start a new run.
 - **Data** is pinned to one dataset commit, and hashes are rechecked on every load.
 
+## Results
+
+**Qwen3.8-27B on the FL subset using the Qwen3.5 adapter protocol.**
+
+This is not a reproduction of Qwen3.5's published score, because the model and serving backend
+differ. See [the protocol record](QWEN35_ADAPTER_PROTOCOL.md).
+
+| Metric | Labeled run | Earlier run, same settings |
+|---|---|---|
+| Overall | **19/57 (33.3%)** | 20/57 (35.1%) |
+| Icons | 7/31 (22.6%) | 7/31 (22.6%) |
+| Text | 12/26 (46.2%) | 13/26 (50.0%) |
+| Wrong (parsed, outside the box) | 10 | 8 |
+| `wrong_format` (all prose, no tool call) | 28 | 29 |
+| Truncated / API errors | 0 / 0 | 0 / 0 |
+| Prompt tokens | 228,370 | 228,370 |
+| Cached prompt tokens | 228,313 | 0 |
+| Completion tokens (reasoning) | 8,986 (6,020) | 9,258 (6,209) |
+| Total tokens | 237,356 | 237,628 |
+| Median / p95 latency | 1.44 s / 2.69 s | 1.45 s / 2.06 s |
+
+- **Run-to-run noise:** between these two runs, 33 of 57 raw answers were identical and 8 targets
+  changed outcome, despite `temperature=0`. Treat small differences from one run as possible noise.
+- **Format loss:** about half of the answers are prose with no coordinates, which the reference parser
+  can't score.
+- **Saved runs:** result files stay out of git, so these live on the machine that ran them, under
+  `evals/outputs/`. Results SHA256: labeled run `5373e9a85d9228e11c1646ddc70219b4b05570ab663ac281860cf7ad98b6c410`; earlier run
+  `7acab1b4e5a76ce98314e82949d12faf491d4ed262e9d4dbcdf29b350dcf9f9a`.
+
+Reproduce with deployment `accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t`, which reports its
+model as `accounts/fireworks/models/qwen3p8-27b`, and dataset revision
+`210e78d3844251110bff86c95835ebd37a6930fa`:
+
+```bash
+uv run evals run --mode reference --reasoning-effort xhigh --split eval \
+  --label "Qwen3.8-27B on the FL subset using the Qwen3.5 adapter protocol." \
+  --out evals/outputs/qwen38_on_qwen35_protocol.jsonl
+```
+
+### The prompt
+
+Each request has a system message and a user message. Settings: `reasoning_effort=xhigh`,
+`max_tokens=4096`, `temperature=0`, `context_length_exceeded_behavior=error`.
+
+System message from the benchmark's `models/qwen3_5.py`. `SYSTEM_PROMPT` in `reference_qwen.py` is
+the exact text; here, one trailing space after "center of the element." is omitted:
+
+```text
+You are a helpful assistant. The user will give you an instruction, and you MUST left click on the corresponding UI element via tool call. If you are not sure about where to click, guess a most likely one.
+
+# Tools
+
+You may call one or more functions to assist with the user query.
+
+You are provided with function signatures within <tools></tools> XML tags:
+<tools>
+{"type": "function", "function": {"name": "computer_use", "description": "Use a mouse to interact with a computer.
+* The screen's resolution is 1000x1000.
+* Make sure to click any buttons, links, icons, etc with the cursor tip in the center of the element.
+* You can only use the left_click action to interact with the computer.", "parameters": {"properties": {"action": {"description": "The action to perform. The available actions are:
+* `left_click`: Click the left mouse button with coordinate (x, y).", "enum": ["left_click"], "type": "string"}, "coordinate": {"description": "(x, y): The x (pixels from the left edge) and y (pixels from the top edge) coordinates to move the mouse to. Required only by `action=left_click`.", "type": "array"}, "required": ["action"], "type": "object"}}}
+</tools>
+
+For each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:
+<tool_call>
+{"name": <function-name>, "arguments": <args-json-object>}
+</tool_call>
+```
+
+User message, with the image first and then only the instruction:
+
+```text
+[screenshot as a base64 PNG]
+turn off AMP
+```
+
 ## Comparing with published numbers
 
 FL Studio is 57 of the benchmark's 1,581 targets and is harder than average. Published overall
