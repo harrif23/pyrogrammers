@@ -92,3 +92,6 @@ is included.
 - [Complete local macOS setup and troubleshooting](docs/LOCAL_SETUP.md)
 - [Project context, teammate handoff, evaluation plan, and remaining work](docs/PROJECT_CONTEXT.md)
 - [Contributor and coding-agent instructions](AGENTS.md)
+
+For the pinned FL Studio dataset, leaderboard reference, and one-command experiment
+runner, see [BENCHMARK_RUNBOOK.md](docs/BENCHMARK_RUNBOOK.md).

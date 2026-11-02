@@ -17,6 +17,7 @@ class Strategy(str, Enum):
     refine = "refine"
     knowledge = "knowledge"
     panel = "panel"
+    panel_fast = "panel_fast"
     panel_plain = "panel_plain"
     panel_verify = "panel_verify"
 

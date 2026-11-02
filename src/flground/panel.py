@@ -36,7 +36,7 @@ class PanelPlan(BaseModel):
     visible: bool
     panel: str
     entity: str
-    control: str
+    control: str | None
     evidence: str
     region: Box | None
     anchor: Box | None
@@ -44,6 +44,8 @@ class PanelPlan(BaseModel):
 
     @model_validator(mode='after')
     def coherent(self):
+        if self.visible and not self.control:
+            raise ValueError("Visible target requires a control")
         if self.visible and (self.region is None or self.point is None or not self.evidence.strip()):
             raise ValueError('Visible target requires region, point and evidence')
         if not self.visible and any(v is not None for v in (self.region, self.anchor, self.point)):
@@ -91,6 +93,9 @@ def panel_ground(image, instruction, model, strategy, artifacts: Path | None):
         'region, anchor, point. region and anchor use {left,top,right,bottom}; point uses {x,y}. '
         'anchor is the visible entity label/header box, or null if unnecessary. '
         'For visible=false, region, anchor and point must all be null.')
+    if strategy == 'panel_fast':
+        prompt += (' Keep evidence to one short sentence. All point AND box coordinates must use '
+                   'the coordinate units specified above, never mix pixels and normalized units.')
     first = model.complete([image], prompt, 'panel_plan')
     calls = [first]
     metadata = {'coordinate_space': space, 'knowledge_version': VERSION if rules else None,
@@ -114,6 +119,9 @@ def panel_ground(image, instruction, model, strategy, artifacts: Path | None):
     except Exception as exc:
         first.error = type(exc).__name__
         raise
+    if strategy == 'panel_fast':
+        metadata['localization'] = 'single_pass_panel_plan'
+        return result(first.point)
     bounds = context_crop(region, anchor, image.size)
     crop = image.crop(bounds)
     # Bound enlargement; never shrink a native crop or imply that new detail is created.

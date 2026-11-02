@@ -1,6 +1,7 @@
 import base64
 import io
 import hashlib
+import math
 import json
 import os
 import re
@@ -55,6 +56,10 @@ class FireworksModel:
         self.coordinate_space = os.environ.get("FLGROUND_COORDINATE_SPACE", "pixels")
         if self.coordinate_space not in ("pixels", "normalized_1000", "normalized_1"):
             raise ValueError("FLGROUND_COORDINATE_SPACE must be pixels, normalized_1000 or normalized_1")
+        temperature = os.environ.get("FLGROUND_TEMPERATURE")
+        self.temperature = float(temperature) if temperature is not None else None
+        if self.temperature is not None and (not math.isfinite(self.temperature) or self.temperature < 0):
+            raise ValueError("FLGROUND_TEMPERATURE must be finite and nonnegative")
         self.records: list[CallRecord] = []
         self.max_tokens = int(os.environ.get("FLGROUND_MAX_TOKENS", "32768"))
         if self.max_tokens <= 0:
@@ -66,7 +71,7 @@ class FireworksModel:
     def manifest(self) -> dict:
         return {"model": self.model, "coordinate_space": self.coordinate_space,
                 "max_tokens": self.max_tokens, "top_k": 40, "presence_penalty": 0,
-                "frequency_penalty": 0, "temperature": "endpoint_default",
+                "frequency_penalty": 0, "temperature": self.temperature if self.temperature is not None else "endpoint_default",
                 "timeout_seconds": 180, "max_retries": 0,
                 "preprocessing": "RGB PNG; no client resize for baseline",
                 "server_preprocessing": "not verified"}
@@ -89,7 +94,8 @@ class FireworksModel:
             response = self.client.chat.completions.create(
                 model=self.model, max_tokens=self.max_tokens,
                 presence_penalty=0, frequency_penalty=0, extra_body={"top_k": 40},
-                messages=[{"role": "user", "content": content}])
+                messages=[{"role": "user", "content": content}],
+                **({"temperature": self.temperature} if self.temperature is not None else {}))
             record.usage = response.usage.model_dump() if response.usage else {}
             choice = response.choices[0]
             record.raw_response = choice.message.content or ""

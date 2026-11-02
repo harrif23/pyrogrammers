@@ -92,3 +92,40 @@ def test_demo_abstention_does_not_overlay_or_click(monkeypatch):
     monkeypatch.setattr('flground.desktop_macos.click',forbidden)
     result=CliRunner().invoke(app,['demo','--instruction','missing','--delay','0','--execute-click'])
     assert result.exit_code==0,result.output
+
+
+def test_parallel_calls_are_isolated_and_errors_persist(tmp_path):
+    from threading import Barrier
+    barrier = Barrier(3)
+    class ConcurrentFake:
+        model = 'fake'
+        def __init__(self):
+            self.records = []
+        def predict(self, image, instruction):
+            barrier.wait(timeout=5)
+            call = CallRecord(point=Point(x=10,y=20), raw_response=instruction, latency_seconds=.01)
+            self.records.append(call)
+            if instruction == 'fail':
+                raise ValueError('bad output')
+            return call
+    Image.new('RGB',(100,80)).save(tmp_path/'screen.png')
+    write_jsonl(tmp_path/'tasks.jsonl', [dict(id=str(i), image='screen.png', instruction=t, group='g')
+                                     for i,t in enumerate(['one','two','fail'])])
+    evaluate(tmp_path/'tasks.jsonl',tmp_path/'run',ConcurrentFake(),'baseline',
+             concurrency=3,model_factory=ConcurrentFake)
+    rows=read_jsonl(tmp_path/'run/predictions.jsonl')
+    assert len(rows)==3
+    assert sum(r['status']=='error' for r in rows)==1
+    for row in rows:
+        assert len(row['calls'])==1
+        assert row['calls'][0]['raw_response']==row['instruction']
+    manifest=json.loads((tmp_path/'run/manifest.json').read_text())
+    assert manifest['concurrency']==3 and manifest['wall_seconds']>0
+
+
+def test_parallel_factory_failure_is_counted(tmp_path):
+    write_jsonl(tmp_path/'tasks.jsonl',[dict(id='1',image='unused',instruction='pass',group='g')])
+    def broken():
+        raise ValueError('setup failed')
+    evaluate(tmp_path/'tasks.jsonl',tmp_path/'run',Fake(),'baseline',concurrency=2,model_factory=broken)
+    assert read_jsonl(tmp_path/'run/predictions.jsonl')[0]['status']=='error'

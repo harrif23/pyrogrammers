@@ -10,7 +10,7 @@ from .model import GroundingModel
 def ground(image: Image.Image, instruction: str, model: GroundingModel,
            strategy: str = "baseline", crop_size: int = 512,
            artifacts: Path | None = None) -> GroundingResult:
-    if strategy not in ("baseline", "refine", "knowledge", "panel", "panel_plain", "panel_verify"):
+    if strategy not in ("baseline", "refine", "knowledge", "panel", "panel_plain", "panel_fast", "panel_verify"):
         raise ValueError(f"Unknown strategy: {strategy}")
     if not instruction.strip():
         raise ValueError("Instruction must not be empty")

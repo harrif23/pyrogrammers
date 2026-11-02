@@ -111,3 +111,18 @@ def test_bad_normalized_points_rejected(x):
 
 def test_normalized_box_can_touch_image_boundary():
     assert Box(left=0,top=0,right=1000,bottom=1000).pixels((1600,800),'normalized_1000') == (0,0,1600,800)
+
+
+def test_fast_returns_validated_initial_without_crop():
+    model = StructuredFake([plan()])
+    result = ground(Image.new('RGB',(1000,800)), 'Snare volume', model, 'panel_fast')
+    assert result.point == Point(x=200,y=150)
+    assert result.model_calls == 1
+    assert 'crop' not in result.metadata
+
+
+def test_absent_control_can_be_null_but_visible_control_cannot():
+    from flground.panel import PanelPlan
+    PanelPlan.model_validate(plan(visible=False, control=None, region=None, anchor=None, point=None))
+    with pytest.raises(ValueError):
+        PanelPlan.model_validate(plan(control=None))

@@ -148,3 +148,14 @@ isolation. The suite passed 65 tests with mocked inference; no billed calibratio
 benchmark experiment was run. No accuracy gain is established. Cost estimation,
 uncertainty intervals, near-duplicate grouping and teammate-schema adaptation remain
 manual/future work. See EXPERIMENTS.md for executable commands and limitations.
+
+Benchmark preparation (2026-11-02): scripts/benchmark.py downloads only the pinned
+FL subset and runs predeclared suites, dry-run by default. The local 57-example dataset
+is prepared (34/23 exact-image grouped split). Suite runs explicitly set normalized_1000
+and temperature=0 for both baseline and candidates. FLGROUND_TEMPERATURE is now optional
+in the adapter; absent configuration retains the endpoint default. 68 tests passed.
+No paid suite was launched. See BENCHMARK_RUNBOOK.md for protocol and contamination limits.
+
+Benchmark optimization update (2026-11-02): bounded 1–20 example concurrency, matched
+output-budget override, and experimental one-call `panel_fast` are available. See
+[BENCHMARK_OPTIMIZATION.md](BENCHMARK_OPTIMIZATION.md) for evidence, commands and limits.

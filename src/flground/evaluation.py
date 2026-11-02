@@ -1,4 +1,5 @@
 """Offline dataset preparation/scoring, with label-free batch inference inputs."""
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import hashlib
 import json
 import math
@@ -86,7 +87,12 @@ def validate_box(box, width, height):
         raise ValueError('Invalid annotation bounds')
 
 
-def evaluate(tasks_path: Path, output: Path, model, strategy: str):
+def evaluate(tasks_path: Path, output: Path, model, strategy: str, progress=None,
+             concurrency=1, model_factory=None):
+    if not 1 <= concurrency <= 20:
+        raise ValueError("concurrency must be between 1 and 20")
+    if concurrency > 1 and model_factory is None:
+        raise ValueError("Concurrent evaluation requires an isolated model_factory")
     rows = [Task.model_validate(row) for row in read_jsonl(tasks_path)]
     if not rows or len({r.id for r in rows}) != len(rows):
         raise ValueError('Tasks must have unique IDs and be nonempty')
@@ -115,35 +121,59 @@ def evaluate(tasks_path: Path, output: Path, model, strategy: str):
             shutil.copy2(root/name, snapshot/name)
     shutil.copy2(tasks_path, output/'tasks.jsonl')
     (output/'manifest.json').write_text(json.dumps(manifest, indent=2))
+    manifest['concurrency'] = concurrency
+    (output/'manifest.json').write_text(json.dumps(manifest, indent=2))
+    def run_one(index, task):
+        model = None if model_factory is not None else shared_model
+        start = time.perf_counter()
+        offset = len(getattr(model, 'records', []))
+        record = {'id': task.id, 'group': task.group, 'instruction': task.instruction,
+                  'point': None, 'status': 'error', 'calls': [], 'error': None}
+        try:
+            if model_factory is not None:
+                model = model_factory()
+            path = Path(task.image)
+            if not path.is_absolute():
+                path = tasks_path.parent / path
+            record['image_sha256'] = digest(path)
+            with Image.open(path) as source:
+                image = source.convert('RGB')
+            record['image_size'] = image.size
+            destination = output/f'{index:04d}'
+            result = ground(image, task.instruction, model, strategy, artifacts=destination)
+            save_report(image, result, destination)
+            record.update(status=result.status, point=result.point.model_dump() if result.point else None,
+                          calls=[c.model_dump() for c in result.calls], metadata=result.metadata)
+        except Exception as exc:
+            # Exception strings from SDKs can contain request data; save category only.
+            record['error'] = type(exc).__name__
+        finally:
+            if hasattr(model, 'records'):
+                record['calls'] = [c.model_dump() for c in model.records[offset:]]
+            record['latency_seconds'] = time.perf_counter()-start
+            record['model_calls'] = len(record['calls'])
+            if model_factory is not None and hasattr(model, "client"):
+                model.client.close()
+        return record
+
+    shared_model = model
+    started = time.perf_counter()
     with (output/'predictions.jsonl').open('w') as stream:
-        for index, task in enumerate(rows):
-            start = time.perf_counter()
-            offset = len(getattr(model, 'records', []))
-            record = {'id': task.id, 'group': task.group, 'instruction': task.instruction,
-                      'point': None, 'status': 'error', 'calls': [], 'error': None}
-            try:
-                path = Path(task.image)
-                if not path.is_absolute():
-                    path = tasks_path.parent / path
-                record['image_sha256'] = digest(path)
-                with Image.open(path) as source:
-                    image = source.convert('RGB')
-                record['image_size'] = image.size
-                destination = output/f'{index:04d}'
-                result = ground(image, task.instruction, model, strategy, artifacts=destination)
-                save_report(image, result, destination)
-                record.update(status=result.status, point=result.point.model_dump() if result.point else None,
-                              calls=[c.model_dump() for c in result.calls], metadata=result.metadata)
-            except Exception as exc:
-                # Exception strings from SDKs can contain request data; save category only.
-                record['error'] = type(exc).__name__
-            finally:
-                if hasattr(model, 'records'):
-                    record['calls'] = [c.model_dump() for c in model.records[offset:]]
-                record['latency_seconds'] = time.perf_counter()-start
-                record['model_calls'] = len(record['calls'])
-                stream.write(json.dumps(record)+'\n')
-                stream.flush()
+        def persist(index, record):
+            stream.write(json.dumps(record)+'\n')
+            stream.flush()
+            if progress is not None:
+                progress(index, len(rows), record)
+        if concurrency == 1:
+            for index, task in enumerate(rows):
+                persist(index+1, run_one(index, task))
+        else:
+            with ThreadPoolExecutor(max_workers=concurrency) as pool:
+                futures = [pool.submit(run_one, index, task) for index, task in enumerate(rows)]
+                for completed, future in enumerate(as_completed(futures), 1):
+                    persist(completed, future.result())
+    manifest['wall_seconds'] = time.perf_counter()-started
+    (output/'manifest.json').write_text(json.dumps(manifest, indent=2))
 
 
 def unique(rows):

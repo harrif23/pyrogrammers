@@ -62,7 +62,7 @@ uv run pytest -q
 uv run flground --help
 ```
 
-Current suite: 65 tests. Unit tests use mocks and do not incur API charges.
+Current suite: 68 tests. Unit tests use mocks and do not incur API charges.
 Take an FL Studio screenshot with Shift-Command-4, then use its actual filename:
 
 ```bash
@@ -137,3 +137,7 @@ Experimental panel strategies, calibration, and batch comparisons are documented
 [EXPERIMENTS.md](EXPERIMENTS.md). Use `--strategy panel` for two-stage localization
 or `--strategy panel_verify` for optional verification. These have mocked test
 coverage but no measured benchmark gain yet.
+
+Benchmark optimization update (2026-11-02): bounded 1–20 example concurrency, matched
+output-budget override, and experimental one-call `panel_fast` are available. See
+[BENCHMARK_OPTIMIZATION.md](BENCHMARK_OPTIMIZATION.md) for evidence, commands and limits.

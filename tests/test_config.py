@@ -93,3 +93,20 @@ def test_normalized_response_and_truncation(tmp_path, monkeypatch):
         model.predict(Image.new('RGB',(1600,800)), 'target')
     assert model.records[-1].finish_reason=='length'
     assert model.records[-1].error=='ValueError'
+
+
+def test_explicit_greedy_setting_is_sent_and_recorded(tmp_path, monkeypatch):
+    from PIL import Image
+    from types import SimpleNamespace
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv('FIREWORKS_API_KEY','test-key')
+    monkeypatch.setenv('FLGROUND_MODEL','test-model')
+    monkeypatch.setenv('FLGROUND_TEMPERATURE','0')
+    constructor=Mock()
+    monkeypatch.setattr('openai.OpenAI',constructor)
+    create=constructor.return_value.chat.completions.create
+    create.return_value=SimpleNamespace(choices=[SimpleNamespace(message=SimpleNamespace(content='{"x":3,"y":4}'),finish_reason='stop')],usage=None)
+    model=FireworksModel()
+    model.predict(Image.new('RGB',(10,10)),'target')
+    assert create.call_args.kwargs['temperature']==0
+    assert model.manifest()['temperature']==0
