@@ -23,9 +23,12 @@ class FireworksModel:
         key = os.environ.get("FIREWORKS_API_KEY", "")
         if not self.model or not key:
             raise ValueError("Set FLGROUND_MODEL and FIREWORKS_API_KEY before inference")
+        self.max_tokens = int(os.environ.get("FLGROUND_MAX_TOKENS", "32768"))
+        if self.max_tokens <= 0:
+            raise ValueError("FLGROUND_MAX_TOKENS must be positive")
         self.client = OpenAI(api_key=key, base_url=os.environ.get(
             "FLGROUND_BASE_URL", "https://api.fireworks.ai/inference/v1"),
-            timeout=60, max_retries=0)
+            timeout=180, max_retries=0)
 
     def predict(self, image: Image.Image, instruction: str) -> CallRecord:
         buffer = io.BytesIO()
@@ -37,7 +40,8 @@ class FireworksModel:
                   f"Instruction: {instruction}")
         start = time.perf_counter()
         response = self.client.chat.completions.create(
-            model=self.model, temperature=0, max_tokens=256,
+            model=self.model, max_tokens=self.max_tokens,
+            presence_penalty=0, frequency_penalty=0, extra_body={"top_k": 40},
             messages=[{"role": "user", "content": [
                 {"type": "text", "text": prompt},
                 {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{encoded}"}}]}])

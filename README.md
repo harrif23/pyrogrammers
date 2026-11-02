@@ -9,8 +9,9 @@ Install Python 3.11+ and uv, then run from this repository:
 
 ```bash
 uv sync --extra desktop
-cp .env.example .env
-# Edit .env to set FIREWORKS_API_KEY and FLGROUND_MODEL.
+test -f .env || cp .env.example .env
+nano .env
+# Paste your API key, save with Ctrl-O then Enter, exit with Ctrl-X.
 uv run flground --help
 uv run pytest
 ```
@@ -19,7 +20,13 @@ Use `uv sync` without the desktop extra for offline screenshot workflows.
 The adapter automatically loads `.env` from the current working directory.
 Run commands from the repository root to use its `.env`. Existing exported shell
 variables take precedence over `.env` values. `.env` is excluded from Git.
-Never commit credentials. The model ID must be verified against your Fireworks account.
+The example selects `accounts/yuxinz721-ofi0hn0kj3/deployments/h0xbbw9t`.
+Your API key must have access to that deployment. The SDK appends
+`/chat/completions` to `FLGROUND_BASE_URL`; do not include that suffix in the variable.
+Requests use `top_k=40`, zero presence/frequency penalties, and a configurable
+`FLGROUND_MAX_TOKENS=32768` ceiling. Temperature is left at the endpoint default,
+matching the supplied deployment example. Calls time out after 180 seconds.
+Never commit credentials. Live deployment access has not been validated here.
 Images are sent to the configured inference endpoint.
 
 ## Ground a screenshot
