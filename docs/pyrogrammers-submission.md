@@ -137,23 +137,4 @@ The voice demo points without clicking. It makes one extra localization call tha
 
 ---
 
-## Run it from the repo
-
-Code: [github.com/harrif23/pyrogrammers](https://github.com/harrif23/pyrogrammers)
-
-You need macOS, `uv`, and a Fireworks key with access to the deployment. The benchmark makes billed calls; leave off `--execute` for a free dry run.
-
-```bash
-uv sync --extra desktop
-cp .env.example .env    # add your FIREWORKS_API_KEY
-
-uv run python scripts/benchmark.py run --output artifacts/my-run --split full \
-  --strategies baseline panel_recover panel_compact panel_selective \
-  --max-tokens 8192 --concurrency 15 --execute
-
-python3 demo_app/launch.py   # voice demo
-```
-
----
-
 *Results: matched rerun on dataset revision `210e78d3`, ScreenSpot-Pro `fruitloops_windows`, using the paper's point-in-box rule. Significance: exact McNemar test against baseline.*
