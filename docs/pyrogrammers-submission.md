@@ -137,24 +137,6 @@ The voice demo points without clicking. It makes one extra localization call tha
 
 ---
 
-## What we learned
-
-### Ideas that didn't help
-
-- **The benchmark's Qwen 3.5 prompt on our model:** 19–20 / 57. About half its answers had no coordinates. This isn't a reproduction of Qwen3.5's score, since the model and backend differ.
-- **Marking the point and asking the model to verify it:** 30 fell to 29 / 57, with 0 errors corrected and 1 correct answer broken.
-- **Snapping to YOLO-detected boxes:** 32 fell to 22 / 57.
-
-### Limits
-
-- **Studied cases:** a clean claim needs new FL Studio screenshots.
-- **Small sample:** one case is 1.75 points, and identical runs can change several cases.
-- **Icons are the main gap:** at most 11 of 31. Of 19 cases every configuration missed, 17 are icons.
-- **Not a leaderboard claim:** the top FL Studio entry is 38 / 57, from a different model and setup.
-- **Privacy:** the demo sends a screenshot of your whole display to Fireworks.
-
----
-
 ## Run it from the repo
 
 Code: [github.com/harrif23/pyrogrammers](https://github.com/harrif23/pyrogrammers)
